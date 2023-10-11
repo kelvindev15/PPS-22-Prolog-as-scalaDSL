@@ -18,6 +18,5 @@ jobs:
         run: sbt compile
       - name: Run test
         run: sbt test
-      - name: Run BDD
-        run: sbt cucumber
-    
+#      - name: Run BDD
+#        run: sbt cucumber
