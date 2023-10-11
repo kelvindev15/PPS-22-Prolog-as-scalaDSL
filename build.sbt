@@ -4,8 +4,8 @@ import Dependecies.*
 ThisBuild / scalaVersion := "3.3.0"
 ThisBuild / organization := "io.github.kelvindev15"
 
-enablePlugins(CucumberPlugin)
-CucumberPlugin.glues := List("example.scenarios")
+// enablePlugins(CucumberPlugin)
+// CucumberPlugin.glues := List("example.scenarios")
 
 scalafmtDetailedError := true
 /*

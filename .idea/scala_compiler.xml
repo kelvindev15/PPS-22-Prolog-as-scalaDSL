@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="sbt 1" modules="pps-22-prolog-as-scaladsl_5245" />
+    <profile name="sbt 2" modules="Hello">
+      <parameters>
+        <parameter value="-P:wartremover:traverser:org.wartremover.warts.Null" />
+      </parameters>
+      <plugins>
+        <plugin path="$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/org/wartremover/wartremover_3.3.0/3.1.4/wartremover_3.3.0-3.1.4.jar" />
+      </plugins>
+    </profile>
+  </component>
+</project>
