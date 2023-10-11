@@ -1,7 +1,9 @@
 name: Generate website
 on:
-  - push
-  - workflow_dispatch
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 jobs:
   website:
     runs-on: ubuntu-latest
