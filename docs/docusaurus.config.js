@@ -14,7 +14,7 @@ const config = {
   url: 'https://kelvin-olaiya.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/Prolog-as-scalaDSL/',
+  baseUrl: '/PPS-22-Prolog-as-scalaDSL/',
   // baseUrl: '/',
 
   // GitHub pages deployment config.
