@@ -1,0 +1,23 @@
+name: CI
+on:
+  - push
+  - workflow_dispatch
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: danysk/action-checkout@0.2.13
+      - uses: olafurpg/setup-scala@v11
+        with:
+          java-version: openjdk@1.17
+      - name: Run compile
+        run: sbt compile
+      - name: Run test
+        run: sbt test
+      - name: Run BDD
+        run: sbt cucumber
+    
