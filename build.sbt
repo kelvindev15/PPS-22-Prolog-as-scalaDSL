@@ -16,14 +16,14 @@ addCompilerPlugin(
 )
 // see: https://www.wartremover.org/doc/warts.html
 scalacOptions ++= Seq("Null").map(wart =>
-  s"-P:wartremover:traverser:org.wartremover.warts.${wart}"
+  s"-P:wartremover:traverser:org.wartremover.warts.$wart"
 )
 
 Compile / doc / target := baseDirectory.value / "api"
 
 lazy val hello = (project in file("."))
   .settings(
-    name := "Hello",
+    name := "Prolog-as-ScalaDSL",
     scalaVersion := "3.3.0",
     libraryDependencies ++= scalaTestBundle,
     libraryDependencies ++= cucumberBundle,
