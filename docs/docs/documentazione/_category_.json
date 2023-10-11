@@ -1,0 +1,8 @@
+{
+    "label": "Documentazione",
+    "position": 2,
+    "link": {
+        "type": "generated-index",
+        "description": "Documentazione di progetto"
+    }
+}

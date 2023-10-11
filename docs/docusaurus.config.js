@@ -6,21 +6,21 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Scala project template',
-  tagline: 'Start developing fast',
+  title: 'Prolog as Scala DSL',
+  tagline: 'Logic programming on the fly',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://kelvin-olaiya.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/PPS-22-Prolog-as-scalaDSL/',
-  // baseUrl: '/',
+  // baseUrl: '/PPS-22-Prolog-as-scalaDSL/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'kelvin-olaiya', // Usually your GitHub org/user name.
-  projectName: 'scala-project-template', // Usually your repo name.
+  projectName: 'PPS-22-Prolog-as-ScalaDSL', // Usually your repo name.
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -64,7 +64,7 @@ const config = {
     ({
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Scala project template',
+        title: 'PPS-22-Prolog-as-ScalaDSL',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -72,9 +72,9 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'docSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Documentazione',
           },
           {
             href: "/api/",
@@ -83,7 +83,7 @@ const config = {
             target: "_blank"
           },
           {
-            href: 'https://github.com/kelvin-olaiya/scala-project-template',
+            href: 'https://github.com/kelvindev15/PPS-22-Prolog-as-ScalaDSL',
             label: 'GitHub',
             position: 'right',
           },
@@ -96,8 +96,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Documentatione',
+                to: '/docs/category/documentazione',
               },
             ],
           },
@@ -110,12 +110,12 @@ const config = {
               },
               {
                 label: 'Project repository',
-                href: 'https://github.com/kelvin-olaiya/scala-project-template',
+                href: 'https://github.com/kelvindev15/PPS-22-Prolog-as-ScalaDSL',
               },
             ],
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()}. Scala project template`,
+        copyright: `Copyright © ${new Date().getFullYear()}. Prolog-as-ScalaDSL`,
       },
       prism: {
         theme: lightCodeTheme,
