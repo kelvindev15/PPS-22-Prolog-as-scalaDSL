@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[193],{4986:e=>{e.exports=JSON.parse('{"title":"Documentazione","description":"Documentazione di progetto","slug":"/category/documentazione","permalink":"/docs/category/documentazione","navigation":{"next":{"title":"Requisiti","permalink":"/docs/documentazione/requirements"}}}')}}]);
