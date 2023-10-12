@@ -5,7 +5,7 @@ object Dependecies {
    * Versions
    */
   lazy val scalaTestVersion = "3.2.17"
-  lazy val cucumberVersion = "8.14.2"
+  lazy val cucumberVersion = "8.17.0"
   /*
    * Libraries
    */
