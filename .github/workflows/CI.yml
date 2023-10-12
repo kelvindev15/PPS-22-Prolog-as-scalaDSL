@@ -20,3 +20,13 @@ jobs:
         run: sbt test
 #      - name: Run BDD
 #        run: sbt cucumber
+  websites_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: danysk/action-checkout@0.2.13
+      - name: Test website generation
+        run: |
+          cd docs
+          npm install
+          npm run build
