@@ -6,7 +6,7 @@ sidebar_label: "Analisi"
 # Dominio
 Prolog è un linguaggio di programmazione basato sul paradigma di programmazione logica.
 Un **programma logico** è un insieme di *assiomi* o *regole* che definiscono *relazioni* tra oggetti.  
-In Prolog un oggetto è tutto ciò che si può rappresentare tramite un [*termine*]().
+In Prolog un oggetto è tutto ciò che si può rappresentare tramite un [*termine*](.).
 Un programma Prolog consiste di un insieme di clausole, ciascuna delle quali codifica una data informazione come
 un fatto o una regola.
 La computazione di un programma logico in Prolog ha come obiettivo la deduzione di conseguenze logiche del programma.
@@ -18,7 +18,7 @@ Tre sono i concetti alla base della programmazione logica: *fatti*, *regole* e *
 
 ### Fatto
 Esprime l'esistenza di una relazione tra oggetti/termini. Si compone del nome della relazione, 
-detto anche *predicato*, e di un numero arbitrario di *argomenti*. In Prolog una collezione di fatti (e [regole]()), 
+detto anche *predicato*, e di un numero arbitrario di *argomenti*. In Prolog una collezione di fatti (e [regole](.)), 
 prende il nome di *database*.
 
 ### Interrogazione
@@ -29,7 +29,7 @@ Un interrogazione consiste di una lista di goal che devono essere soddisfatti co
 [unificazione](https://en.wikipedia.org/wiki/Unification_(computer_science)). Con goal si intende una relazione tra 
 oggetti/termini (equivalentemente a quanto si è detto per un fatto). Qualora non sia possibile soddisfare completamente 
 la lista di goal, l'esito dell'interrogazione sarà negativo, altrimenti sarà positivo ed eventualmente comprenderà anche
-una lista si sostituzioni di [variabili]().
+una lista si sostituzioni di [variabili](.).
 
 ### Regola
 Detta anche inferenza, mette in relazione un fatto con un insieme di altri fatti. Si compone di una testa 
