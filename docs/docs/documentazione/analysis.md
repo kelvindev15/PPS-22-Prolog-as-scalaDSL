@@ -50,19 +50,19 @@ Le constanti sono ciò che danno il nome agli oggetti o alle relazioni. Possono 
   Non ci sono vincoli sulla composizione della sequenza di caratteri se questa è racchiusa tra apici `''`.  
   Gli atomi possono contenere anche i simboli `+`, `-` `*`,`/`, `\ `,`~`, `^`,`<`, `>`, `:`, `.`, `?`, `@`, 
   `#`, `$`, `&`. La sequenza di caratteri può contenere il carattere `_` per aumentare la leggibilità.
-* La rappresentazione dei numeri è quella dei numeri reali ed ammette la notazione esponenziale (es. *-2.67e2*).
+* Le costanti numeriche hanno la rappresentazione dei numeri reali ed ammette la notazione esponenziale (es. *-2.67e2*).
 
 ### Variabili
 
 Permettono di riferirsi ad un termine senza specificarlo direttamente. Un termine che non contiene variabili si dice 
-*termine base* (o termine ground).  
-La sintassi delle varibili è come quella degli atomi con la differenza che le variabili hanno come carattere iniziale una lettera
-maiuscola o il carattere `_`. Non si racchiudono le varibili tra apici. Il solo carattere `_` denota una variabile anonima.
+*termine base* (o *termine ground*).  
+La sintassi delle varibili è la stessa degli atomi con la differenza che il carattere iniziale delle variabili è
+una lettera maiuscola oppure il carattere `_`. Non è possibile racchiudere le varibili tra apici. 
+Il solo carattere `_` denota una variabile anonima.
 
 #### Sostituzioni di variabili
-Una *sostituzione* è una mappa che dato un insieme di variabili, ne associa ciascuna 
-ad un termine. In una sostituzione i termini non possono contenere nessuna delle variabili considerate nella 
-sostituzione.
+Una *sostituzione* è una mappa che dato un insieme di variabili, associa a ciascuna di esse un termine. 
+In una sostituzione i termini non possono contenere nessuna delle variabili considerate nella sostituzione.
 Le sostituzioni possono essere applicate a dei termini. L'applicazione di una sostituzione `S` ad un termine `t0` 
 consiste nella sostitutzione di tutte le variabili `X` che appaiono in `t0` con i rispettivi termini `t`, per ciascuna 
 delle coppie `X=t` nella sostituzione `S`. Il risultato di una sostituione prende il nome di *istanza*. 
@@ -162,20 +162,30 @@ Alcuni predicati potrebbero richiedere particolari tipi di argomenti (es. per il
 che gli argomenti siano dei numeri). Cosa succede nel caso in cui questi requisiti non vengano rispettati dipende dalla
 specifica implementazione del motore che eseguira il programma.
 
+* **':-'(X, Y)** infix
+* **','(X, Y)** infix
+
 #### Predicati dinamici
 
 #### Predicati
 
-* **consult(X)** --> X is the path of the file
+##### Inserimento di nuove clausole
+
+* **consult(X)** 
+
+##### Risoluzione
+
 * **true**
 * **fail**
+
 * **var(X)**
 * **nonvar(X)**
 * **atom(X)**
 * **number(X)**
 * **atomic(X)**
-* **':-'(X, Y)** infix
-* **','(X, Y)** infix
+
+##### Classificatione dei termini
+
 * **clause(X, Y)**
 * **asserta(X)**
 * **assertz(X)**
@@ -186,21 +196,36 @@ specifica implementazione del motore che eseguira il programma.
 * **'=..'(X, L)** infix
 * **atom_chars(A, L)**
 * **number_chars(A, L)**
+
+##### Backtracking
+
 * **!**
 * **repeat**
+
+##### Costruzione di termini composti
+
 * **';'(X, Y)** infix
 * **call(X)**
 * **'\\+'(X)** prefix
+
+##### Uguaglianza
+
 * **'='(X, Y)** infix
 * **'=='(X, Y)** infix
 * **op(X, Y, Z)** --> atoms fx, fy, xf, yf, xfx, yfx, yfy
 * **is(X, Y)** infix
+
+##### Aritmetici
+
 * **'+'(X, Y)** infix
 * **'-'(X, Y)** infix
 * **'*'(X, Y)** infix
 * **'/'(X, Y)** infix
 * **'//'(X, Y)** infix
 * **mod(X, Y)** infix
+
+##### Confronto fra termini
+
 * **'=:='(X, Y)** infix
 * **'=\\='(X, Y)** infix
 * **'<'(X, Y)** infix
@@ -211,6 +236,9 @@ specifica implementazione del motore che eseguira il programma.
 * **'@>'(X, Y)** infix
 * **'@>='(X, Y)** infix
 * **'@=<'(X, Y)** infix
+
+##### Ispezione di un programma Prolog
+
 * **trace**
 * **notrace**
 * **spy P** prefix
