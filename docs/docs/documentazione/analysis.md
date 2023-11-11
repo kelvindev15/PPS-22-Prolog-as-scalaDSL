@@ -46,7 +46,7 @@ o *termini composti* (chiamati anche *strutture*).
 ### Constanti
 
 Le constanti sono ciò che danno il nome agli oggetti o alle relazioni. Possono essere di due tipi: *atomi* o *numeri*.
-* Gli atomi si compongo di lettere e/o cifre. Il primo carattere di un atomo deve essere un lettera maiuscola.  
+* Gli atomi si compongo di lettere e/o cifre. Il primo carattere di un atomo deve essere un lettera minuscola.  
   Non ci sono vincoli sulla composizione della sequenza di caratteri se questa è racchiusa tra apici `''`.  
   Gli atomi possono contenere anche i simboli `+`, `-` `*`,`/`, `\ `,`~`, `^`,`<`, `>`, `:`, `.`, `?`, `@`, 
   `#`, `$`, `&`. La sequenza di caratteri può contenere il carattere `_` per aumentare la leggibilità.

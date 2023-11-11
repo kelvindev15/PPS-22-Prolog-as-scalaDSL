@@ -1,26 +1,34 @@
 package io.github.kelvindev15.prolog
 
+import io.github.kelvindev15.prolog.Struct.quoteIfFunctorIsMalformed
+import io.github.kelvindev15.prolog.utils.TermVisitor
+
 trait Constant extends Term:
-  final override val isGround: Boolean = true
-  final override val variables: Seq[Variable] = Seq()
+  val value: Any
+  override def variables: Iterable[Variable] = Seq()
+  override def isGround: Boolean = true
+  override def accept[T](visitor: TermVisitor[T]): T = visitor.visit(this)
 
 object Constant:
-  def apply(value: Any): Constant = value match {
-    case v: (Double | Int) => Numeric(v)
-    case v: String => Atom(v)
-    case invalid => throw IllegalArgumentException(s"$invalid is an invalid value for a constant")
-  }
-
-  trait Atom extends Constant with Struct
+  def apply(value: Any): Constant = value match
+    case n: (Int | Double) => Numeric(n)
+    case s: String => Atom(s)
+    case _ => throw IllegalArgumentException("Cannot create a constant with the provided argument")
+  trait Atom extends Constant with Struct:
+    override val value: String
+    override val arity: Int = 0
+    override val arguments: Iterable[Term] = Seq()
+    override val functor: Atom = this
 
   object Atom:
-    def apply(value: String): Atom = AtomImpl(value)
+    private def removeQuotes(value: String) = value.replaceAll("^'+|'+$", "")
+    def apply(value: String): Atom = AtomImpl(removeQuotes(value))
+    private case class AtomImpl(private val _value: String) extends Atom:
+      override val value: String = quoteIfFunctorIsMalformed(_value)
 
-    private case class AtomImpl(value: String) extends Atom
-    
-  trait Numeric extends Constant
+  trait Numeric extends Constant:
+    override val value: AnyVal
 
   object Numeric:
     def apply(value: AnyVal): Numeric = NumericImpl(value)
-
     private case class NumericImpl(value: AnyVal) extends Numeric
