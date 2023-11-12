@@ -24,3 +24,4 @@ object RecursiveStruct:
       case n if n < 2 => throw IllegalArgumentException("There must be at least two arguments")
       case 2 => struct(args.head, args.tail.head)
       case _ => struct(args.head, fold(struct)(args.tail *))
+      

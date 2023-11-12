@@ -1,7 +1,7 @@
 package io.github.kelvindev15.prolog
 
 import io.github.kelvindev15.prolog.Constant.Atom
-import io.github.kelvindev15.prolog.Prolog.Functors.{CLAUSE, COMPOUND_GOAL}
+import io.github.kelvindev15.prolog.Prolog.Functors.CLAUSE
 import io.github.kelvindev15.prolog.Prolog.Syntax
 import io.github.kelvindev15.prolog.utils.TermVisitor
 
@@ -49,7 +49,3 @@ object Struct:
   object Fact:
     def apply(head: Struct): Fact = FactImpl(head)
     private case class FactImpl(head: Struct) extends Fact
-
-
-
-

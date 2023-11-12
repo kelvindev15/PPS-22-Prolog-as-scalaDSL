@@ -16,4 +16,3 @@ object Prolog:
     val CONS: Atom = Atom(".")
     val TRUE: Atom = Atom("true")
     val FAIL: Atom = Atom("fail")
-
