@@ -10,7 +10,8 @@ object Prolog:
     val VariableRegex: Regex = "[A-Z_][a-zA-Z_0-9]*".r
     
   object Functors:
-    val COMPOUND_GOAL: Atom = Atom(",")
+    val GOAL_CONJUNCTION: Atom = Atom(",")
+    val GOAL_DISJUNCTION: Atom = Atom(";")
     val CLAUSE: Atom = Atom(":-")
     val EMPTY_LIST: Atom = Atom("[]")
     val CONS: Atom = Atom(".")

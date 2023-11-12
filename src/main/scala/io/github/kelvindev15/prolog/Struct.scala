@@ -1,6 +1,7 @@
 package io.github.kelvindev15.prolog
 
 import io.github.kelvindev15.prolog.Constant.Atom
+import io.github.kelvindev15.prolog.Goals.Conjunction
 import io.github.kelvindev15.prolog.Prolog.Functors.CLAUSE
 import io.github.kelvindev15.prolog.Prolog.Syntax
 import io.github.kelvindev15.prolog.utils.TermVisitor
@@ -40,7 +41,7 @@ object Struct:
     final override def variables: Iterable[Variable] = head.variables ++ body.variables
 
   object Rule:
-    def apply(head: Struct, args: Term*): Rule = RuleImpl(head, CompoundGoal.ifNecessary(args*))
+    def apply(head: Struct, args: Term*): Rule = RuleImpl(head, Conjunction.wrapIfNecessary(args*))
     private case class RuleImpl(head: Struct, body: Term) extends Rule
 
   trait Fact extends Rule:

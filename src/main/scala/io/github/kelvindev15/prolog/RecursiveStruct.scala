@@ -16,6 +16,11 @@ object RecursiveStruct:
     override def linearizedArguments: Iterable[Term] = accept(BinaryToFlatVisitor())
   
   object BinaryRecursiveStruct:
+    def wrapIfNecessary(struct: Seq[Term] => BinaryRecursiveStruct)(args: Term*): Term = args.size match
+      case 0 => throw IllegalArgumentException("Cannot create a goal from an empty sequence")
+      case 1 => args.head
+      case _ => struct(args)
+
     object Tuple:
       def unapply(tuple: BinaryRecursiveStruct): Option[(Term, Term)] =
         Option((tuple.left, tuple.right))

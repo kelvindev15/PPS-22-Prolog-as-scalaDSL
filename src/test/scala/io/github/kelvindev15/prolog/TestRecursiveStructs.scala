@@ -1,38 +1,45 @@
 package io.github.kelvindev15.prolog
 
 import io.github.kelvindev15.prolog.Constant.Atom
+import io.github.kelvindev15.prolog.Goals.{Conjunction, Disjunction}
 import io.github.kelvindev15.prolog.PrologList.{Cons, Nil}
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
 class TestRecursiveStructs extends AnyFunSuite with Matchers:
-  private val cmpGoal = CompoundGoal(Atom("X"), Atom("Y"), Atom("Z"))
+  private val cmpGoal = Conjunction(Atom("X"), Atom("Y"), Atom("Z"))
 
-  test("Cannot create a compound goal from no term") {
+  test("Cannot create a conjunction of goals from no terms") {
     assertThrows[IllegalArgumentException] {
-      CompoundGoal.ifNecessary()
+      Conjunction.wrapIfNecessary()
     }
   }
 
-  test("A Compound goal is a recursive predicate with arity 2 and with ',' as a functor") {
+  test("A conjunction of goal is a recursive predicate with arity 2 and with ',' as a functor") {
     cmpGoal shouldBe a [Term]
     cmpGoal.arity shouldBe 2
     cmpGoal.functor shouldBe Atom(",")
   }
 
-  test("Compound goal arguments") {
+  test("Goal conjunction arguments") {
     cmpGoal.first shouldBe Atom("X")
-    cmpGoal.second shouldBe CompoundGoal(Atom("Y"), Atom("Z"))
+    cmpGoal.second shouldBe Conjunction(Atom("Y"), Atom("Z"))
   }
+  private val goals = Seq(
+    Atom("X"),
+    Conjunction(Atom("X"), Variable("O")),
+    Variable("Z"),
+    Conjunction(Constant(1), Constant(2)))
+  private val linearizationExpectation = goals.take(3) ++ Seq(Constant(1), Constant(2))
 
   test("Compound goal linearized arguments") {
-    val goals = Seq(
-      Atom("X"),
-      CompoundGoal(Atom("X"), Variable("O")),
-      Variable("Z"),
-      CompoundGoal(Constant(1), Constant(2)))
-    val complexCompoundGoal = CompoundGoal(goals*)
-    complexCompoundGoal.linearizedArguments shouldBe goals.take(3) ++ Seq(Constant(1), Constant(2))
+    val complexGoalConjunction = Conjunction(goals *)
+    complexGoalConjunction.linearizedArguments shouldBe linearizationExpectation
+  }
+
+  test("Disjunction of goals linearized arguments") {
+    val complexGoalDisjunction = Disjunction(goals *)
+    complexGoalDisjunction.linearizedArguments shouldBe linearizationExpectation
   }
 
   private val list = PrologList(Atom("a"), Atom("b"), Atom("c"), Atom("d"))

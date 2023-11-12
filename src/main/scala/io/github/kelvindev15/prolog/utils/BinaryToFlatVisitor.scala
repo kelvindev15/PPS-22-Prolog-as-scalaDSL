@@ -1,7 +1,7 @@
 package io.github.kelvindev15.prolog.utils
 
 import io.github.kelvindev15.prolog.RecursiveStruct.BinaryRecursiveStruct
-import io.github.kelvindev15.prolog.{CompoundGoal, Term}
+import io.github.kelvindev15.prolog.Term
 import io.github.kelvindev15.prolog.RecursiveStruct.BinaryRecursiveStruct.Tuple
 
 class BinaryToFlatVisitor extends TermVisitor[Iterable[Term]]:
