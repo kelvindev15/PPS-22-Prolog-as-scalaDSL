@@ -1,8 +1,8 @@
-package io.github.kelvindev15.prolog
+package io.github.kelvindev15.prolog.core
 
-import io.github.kelvindev15.prolog.Constant.Atom
-import io.github.kelvindev15.prolog.Prolog.Functors
-import io.github.kelvindev15.prolog.RecursiveStruct.BinaryRecursiveStruct
+import io.github.kelvindev15.prolog.core.Constant.Atom
+import io.github.kelvindev15.prolog.core.Prolog.Functors
+import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.utils.TermVisitor
 
 object Goals:

@@ -1,8 +1,9 @@
-package io.github.kelvindev15.prolog
+package io.github.kelvindev15.prolog.core
 
-import io.github.kelvindev15.prolog.Constant.Atom
-import io.github.kelvindev15.prolog.Goals.{Conjunction, Disjunction}
-import io.github.kelvindev15.prolog.PrologList.{Cons, Nil}
+import io.github.kelvindev15.prolog.core.Constant.Atom
+import io.github.kelvindev15.prolog.core.Goals.{Conjunction, Disjunction}
+import io.github.kelvindev15.prolog.core.PrologList.{Cons, Nil}
+import io.github.kelvindev15.prolog.core.{Constant, PrologList, Term, Variable}
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 

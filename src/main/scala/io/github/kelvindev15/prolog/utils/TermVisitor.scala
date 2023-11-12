@@ -1,9 +1,9 @@
 package io.github.kelvindev15.prolog.utils
 
-import io.github.kelvindev15.prolog.Constant.{Atom, Numeric}
-import io.github.kelvindev15.prolog.RecursiveStruct.BinaryRecursiveStruct
-import io.github.kelvindev15.prolog.Struct.{Fact, Rule}
-import io.github.kelvindev15.prolog.{Constant, Struct, Variable}
+import io.github.kelvindev15.prolog.core.{Constant, Struct, Variable}
+import io.github.kelvindev15.prolog.core.Constant.{Atom, Numeric}
+import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
+import io.github.kelvindev15.prolog.core.Struct.{Fact, Rule}
 
 trait TermVisitor[T]:
   def visit(constant: Constant): T = throw NotImplementedError()

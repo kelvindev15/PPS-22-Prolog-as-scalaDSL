@@ -1,4 +1,4 @@
-package io.github.kelvindev15.prolog
+package io.github.kelvindev15.prolog.core
 
 import scala.annotation.targetName
 

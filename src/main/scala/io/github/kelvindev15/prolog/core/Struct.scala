@@ -1,9 +1,9 @@
-package io.github.kelvindev15.prolog
+package io.github.kelvindev15.prolog.core
 
-import io.github.kelvindev15.prolog.Constant.Atom
-import io.github.kelvindev15.prolog.Goals.Conjunction
-import io.github.kelvindev15.prolog.Prolog.Functors.CLAUSE
-import io.github.kelvindev15.prolog.Prolog.Syntax
+import io.github.kelvindev15.prolog.core.Constant.Atom
+import io.github.kelvindev15.prolog.core.Goals.Conjunction
+import io.github.kelvindev15.prolog.core.Prolog.Functors.CLAUSE
+import io.github.kelvindev15.prolog.core.Prolog.Syntax
 import io.github.kelvindev15.prolog.utils.TermVisitor
 
 trait Struct extends Term:

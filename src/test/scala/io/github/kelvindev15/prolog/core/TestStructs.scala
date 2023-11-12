@@ -1,7 +1,7 @@
-package io.github.kelvindev15.prolog
+package io.github.kelvindev15.prolog.core
 
-import io.github.kelvindev15.prolog.Constant.{Atom, Numeric}
-import io.github.kelvindev15.prolog.{Struct, Term}
+import io.github.kelvindev15.prolog.core.Constant.{Atom, Numeric}
+import io.github.kelvindev15.prolog.core.{Constant, Struct, Term, Variable}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

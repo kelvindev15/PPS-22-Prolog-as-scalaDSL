@@ -1,6 +1,6 @@
-package io.github.kelvindev15.prolog
+package io.github.kelvindev15.prolog.core
 
-import io.github.kelvindev15.prolog.Struct.quoteIfFunctorIsMalformed
+import io.github.kelvindev15.prolog.core.Struct.quoteIfFunctorIsMalformed
 import io.github.kelvindev15.prolog.utils.TermVisitor
 
 trait Constant extends Term:
