@@ -32,6 +32,3 @@ object PrologList:
     case 0 => Nil
     case 1 => Cons(elements.head, Nil)
     case _ => Cons(elements.head, apply(elements.tail*))
-
-
-
