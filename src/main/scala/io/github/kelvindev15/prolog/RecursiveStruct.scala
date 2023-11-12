@@ -1,6 +1,5 @@
 package io.github.kelvindev15.prolog
 
-import io.github.kelvindev15.prolog.Constant.Atom
 import io.github.kelvindev15.prolog.utils.BinaryToFlatVisitor
 
 trait RecursiveStruct extends Struct:
@@ -9,10 +8,10 @@ trait RecursiveStruct extends Struct:
 object RecursiveStruct:
   trait BinaryRecursiveStruct extends RecursiveStruct:
     final override val arity: Int = 2
-    val left: Term
-    val right: Term
-    val first: Term = left
-    val second: Term = right
+    def first: Term = left
+    def second: Term = right
+    def left: Term
+    def right: Term
     final override val arguments: Iterable[Term] = Seq(left, right)
     override def linearizedArguments: Iterable[Term] = accept(BinaryToFlatVisitor())
   

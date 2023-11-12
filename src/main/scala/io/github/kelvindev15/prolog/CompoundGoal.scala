@@ -17,4 +17,5 @@ object CompoundGoal:
   def apply(args: Term*): CompoundGoal = BinaryRecursiveStruct.fold(CompoundGoalImpl.apply)(args*)
   def unapply(compoundGoal: CompoundGoal): Option[(Term, Term)] = Option((compoundGoal.first, compoundGoal.second))
 
-  private case class CompoundGoalImpl(left: Term, right: Term) extends CompoundGoal
+  private case class CompoundGoalImpl(left: Term, right: Term) extends CompoundGoal:
+    

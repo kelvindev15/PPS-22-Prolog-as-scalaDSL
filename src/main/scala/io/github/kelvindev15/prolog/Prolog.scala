@@ -12,8 +12,8 @@ object Prolog:
   object Functors:
     val COMPOUND_GOAL: Atom = Atom(",")
     val CLAUSE: Atom = Atom(":-")
+    val EMPTY_LIST: Atom = Atom("[]")
     val CONS: Atom = Atom(".")
     val TRUE: Atom = Atom("true")
     val FAIL: Atom = Atom("fail")
-    val EMPTY_LIST: Atom = Atom("[]")
 
