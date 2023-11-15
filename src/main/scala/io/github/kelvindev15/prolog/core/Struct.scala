@@ -9,9 +9,9 @@ import io.github.kelvindev15.prolog.utils.TermVisitor
 trait Struct extends Term:
   val functor: Atom
   val arity: Int
-  val arguments: Iterable[Term]
+  val arguments: Seq[Term]
 
-  override def variables: Iterable[Variable] = arguments.flatMap(_.variables)
+  override def variables: Seq[Variable] = arguments.flatMap(_.variables)
   override def isGround: Boolean = arguments.forall(_.isGround)
 
   override def accept[T](visitor: TermVisitor[T]): T = visitor.visit(this)
@@ -36,9 +36,9 @@ object Struct:
     val body: Term
     final override val functor: Atom = CLAUSE
     final override val arity: Int = 2
-    final override val arguments: Iterable[Term] = Seq(head, body)
+    final override val arguments: Seq[Term] = Seq(head, body)
     final override def isGround: Boolean = head.isGround && body.isGround
-    final override def variables: Iterable[Variable] = head.variables ++ body.variables
+    final override def variables: Seq[Variable] = head.variables ++ body.variables
 
   object Rule:
     def apply(head: Struct, args: Term*): Rule = RuleImpl(head, Conjunction.wrapIfNecessary(args*))

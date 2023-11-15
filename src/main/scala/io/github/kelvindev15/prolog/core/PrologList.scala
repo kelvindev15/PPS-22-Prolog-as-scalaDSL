@@ -12,7 +12,7 @@ object PrologList:
     val tail: PrologList
     override def linearizedArguments: Iterable[Term] = Seq(head) ++ tail.linearizedArguments
     override val arity: Int = 2
-    override val arguments: Iterable[Term] = Seq(head, tail)
+    override val arguments: Seq[Term] = Seq(head, tail)
     override val size: Int = linearizedArguments.size
     override val functor: Constant.Atom = Functors.CONS
 
@@ -22,7 +22,7 @@ object PrologList:
   object Nil extends PrologList:
     override def linearizedArguments: Iterable[Term] = Seq()
     override val arity: Int = 0
-    override val arguments: Iterable[Term] = Seq()
+    override val arguments: Seq[Term] = Seq()
     override val size: Int = 0
     override val functor: Constant.Atom = Functors.EMPTY_LIST
   

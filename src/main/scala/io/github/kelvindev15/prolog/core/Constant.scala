@@ -5,7 +5,7 @@ import io.github.kelvindev15.prolog.utils.TermVisitor
 
 trait Constant extends Term:
   val value: Any
-  override def variables: Iterable[Variable] = Seq()
+  override def variables: Seq[Variable] = Seq()
   override def isGround: Boolean = true
   override def accept[T](visitor: TermVisitor[T]): T = visitor.visit(this)
 
@@ -17,7 +17,7 @@ object Constant:
   trait Atom extends Constant with Struct:
     override val value: String
     override val arity: Int = 0
-    override val arguments: Iterable[Term] = Seq()
+    override val arguments: Seq[Term] = Seq()
     override val functor: Atom = this
 
   object Atom:

@@ -7,7 +7,7 @@ trait Variable extends Term:
   val name: String
   final def isAnonymous: Boolean = name == "_" 
   final override def isGround: Boolean = false
-  final override def variables: Iterable[Variable] = Seq(this)
+  final override def variables: Seq[Variable] = Seq(this)
   override def accept[T](visitor: TermVisitor[T]): T = visitor.visit(this)
   
 object Variable:

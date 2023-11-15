@@ -12,7 +12,7 @@ object RecursiveStruct:
     def second: Term = right
     def left: Term
     def right: Term
-    final override val arguments: Iterable[Term] = Seq(left, right)
+    final override val arguments: Seq[Term] = Seq(left, right)
     override def linearizedArguments: Iterable[Term] = accept(BinaryToFlatVisitor())
   
   object BinaryRecursiveStruct:
