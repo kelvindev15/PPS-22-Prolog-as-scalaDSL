@@ -31,22 +31,34 @@ object Struct:
   private case class StructImpl(functor: Atom, arguments: Term*) extends Struct:
     override val arity: Int = arguments.size
 
-  trait Rule extends Struct:
-    val head: Struct
+  trait Clause extends Struct:
+    val head: Option[Struct]
+    val body: Term
+
+  trait Directive extends Clause:
+    override val head: Option[Struct] = None
+
+  trait Rule extends Clause:
+    val head: Option[Struct]
     val body: Term
     final override val functor: Atom = CLAUSE
     final override val arity: Int = 2
-    final override val arguments: Seq[Term] = Seq(head, body)
-    final override def isGround: Boolean = head.isGround && body.isGround
-    final override def variables: Seq[Variable] = head.variables ++ body.variables
 
   object Rule:
     def apply(head: Struct, args: Term*): Rule = RuleImpl(head, Conjunction.wrapIfNecessary(args*))
-    private case class RuleImpl(head: Struct, body: Term) extends Rule
+    private case class RuleImpl(_head: Struct, body: Term) extends Rule:
+      override val head: Option[Struct] = Option(_head)
+      override val arguments: Seq[Term] = Seq(head.get, body)
+      override def isGround: Boolean = head.get.isGround && body.isGround
+      override def variables: Seq[Variable] = head.get.variables ++ body.variables
 
   trait Fact extends Rule:
     override val body: Term = Atom("true")
 
   object Fact:
     def apply(head: Struct): Fact = FactImpl(head)
-    private case class FactImpl(head: Struct) extends Fact
+    private case class FactImpl(_head: Struct) extends Fact:
+      override val head: Option[Struct] = Option(_head)
+      override val arguments: Seq[Term] = Seq(head.get)
+      override def isGround: Boolean = head.get.isGround
+      override def variables: Seq[Variable] = head.get.variables
