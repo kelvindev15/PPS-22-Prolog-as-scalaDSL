@@ -14,13 +14,13 @@ class TestPrologProgram extends AnyFunSuite with BeforeAndAfterAll with Matchers
   test("Adding a rule to a prolog program") {
     var program = PrologProgram()
     program shouldBe empty
-    program = program addClause rule
+    program = program add rule
     program should have size 1
   }
 
   test("Removing a rule from a prolog program") {
     var program = PrologProgram(rule)
     program should have size 1
-    program = program removeClause rule
+    program = program remove rule
     program shouldBe empty
   }
