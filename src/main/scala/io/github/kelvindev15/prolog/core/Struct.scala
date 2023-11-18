@@ -39,13 +39,20 @@ object Struct:
   object Indicator:
     def apply(functor: Atom, arity: Int): Indicator = IndicatorImpl(functor, arity)
     private case class IndicatorImpl(functor: Atom, arity: Int) extends Indicator
-  
+
   trait Clause extends Struct:
     val head: Option[Struct]
     val body: Term
 
   trait Directive extends Clause:
-    override val head: Option[Struct] = None
+    final override val head: Option[Struct] = None
+
+  object Directive:
+    def apply(terms: Term*): Directive = DirectiveImpl(Conjunction.wrapIfNecessary(terms*))
+    private case class DirectiveImpl(body: Term) extends Directive:
+      override val functor: Atom = CLAUSE
+      override val arity: Int = 1
+      override val arguments: Seq[Term] = Seq(body)
 
   trait Rule extends Clause:
     val head: Option[Struct]
