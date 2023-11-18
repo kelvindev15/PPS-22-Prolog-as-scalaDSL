@@ -31,6 +31,15 @@ object Struct:
   private case class StructImpl(functor: Atom, arguments: Term*) extends Struct:
     override val arity: Int = arguments.size
 
+  trait Indicator extends Struct:
+    val functor: Atom
+    val arity: Int
+    override val arguments: Seq[Term] = Seq(functor, Constant(arity))
+
+  object Indicator:
+    def apply(functor: Atom, arity: Int): Indicator = IndicatorImpl(functor, arity)
+    private case class IndicatorImpl(functor: Atom, arity: Int) extends Indicator
+  
   trait Clause extends Struct:
     val head: Option[Struct]
     val body: Term
