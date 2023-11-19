@@ -18,13 +18,3 @@ object Theory:
     override def contains(clause: Clause): Boolean = contains(clause)
     override def length: Int = clauses.length
     override def iterator: Iterator[Clause] = clauses.iterator
-
-  class MutableTheory(var theory: Theory = Theory()) extends Theory:
-    override def add(clause: Clause): Theory = { theory = theory.add(clause) ; theory }
-    override def remove(clause: Clause): Theory = { theory = theory.remove(clause) ; theory }
-    override def contains(clause: Clause): Boolean = theory.contains(clause)
-    override def clauses: Seq[Clause] = theory.clauses
-    override def length: Int = theory.length
-    override def iterator: Iterator[Clause] = theory.iterator
-
-    override def apply(i: Int): Clause = theory(i)

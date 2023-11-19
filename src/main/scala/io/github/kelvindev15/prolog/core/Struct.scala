@@ -20,13 +20,7 @@ object Struct:
   private def isFunctorWellFormed(functor: String): Boolean = functor.matches(Syntax.AtomRegex.regex)
   def quoteIfFunctorIsMalformed(functor: String): String =
     if (isFunctorWellFormed(functor)) functor else s"'$functor'"
-  def apply(functor: Atom, args: Term*): Struct = StructImpl(functor, args*)
-
-  object Functor:
-    def unapply(struct: Struct): Option[Atom] = Option(struct.functor)
-    
-  object Args:
-    def unapply(struct: Struct): Option[Iterable[Term]] = Option(struct.arguments)  
+  def apply(functor: Atom, args: Term*): Struct = StructImpl(functor, args*) 
   
   private case class StructImpl(functor: Atom, arguments: Term*) extends Struct:
     override val arity: Int = arguments.size
