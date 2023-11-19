@@ -2,9 +2,9 @@ package io.github.kelvindev15.dsl
 
 
 import io.github.kelvindev15.prolog.core.Constant.Atom
-import io.github.kelvindev15.prolog.core.{Constant, RecursiveStruct, Struct, Variable}
 import io.github.kelvindev15.prolog.core.Struct.{Directive, Fact, Rule}
 import io.github.kelvindev15.prolog.core.Variable.anonymous
+import io.github.kelvindev15.prolog.core.{Constant, RecursiveStruct, Struct, Variable}
 import io.github.kelvindev15.prolog.dsl.PrologDSL
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers

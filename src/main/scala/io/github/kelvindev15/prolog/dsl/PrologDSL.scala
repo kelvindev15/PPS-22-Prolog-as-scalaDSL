@@ -2,8 +2,8 @@ package io.github.kelvindev15.prolog.dsl
 
 import io.github.kelvindev15.prolog.core.PrologList.{Cons, Nil}
 import io.github.kelvindev15.prolog.core.Struct.Clause
-import io.github.kelvindev15.prolog.core.{PrologList, Term, Variable}
 import io.github.kelvindev15.prolog.core.Theory.Theory
+import io.github.kelvindev15.prolog.core.{PrologList, Term, Variable}
 
 import scala.annotation.targetName
 
