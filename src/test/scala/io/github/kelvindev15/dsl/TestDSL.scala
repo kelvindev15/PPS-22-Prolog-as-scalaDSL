@@ -14,7 +14,6 @@ class TestDSL extends AnyFunSuite with Matchers with PrologDSL:
   test("Creation of a fact") {
     val f: Fact = "father"("abraham", "tehrach")
     f shouldBe a [Fact]
-    fail()
   }
 
   test("Creation of a rule") {
