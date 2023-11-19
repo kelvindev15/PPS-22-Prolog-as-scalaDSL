@@ -3,7 +3,7 @@ package io.github.kelvindev15.prolog.core
 import io.github.kelvindev15.prolog.utils.BinaryToFlatVisitor
 
 trait RecursiveStruct extends Struct:
-  def linearizedArguments: Iterable[Term]
+  def linearizedArguments: Seq[Term]
 
 object RecursiveStruct:
   trait BinaryRecursiveStruct extends RecursiveStruct:
@@ -13,7 +13,7 @@ object RecursiveStruct:
     def left: Term
     def right: Term
     final override val arguments: Seq[Term] = Seq(left, right)
-    override def linearizedArguments: Iterable[Term] = accept(BinaryToFlatVisitor())
+    override def linearizedArguments: Seq[Term] = accept(BinaryToFlatVisitor())
   
   object BinaryRecursiveStruct:
     def wrapIfNecessary(struct: Seq[Term] => BinaryRecursiveStruct)(args: Term*): Term = args.size match

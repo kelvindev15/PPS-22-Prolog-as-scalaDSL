@@ -50,4 +50,11 @@ class TestDSL extends AnyFunSuite with Matchers with PrologDSL {
     t should have size 2
     t.head shouldBe Fact(Struct(Atom("search"), Variable("X"), Struct(Atom("cons"), Variable("X"), anonymous())))
   }
+
+  test("Creation of lists") {
+    cons("item1", nil).arguments shouldBe Seq(Atom("item1"), nil)
+    cons(1, X).arguments should have size 2
+    cons(H, T).variables shouldBe Seq(Variable("H"), Variable("T"))
+    list(1, 2, 3) shouldBe cons(1, cons(2, cons(3, nil)))
+  }
 }

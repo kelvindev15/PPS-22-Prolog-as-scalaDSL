@@ -3,7 +3,6 @@ package io.github.kelvindev15.prolog.core
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Goals.{Conjunction, Disjunction}
 import io.github.kelvindev15.prolog.core.PrologList.{Cons, Nil}
-import io.github.kelvindev15.prolog.core.{Constant, PrologList, Term, Variable}
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
@@ -59,4 +58,16 @@ class TestRecursiveStructs extends AnyFunSuite with Matchers:
 
   test("Creation of a prolog list with Cons and Nil") {
     Cons(Atom("a"), Cons(Atom("b"), Cons(Atom("c"), Cons(Atom("d"), Nil)))) shouldBe list
+  }
+
+  test("A list can end also with a variable") {
+    val list = Cons(Atom("a"), Variable("X"))
+    list shouldBe a [PrologList]
+    list.linearizedArguments shouldBe Seq(Atom("a"), Variable("X"))
+  }
+
+  test("A list not ending with a variable") {
+    val list = PrologList(Atom("a"), Variable("X"))
+    list shouldBe Cons(Atom("a"), Cons(Variable("X"), Nil))
+    assert(list != Cons(Atom("a"), Variable("X")))
   }
