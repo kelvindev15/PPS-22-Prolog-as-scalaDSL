@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hello.iml" filepath="$PROJECT_DIR$/.idea/modules/Hello.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hello-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Hello-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Prolog-as-ScalaDSL.iml" filepath="$PROJECT_DIR$/.idea/modules/Prolog-as-ScalaDSL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Prolog-as-ScalaDSL-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Prolog-as-ScalaDSL-build.iml" />
     </modules>
   </component>
 </project>
