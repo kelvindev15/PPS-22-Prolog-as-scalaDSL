@@ -12,11 +12,15 @@ trait PrologDSL:
   export DSLVariables.*
 
   def theory(clauses: Clause*): Theory = Theory(clauses*)
+  
   def list(terms: Term*): PrologList = PrologList(terms *)
   def cons(term: Term, tail: (PrologList | Variable)): PrologList = Cons(term, tail)
   def cons(terms: Term*)(tail: (PrologList | Variable)): PrologList = terms.size match
-    case n if n > 0 => cons(terms.head, cons(terms.tail*)(tail))
+    case 0 => throw IllegalArgumentException("There must be at least 1 term argument")
     case 1 => cons(terms.head, tail)
+    case n if n > 0 => cons(terms.head, cons(terms.tail*)(tail))
   def nil: PrologList = Nil
-
-
+  def head(terms: Term*): Seq[Term] = terms
+  extension (list: Seq[Term])
+    @targetName("pipe")
+    def |(tail: (PrologList | Variable)) = cons(list*)(tail)

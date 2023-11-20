@@ -61,3 +61,4 @@ object DSLPrologBuiltins:
     Struct(Atom("op"), precedence, associativity, name)
 
   def length(term: Term, len: Term): Term = Struct(Atom("length"), term, len)
+  

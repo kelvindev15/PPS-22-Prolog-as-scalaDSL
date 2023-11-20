@@ -8,23 +8,16 @@ import org.scalatest.matchers.should.*
 
 class TestConstants extends AnyFlatSpec with Matchers:
 
-  "A constant" can "be a numeric value" in {
+  "A constant" can "be a numeric value" in:
     Seq(12.0, 2, Int.MaxValue) foreach { Constant(_) shouldBe a [Numeric] }
-  }
 
-  it can "be a sequence of characters" in {
+  it can "be a sequence of characters" in:
     Seq("a", "abraham") foreach { Constant(_) shouldBe a [Atom] }
-  }
 
-  "The value of a malformed atom" should "be quoted" in {
+  "The value of a malformed atom" should "be quoted" in:
     val atom = Atom("X")
     atom.value should be ("'X'")
-  }
 
-  "When creating a atom quotes" should "not be considered when determining if it is well formed" in {
+  "When creating a atom quotes" should "not be considered when determining if it is well formed" in:
     Atom(":-") shouldBe Atom("':-'")
     Atom("''Abraham''") shouldBe Atom("Abraham")
-  }
-
-
-

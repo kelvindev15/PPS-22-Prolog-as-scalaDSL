@@ -10,5 +10,3 @@ object DSLFacilities:
   export DSLPrologBuiltins.*
   export DSLConversions.given
   export DSLExtensions.*
-  
-  
