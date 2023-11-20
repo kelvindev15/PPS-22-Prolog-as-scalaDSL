@@ -4,7 +4,7 @@ package io.github.kelvindev15.dsl
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Struct.{Directive, Fact, Rule}
 import io.github.kelvindev15.prolog.core.Variable.anonymous
-import io.github.kelvindev15.prolog.core.{Constant, RecursiveStruct, Struct, Term, Variable}
+import io.github.kelvindev15.prolog.core.{Constant, PrologList, RecursiveStruct, Struct, Term, Variable}
 import io.github.kelvindev15.prolog.dsl.PrologDSL
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
@@ -53,3 +53,9 @@ class TestDSL extends AnyFunSuite with Matchers with PrologDSL:
 
   test("Alternative syntax for pipe notation"):
     (head(1, 2, 3, 4) | T) shouldBe cons(1, 2, 3, 4)(T)
+
+  test("Sequence of terms as a PrologList"):
+    val toBeMatched = PrologList(H, "a", "b", 1, 2)
+    val list = cons(H, Seq[Term]("a", "b", 1, 2))
+    list shouldBe toBeMatched
+    cons(H, head("a", "b", 1, 2)) shouldBe list
