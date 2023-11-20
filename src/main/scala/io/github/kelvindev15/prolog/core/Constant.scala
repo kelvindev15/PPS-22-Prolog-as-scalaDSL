@@ -8,6 +8,7 @@ trait Constant extends Term:
   override def variables: Seq[Variable] = Seq()
   override def isGround: Boolean = true
   override def accept[T](visitor: TermVisitor[T]): T = visitor.visit(this)
+  override def asTerm: Term = this
 
 object Constant:
   def apply(value: Any): Constant = value match

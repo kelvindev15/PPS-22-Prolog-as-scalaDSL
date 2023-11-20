@@ -15,5 +15,6 @@ object Variable:
     case n if n.matches(VariableRegex.regex) => Var(name)
     case _ => throw IllegalArgumentException("Incorrect name of a variable")
   def anonymous(): Variable = Var("_")
-  private case class Var(name: String) extends Variable
+  private case class Var(name: String) extends Variable:
+    override def asTerm: Term = this
   

@@ -16,7 +16,11 @@ object DSLExtensions:
 
   extension (term: Term)
     def and(other: Term): Term = Goals.Conjunction(term, other)
+    @targetName("conjunctWith")
+    def &:(other: Term): Term = term and other
     def or(other: Term): Term = Goals.Disjunction(term, other)
+    @targetName("disjointWith")
+    def |: (other: Term): Term = term or other
     @targetName("univ")
     def `=..`(other: Term): Term = Struct(Atom("=.."), term, other)
     @targetName("equality")

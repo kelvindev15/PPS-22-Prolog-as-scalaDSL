@@ -14,6 +14,7 @@ object RecursiveStruct:
     def right: Term
     final override val arguments: Seq[Term] = Seq(left, right)
     override def linearizedArguments: Seq[Term] = accept(BinaryToFlatVisitor())
+    final override def asTerm: Term = Struct(functor, left.asTerm, right.asTerm)
   
   object BinaryRecursiveStruct:
     def wrapIfNecessary(struct: Seq[Term] => BinaryRecursiveStruct)(args: Term*): Term = args.size match

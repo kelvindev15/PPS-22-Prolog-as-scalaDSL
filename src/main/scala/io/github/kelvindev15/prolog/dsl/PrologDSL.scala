@@ -12,7 +12,16 @@ trait PrologDSL:
   export DSLVariables.*
 
   def theory(clauses: Clause*): Theory = Theory(clauses*)
-  
+
+  private def wrap(terms: Term*)(f: (Term, Term) => Term): Term = terms.size match
+    case 1 => terms.head
+    case n if n > 1 => f(terms.head, wrap(terms.tail*)(f))
+
+  @targetName("disjunction")
+  def ||(terms: Term*): Term = wrap(terms*)(_ or _)
+  @targetName("conjunction")
+  def &&(terms: Term*): Term = wrap(terms*)(_ and _)
+
   def list(terms: Term*): PrologList = PrologList(terms *)
   def cons(term: Term, tail: (PrologList | Variable)): PrologList = Cons(term, tail)
   def cons(terms: Term*)(tail: (PrologList | Variable)): PrologList = terms.size match
@@ -23,4 +32,4 @@ trait PrologDSL:
   def head(terms: Term*): Seq[Term] = terms
   extension (list: Seq[Term])
     @targetName("pipe")
-    def |(tail: (PrologList | Variable)) = cons(list*)(tail)
+    def |(tail: (PrologList | Variable)): Term = cons(list*)(tail)

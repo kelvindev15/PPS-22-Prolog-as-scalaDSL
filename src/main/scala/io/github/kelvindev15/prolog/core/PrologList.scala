@@ -37,6 +37,9 @@ object PrologList:
     override val arity: Int = 0
     override val arguments: Seq[Term] = Seq()
     override val size: Int = 0
+    override def asTerm: Term = Functors.EMPTY_LIST
+
     override val functor: Constant.Atom = Functors.EMPTY_LIST
   
-  private case class ConsImpl(head: Term, tail: (PrologList | Variable)) extends Cons
+  private case class ConsImpl(head: Term, tail: (PrologList | Variable)) extends Cons:
+    override def asTerm: Term = Struct(Functors.CONS, head.asTerm, tail.asTerm)

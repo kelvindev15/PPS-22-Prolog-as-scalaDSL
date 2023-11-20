@@ -3,7 +3,7 @@ package io.github.kelvindev15.prolog.core
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Goals.Conjunction
 import io.github.kelvindev15.prolog.core.Prolog.Functors.CLAUSE
-import io.github.kelvindev15.prolog.core.Prolog.Syntax
+import io.github.kelvindev15.prolog.core.Prolog.{Functors, Syntax}
 import io.github.kelvindev15.prolog.utils.TermVisitor
 
 trait Struct extends Term:
@@ -24,19 +24,27 @@ object Struct:
   
   private case class StructImpl(functor: Atom, arguments: Term*) extends Struct:
     override val arity: Int = arguments.size
+    override def asTerm: Term = this
 
   trait Indicator extends Struct:
-    val functor: Atom
-    val arity: Int
-    override val arguments: Seq[Term] = Seq(functor, Constant(arity))
+    val functor: Atom = Functors.INDICATOR
+    val arity: Int = 2
+    val indicatedFunctor: Atom
+    val indicatedArity: Constant.Numeric
+    override val arguments: Seq[Term] = Seq(indicatedFunctor, indicatedArity)
 
   object Indicator:
-    def apply(functor: Atom, arity: Int): Indicator = IndicatorImpl(functor, arity)
-    private case class IndicatorImpl(functor: Atom, arity: Int) extends Indicator
+    def apply(indicatedFunctor: Atom, indicatedArity: Constant.Numeric): Indicator =
+      IndicatorImpl(indicatedFunctor, indicatedArity)
+    private case class IndicatorImpl(indicatedFunctor: Atom, indicatedArity: Constant.Numeric) extends Indicator:
+      override def asTerm: Term = Struct(functor, indicatedFunctor, indicatedArity)
 
   trait Clause extends Struct:
     val head: Option[Struct]
     val body: Term
+    final override def asTerm: Term = head
+      .map { h => Struct(functor, h.asTerm, body.asTerm) }
+      .getOrElse(Struct(functor, body.asTerm))
 
   trait Directive extends Clause:
     final override val head: Option[Struct] = None

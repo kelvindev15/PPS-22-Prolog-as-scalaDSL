@@ -9,3 +9,4 @@ trait Visitable:
 trait Term extends Visitable:
   def isGround: Boolean
   def variables: Seq[Variable]
+  def asTerm: Term

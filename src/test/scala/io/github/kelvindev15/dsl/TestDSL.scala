@@ -2,6 +2,7 @@ package io.github.kelvindev15.dsl
 
 
 import io.github.kelvindev15.prolog.core.Constant.Atom
+import io.github.kelvindev15.prolog.core.Goals.{Conjunction, Disjunction}
 import io.github.kelvindev15.prolog.core.Struct.{Directive, Fact, Rule}
 import io.github.kelvindev15.prolog.core.Variable.anonymous
 import io.github.kelvindev15.prolog.core.{Constant, PrologList, RecursiveStruct, Struct, Term, Variable}
@@ -16,10 +17,19 @@ class TestDSL extends AnyFunSuite with Matchers with PrologDSL:
     f shouldBe a [Fact]
 
   test("Creation of a rule"):
-    val r = "grandfather"(X, Y) :- ("father"(X, Z) and "father"(Z, Y))
+    val r = "grandfather"(X, Y) :- &&("father"(X, Z), "father"(Z, Y))
     r shouldBe a [Rule]
     r.head.get shouldBe Struct(Atom("grandfather"), Variable("X"), Variable("Y"))
     r.body shouldBe a [RecursiveStruct]
+
+  test("Creation of a compound goal"):
+    Seq(A &: B &: C, &&(A, B, C)) foreach { _ shouldBe Conjunction(A, B, C) }
+    (A and B and C) shouldBe Conjunction(Conjunction(A, B), C)
+
+
+  test("Creation of a disjunction of goals"):
+    Seq(A |: B |: C, ||(A, B, C)) foreach { _ shouldBe Disjunction(A, B, C) }
+    (A or B or C) shouldBe Disjunction(Disjunction(A, B), C)
 
   test("Creation of a directive"):
     val d: Term = :-("op"(1199, "xfx", "-->"))
