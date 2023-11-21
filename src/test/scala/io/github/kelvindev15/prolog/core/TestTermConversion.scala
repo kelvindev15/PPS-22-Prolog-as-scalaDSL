@@ -2,7 +2,7 @@ package io.github.kelvindev15.prolog.core
 
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Goals.{Conjunction, Disjunction}
-import io.github.kelvindev15.prolog.core.PrologList.{Cons, Nil}
+import io.github.kelvindev15.prolog.core.PrologList.Nil
 import io.github.kelvindev15.prolog.core.Struct.{Directive, Fact, Indicator, Rule}
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
