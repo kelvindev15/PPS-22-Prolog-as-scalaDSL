@@ -11,7 +11,8 @@ enum AssociativitySpec extends Atom:
   case fx, fy, xf, xfx, xfy, yfx, yfy
   override val value: String = toString
 
-object DSLPrologBuiltins:
+trait DSLPrologBuiltins:
+  dsl: PrologDSL =>
   export AssociativitySpec.*
 
   @targetName("iff")

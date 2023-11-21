@@ -7,9 +7,7 @@ import io.github.kelvindev15.prolog.core.{PrologList, Term, Variable}
 
 import scala.annotation.targetName
 
-trait PrologDSL:
-  export DSLFacilities.{*, given}
-  export DSLVariables.*
+trait PrologDSL extends DSLPrologBuiltins with DSLExtensions with DSLVariables with DSLConversions:
 
   def theory(clauses: Clause*): Theory = Theory(clauses*)
 

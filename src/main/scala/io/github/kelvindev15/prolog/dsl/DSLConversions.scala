@@ -4,7 +4,8 @@ import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Struct.Fact
 import io.github.kelvindev15.prolog.core.{Constant, PrologList, Struct, Term}
 
-object DSLConversions:
+trait DSLConversions:
+  dsl: PrologDSL =>
   given Conversion[String, Atom] = Atom(_)
   given Conversion[AnyVal, Constant.Numeric] = Constant.Numeric(_)
   given Conversion[Struct, Fact] = Fact(_)

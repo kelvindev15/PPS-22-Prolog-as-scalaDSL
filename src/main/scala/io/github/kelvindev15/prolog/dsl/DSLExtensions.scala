@@ -6,7 +6,8 @@ import io.github.kelvindev15.prolog.core.{Goals, PrologList, Struct, Term}
 
 import scala.annotation.targetName
 
-object DSLExtensions:
+trait DSLExtensions:
+  dsl: PrologDSL =>
   extension (atom: Atom)
     def apply(terms: Term*): Struct = Struct(atom, terms *)
 
