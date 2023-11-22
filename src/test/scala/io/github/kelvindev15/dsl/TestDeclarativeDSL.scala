@@ -2,8 +2,10 @@ package io.github.kelvindev15.dsl
 
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.Constant.Atom
-import io.github.kelvindev15.prolog.core.{Constant, Struct, Variable}
+import io.github.kelvindev15.prolog.core.Goals.Conjunction
+import io.github.kelvindev15.prolog.core.PrologList.Cons
 import io.github.kelvindev15.prolog.core.Struct.{Directive, Fact, Rule}
+import io.github.kelvindev15.prolog.core.{Constant, PrologList, Struct, Variable}
 import io.github.kelvindev15.prolog.dsl.{DeclarativeDSL, PrologDSL}
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
@@ -61,3 +63,13 @@ class TestDeclarativeDSL extends AnyFunSuite with Matchers with PrologDSL with D
           Struct(Atom("is"),
             Constant.Numeric(2.5), Struct(Atom("+"), Variable("X"), Variable("Y")))))),
     )
+
+  test("Setting the goal of a prolog program"):
+    prolog {
+      solve {
+        &&(2 is X + Y, (head(H) | T) `=` S)
+      }
+    }.goal shouldBe Some(Conjunction(
+      Struct(Atom("is"), Constant.Numeric(2), Struct(Atom("+"), Variable("X"), Variable("Y"))),
+      Struct(Atom("="), Cons(Variable("H"), Variable("T")), Variable("S"))
+    ))

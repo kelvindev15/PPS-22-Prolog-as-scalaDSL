@@ -40,8 +40,8 @@ trait DeclarativeDSL:
   def directive(using theory: MutableTheoryWrapper)(directive: Directive): Unit = theory add directive
   def clause(using theory: MutableTheoryWrapper)(c: Clause): Unit = theory add c
 
-  def solve(using program: PrologProgram)(goal: () => Term): Unit =
-    prologProgram = prologProgram withGoal goal()
+  def solve(using program: PrologProgram)(goal: Term): Unit =
+    prologProgram = prologProgram withGoal goal
 
 object DeclarativeDSL:
   trait MutableTheoryWrapper:
