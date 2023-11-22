@@ -18,48 +18,48 @@ trait DSLPrologBuiltins:
   @targetName("iff")
   def :-(terms: Term*): Directive = Directive(terms *)
 
-  def `var`(term: Term): Term = Struct(Atom("var"), term)
-  def nonvar(term: Term): Term = Struct(Atom("nonvar"), term)
-  def atom(term: Term): Term = Struct(Atom("atom"), term)
-  def number(term: Term): Term = Struct(Atom("number"), term)
-  def atomic(term: Term): Term = Struct(Atom("atomic"), term)
-  def ground(term: Term): Term = Struct(Atom("ground"), term)
+  def `var`(term: Term): Struct = Struct(Atom("var"), term)
+  def nonvar(term: Term): Struct = Struct(Atom("nonvar"), term)
+  def atom(term: Term): Struct = Struct(Atom("atom"), term)
+  def number(term: Term): Struct = Struct(Atom("number"), term)
+  def atomic(term: Term): Struct = Struct(Atom("atomic"), term)
+  def ground(term: Term): Struct = Struct(Atom("ground"), term)
 
-  def member(term: Term, l: Term): Term = Struct(Atom("member"), term, l)
-  def append(l1: Term, l2: Term): Term = Struct(Atom("append"), l1, l2)
+  def member(term: Term, l: Term): Struct = Struct(Atom("member"), term, l)
+  def append(l1: Term, l2: Term): Struct = Struct(Atom("append"), l1, l2)
 
-  def dynamic(indicators: Indicator*): Term =
+  def dynamic(indicators: Indicator*): Struct =
     Directive(Struct(Atom("dynamic"), Conjunction.wrapIfNecessary(indicators*)))
 
-  def clause(head: Term, body: Term): Term = Struct(Atom("clause"), head, body)
-  def asserta(clause: Term): Term = Struct(Atom("asserta"), clause)
-  def assertz(clause: Term): Term = Struct(Atom("assertz"), clause)
-  def retract(clause: Term): Term = Struct(Atom("retract"), clause)
+  def clause(head: Term, body: Term): Struct = Struct(Atom("clause"), head, body)
+  def asserta(clause: Term): Struct = Struct(Atom("asserta"), clause)
+  def assertz(clause: Term): Struct = Struct(Atom("assertz"), clause)
+  def retract(clause: Term): Struct = Struct(Atom("retract"), clause)
 
-  def functor(term: Term, functor: Term, arity: Term): Term =
+  def functor(term: Term, functor: Term, arity: Term): Struct =
     Struct(Atom("functor"), term, functor, arity)
 
-  def arg(number: Term, term: Struct, arg: Term): Term = Struct(Atom("arg"), number, term, arg)
+  def arg(number: Term, term: Struct, arg: Term): Struct = Struct(Atom("arg"), number, term, arg)
 
-  def atom_chars(atom: Term, list: Term): Term = Struct(Atom("atom_chars"), atom, list)
-  def number_chars(atom: Term, list: Term): Term = Struct(Atom("atom"), atom, list)
+  def atom_chars(atom: Term, list: Term): Struct = Struct(Atom("atom_chars"), atom, list)
+  def number_chars(atom: Term, list: Term): Struct = Struct(Atom("atom"), atom, list)
 
   @targetName("cut")
   val `!`: Atom = Atom("!")
 
   val repeat: Atom = Atom("repeat")
 
-  def call(goal: Term): Term = Struct(Atom("call"), goal)
-  def once(goal: Term): Term = Struct(Atom("once"), goal)
-  def not(goal: Term): Term = Struct(Atom("not"), goal)
+  def call(goal: Term): Struct = Struct(Atom("call"), goal)
+  def once(goal: Term): Struct = Struct(Atom("once"), goal)
+  def not(goal: Term): Struct = Struct(Atom("not"), goal)
 
-  def findall(res: Term, goal: Term, list: Term): Term = Struct(Atom("findall"), res, goal, list)
+  def findall(res: Term, goal: Term, list: Term): Struct = Struct(Atom("findall"), res, goal, list)
 
   @targetName("naf")
-  def !(goal: Term): Term = Struct(Atom("\\+"), goal)
+  def !(goal: Term): Struct = Struct(Atom("\\+"), goal)
 
-  def op(precedence: Constant.Numeric, associativity: AssociativitySpec, name: Atom): Term =
+  def op(precedence: Constant.Numeric, associativity: AssociativitySpec, name: Atom): Struct =
     Struct(Atom("op"), precedence, associativity, name)
 
-  def length(term: Term, len: Term): Term = Struct(Atom("length"), term, len)
+  def length(term: Term, len: Term): Struct = Struct(Atom("length"), term, len)
   
