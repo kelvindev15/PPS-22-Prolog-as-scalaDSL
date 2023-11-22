@@ -24,7 +24,7 @@ object Struct:
   
   private case class StructImpl(functor: Atom, arguments: Term*) extends Struct:
     override val arity: Int = arguments.size
-    override def asTerm: Term = this
+    override def asTerm: Term = Struct(functor, arguments map { _.asTerm }*)
 
   trait Indicator extends Struct:
     val functor: Atom = Functors.INDICATOR

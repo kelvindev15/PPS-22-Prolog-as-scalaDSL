@@ -21,7 +21,7 @@ class TestTermConversion extends AnyFunSuite with Matchers:
 
   test("A directive is a unary struct with :- as a functor"):
     Directive(Struct(Atom("dynamic"), Indicator(Atom("foo"), Constant.Numeric(2)))).asTerm shouldBe
-      Struct(Atom(":-"), Struct(Atom("/"), Atom("foo"), Constant.Numeric(2)))
+      Struct(Atom(":-"), Struct(Atom("dynamic"), Struct(Atom("/"), Atom("foo"), Constant.Numeric(2))))
 
   test("A conjunction of goals is a binary recursive struct with , as a functor"):
     val functor = Atom(",")
