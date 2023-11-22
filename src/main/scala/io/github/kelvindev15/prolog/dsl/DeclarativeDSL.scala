@@ -17,12 +17,12 @@ trait DeclarativeDSL:
     prologProgram
 
   def staticTheory(using program: PrologProgram)(theory: MutableTheoryWrapper ?=> Unit): Unit =
-    given t: MutableTheoryWrapper = MutableTheoryWrapper()
+    given t: MutableTheoryWrapper = MutableDynamicTheoryWrapper()
     theory
     prologProgram = program.setStaticTheory(t.theory)
 
   def dynamicTheory(using program: PrologProgram)(theory: MutableDynamicTheoryWrapper ?=> Unit): Unit =
-    given t: MutableDynamicTheoryWrapper = MutableTheoryWrapper()
+    given t: MutableDynamicTheoryWrapper = MutableDynamicTheoryWrapper()
     theory
     prologProgram = prologProgram.setDynamicTheory(t.theory)
 
@@ -35,23 +35,24 @@ trait DeclarativeDSL:
   def assertZ(using dynamicTheory: MutableDynamicTheoryWrapper)(clause: Clause): Unit =
     dynamicTheory add "assertz"(clause)
 
-  def rule(using theory: MutableTheoryWrapper | MutableDynamicTheoryWrapper)(rule: Rule): Unit = theory add rule
-  def fact(using theory: MutableTheoryWrapper | MutableDynamicTheoryWrapper)(fact: Fact): Unit = theory add fact
+  def rule(using theory: MutableTheoryWrapper)(rule: Rule): Unit = theory add rule
+  def fact(using theory: MutableTheoryWrapper)(fact: Fact): Unit = theory add fact
   def directive(using theory: MutableTheoryWrapper)(directive: Directive): Unit = theory add directive
-  def clause(using theory: MutableTheoryWrapper | MutableDynamicTheoryWrapper)(c: Clause): Unit = theory add c
+  def clause(using theory: MutableTheoryWrapper)(c: Clause): Unit = theory add c
 
   def solve(using program: PrologProgram)(goal: () => Term): Unit =
     prologProgram = prologProgram withGoal goal()
 
 object DeclarativeDSL:
-  trait MutableDynamicTheoryWrapper:
+  trait MutableTheoryWrapper:
     var theory: Theory = Theory()
     def add(clause: Clause): Theory = { theory = theory add clause; theory }
     def remove(clause: Clause): Theory = { theory = theory remove clause; theory }
 
-  trait MutableTheoryWrapper extends MutableDynamicTheoryWrapper
-  object MutableTheoryWrapper:
-    def apply(t: Theory): MutableTheoryWrapper = new MutableTheoryWrapper:
+  trait MutableDynamicTheoryWrapper extends MutableTheoryWrapper
+
+  object MutableDynamicTheoryWrapper:
+    def apply(t: Theory): MutableDynamicTheoryWrapper = new MutableDynamicTheoryWrapper:
       theory = t
-    def apply(clauses: Clause*): MutableTheoryWrapper = new MutableTheoryWrapper:
-      theory = Theory(clauses *)
+    def apply(clauses: Clause*): MutableDynamicTheoryWrapper = new MutableDynamicTheoryWrapper:
+      theory = Theory(clauses*)
