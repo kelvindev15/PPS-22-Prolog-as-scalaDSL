@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
+    <option name="incrementalityType" value="IDEA" />
     <profile name="sbt 1" modules="pps-22-prolog-as-scaladsl_5245" />
     <profile name="sbt 2" modules="Hello">
       <parameters>
