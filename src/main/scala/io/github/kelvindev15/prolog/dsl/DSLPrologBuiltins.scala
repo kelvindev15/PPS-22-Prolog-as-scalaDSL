@@ -10,6 +10,7 @@ import scala.annotation.targetName
 enum AssociativitySpec extends Atom:
   case fx, fy, xf, xfx, xfy, yfx, yfy
   override val value: String = toString
+  override val unquotedValue: String = value
 
 trait DSLPrologBuiltins:
   dsl: PrologDSL =>

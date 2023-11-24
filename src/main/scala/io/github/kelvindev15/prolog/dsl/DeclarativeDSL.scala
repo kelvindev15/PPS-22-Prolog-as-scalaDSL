@@ -1,9 +1,9 @@
 package io.github.kelvindev15.prolog.dsl
 
 import io.github.kelvindev15.prolog.PrologProgram
-import io.github.kelvindev15.prolog.core.{Struct, Term}
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
 import io.github.kelvindev15.prolog.core.Theory.Theory
+import io.github.kelvindev15.prolog.core.{Struct, Term}
 import io.github.kelvindev15.prolog.dsl.DeclarativeDSL.{MutableDynamicTheoryWrapper, MutableTheoryWrapper}
 
 

@@ -17,6 +17,7 @@ object Constant:
     case _ => throw IllegalArgumentException("Cannot create a constant with the provided argument")
   trait Atom extends Constant with Struct:
     override val value: String
+    val unquotedValue: String
     override val arity: Int = 0
     override val arguments: Seq[Term] = Seq()
     override val functor: Atom = this
@@ -26,6 +27,7 @@ object Constant:
     def apply(value: String): Atom = AtomImpl(removeQuotes(value))
     private case class AtomImpl(private val _value: String) extends Atom:
       override val value: String = quoteIfFunctorIsMalformed(_value)
+      override val unquotedValue: String = _value
 
   trait Numeric extends Constant:
     override val value: AnyVal
