@@ -1,19 +1,18 @@
 package io.github.kelvindev15.prolog.engine
 
 import io.github.kelvindev15.prolog.PrologProgram
-import io.github.kelvindev15.prolog.core.{Struct, Term, Variable}
 import io.github.kelvindev15.prolog.core.Theory.Theory
+import io.github.kelvindev15.prolog.core.{Struct, Term, Variable}
 import io.github.kelvindev15.prolog.engine.Solver.Solution
 import io.github.kelvindev15.prolog.engine.Solver.Solution.{Halt, Yes}
 import io.github.kelvindev15.prolog.engine.visitors.{BackVisitor, TuPKtTermVisitor}
 import it.unibo.tuprolog.core.{Clause as KClause, Struct as KStruct, Substitution as KSubstitution, Term as KTerm}
-import it.unibo.tuprolog.solve.Solver as KSolver
-import it.unibo.tuprolog.solve.channel.{InputStore, OutputStore}
+import it.unibo.tuprolog.solve.{Solution as KSolution, Solver as KSolver}
+import it.unibo.tuprolog.solve.channel.{InputChannel, OutputChannel}
 import it.unibo.tuprolog.solve.classic.ClassicSolverFactory
 import it.unibo.tuprolog.solve.flags.FlagStore
 import it.unibo.tuprolog.theory.Theory as KTheory
 import it.unibo.tuprolog.unify.Unificator
-import it.unibo.tuprolog.solve.Solution as KSolution
 
 trait Solver:
   def solve(program: PrologProgram): Iterator[Solution]
@@ -48,16 +47,21 @@ object Solver:
   given Conversion[java.util.Iterator[KSolution], Iterator[Solution]] = _.asScala.map(identity)
 
   private def tuPrologClassicSolverOf(staticTheory: Theory, dynamicTheory: Theory): KSolver =
-    ClassicSolverFactory.INSTANCE.solverOf(
+    ClassicSolverFactory.INSTANCE.solverWithDefaultBuiltins(
       Unificator.getDefault,
       ClassicSolverFactory.INSTANCE.getDefaultRuntime,
       FlagStore.DEFAULT,
       staticTheory,
       dynamicTheory,
-      InputStore.fromStandard(),
-      OutputStore.fromStandard()
+      InputChannel.stdIn(),
+      OutputChannel.stdOut(),
+      OutputChannel.stdErr(),
+      OutputChannel.warn()
     )
 
   def tuPrologSolver(): Solver = (program: PrologProgram) =>
     val solver = tuPrologClassicSolverOf(program.dynamicTheory, program.staticTheory)
     program.goal.map { goal => solver.solve(goal.asStruct()).iterator() }.get
+    
+  def solve(using solver: Solver = tuPrologSolver())(prologProgram: PrologProgram): Iterator[Solution] = 
+    solver.solve(prologProgram)

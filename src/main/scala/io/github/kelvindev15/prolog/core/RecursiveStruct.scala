@@ -4,6 +4,7 @@ import io.github.kelvindev15.prolog.utils.BinaryToFlatVisitor
 
 trait RecursiveStruct extends Struct:
   def linearizedArguments: Seq[Term]
+  override def foreach(action: Term => Unit): Unit = linearizedArguments.foreach(action)
 
 object RecursiveStruct:
   trait BinaryRecursiveStruct extends RecursiveStruct:

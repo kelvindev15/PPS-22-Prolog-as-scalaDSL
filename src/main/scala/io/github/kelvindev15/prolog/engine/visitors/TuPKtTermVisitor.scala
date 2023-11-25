@@ -4,20 +4,13 @@ import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
 import io.github.kelvindev15.prolog.core.{Constant, Struct, Variable}
 import io.github.kelvindev15.prolog.utils.TermVisitor
-import it.unibo.tuprolog.core.{
-  Term as KTerm,
-  Atom as KAtom,
-  Numeric as KNumeric,
-  Var as KVar,
-  Struct as KStruct,
-  Fact as KFact,
-  Rule as KRule,
-  Directive as KDirective,
-}
+import it.unibo.tuprolog.core.{Atom as KAtom, Directive as KDirective, Fact as KFact, Numeric as KNumeric, Rule as KRule, Struct as KStruct, Term as KTerm, Var as KVar}
 
 class TuPKtTermVisitor extends TermVisitor[KTerm]:
   override def visit(atom: Atom): KTerm = KAtom.of(atom.unquotedValue)
-  override def visit(numeric: Constant.Numeric): KTerm = KNumeric.of(numeric.value.asInstanceOf[Double])
+  override def visit(numeric: Constant.Numeric): KTerm = numeric.value match
+    case value: Double => KNumeric.of(value)
+    case value: Int => KNumeric.of(value)
   override def visit(struct: Struct): KTerm = struct match
     case clause: Clause => super.visit(clause)
     case _ => KStruct.of(struct.functor.unquotedValue, struct.arguments.map(this.visit)*)

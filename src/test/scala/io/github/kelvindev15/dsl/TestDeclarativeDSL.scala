@@ -66,7 +66,7 @@ class TestDeclarativeDSL extends AnyFunSuite with Matchers with PrologDSL with D
 
   test("Setting the goal of a prolog program"):
     prolog {
-      solve {
+      goal {
         &&(2 is X + Y, (head(H) | T) `=` S)
       }
     }.goal shouldBe Some(Conjunction(

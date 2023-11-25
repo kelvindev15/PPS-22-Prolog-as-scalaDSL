@@ -15,6 +15,7 @@ trait Struct extends Term:
   override def isGround: Boolean = arguments.forall(_.isGround)
 
   override def accept[T](visitor: TermVisitor[T]): T = visitor.visit(this)
+  def foreach(action: Term => Unit): Unit = arguments.foreach(action)
 
 object Struct:
   private def isFunctorWellFormed(functor: String): Boolean = functor.matches(Syntax.AtomRegex.regex)
