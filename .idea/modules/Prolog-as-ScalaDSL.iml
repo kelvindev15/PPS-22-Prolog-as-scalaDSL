@@ -13,20 +13,20 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: scala-sdk-3.3.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:ci-environment:9.2.0:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-core:7.14.0:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-expressions:16.1.2:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-gherkin-messages:7.14.0:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-gherkin:7.14.0:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-plugin:7.14.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:ci-environment:10.0.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-core:7.14.1:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-expressions:17.0.1:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-gherkin-messages:7.14.1:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-gherkin:7.14.1:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-plugin:7.14.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-scala_3:8.18.0:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:datatable:7.14.0:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:docstring:7.14.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:datatable:7.14.1:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:docstring:7.14.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:gherkin:26.2.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:html-formatter:20.4.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:junit-xml-formatter:0.2.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:messages:22.0.0:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:tag-expressions:5.0.6:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:tag-expressions:6.0.0:jar" level="project" />
     <orderEntry type="library" name="sbt: io.github.gciatto:kt-math-jvm:0.9.0:jar" level="project" />
     <orderEntry type="library" name="sbt: it.unibo.tuprolog:core-jvm:0.31.18:jar" level="project" />
     <orderEntry type="library" name="sbt: it.unibo.tuprolog:dsl-core-jvm:0.31.18:jar" level="project" />
