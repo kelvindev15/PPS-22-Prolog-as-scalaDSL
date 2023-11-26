@@ -43,3 +43,15 @@ class TestPrologEngine extends AnyFlatSpec with Matchers with TestUtils with Pro
   "The goal 'X = 2, Y = 3, 5 is X + Y'" should "give a Yes solution" in:
     expectOne[Solution.Yes]:
       Solver solve (PrologProgram.emptyTheory withGoal &&(X `=` 2, Y `=` 3, 5 is X + Y))
+
+  "All solution" should "be returned by the engine" in:
+    val fruit = "fruit"
+    val fruits = Seq("banana", "orange", "apple")
+    val query = fruit(X)
+    Solver lazySolve {
+      prolog:
+        staticTheory:
+          for f <- fruits do clause(fruit(f))
+        goal:
+          query
+    } expectSolutionsIn fruits.map(e => query.yes(X -> e))

@@ -14,6 +14,8 @@ trait Solver:
 
 object Solver:
   type Substitution = Map[Variable, Term]
+  object Substitution:
+    def apply(substitutions: (Variable, Term)*): Substitution = Map(substitutions*)
   enum Solution:
     case Yes(query: Struct, substitution: Substitution)
     case No(query: Struct)
@@ -23,3 +25,6 @@ object Solver:
     
   def solve(using solver: Solver = tuPrologSolver())(prologProgram: PrologProgram): Iterator[Solution] = 
     solver solve prologProgram
+
+  def lazySolve(using solver: Solver = tuPrologSolver())(prologProgram: PrologProgram): LazyList[Solution] =
+    solver lazySolve prologProgram
