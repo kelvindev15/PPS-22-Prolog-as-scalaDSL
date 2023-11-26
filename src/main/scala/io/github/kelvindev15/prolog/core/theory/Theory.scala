@@ -1,4 +1,4 @@
-package io.github.kelvindev15.prolog.core.Theory
+package io.github.kelvindev15.prolog.core.theory
 
 import io.github.kelvindev15.prolog.core.Struct.Clause
 
@@ -10,6 +10,7 @@ trait Theory extends Seq[Clause]:
 
 object Theory:
   def apply(clauses: Clause*): Theory = TheoryImpl(clauses)
+  def empty: Theory = Theory()
 
   private case class TheoryImpl(clauses: Seq[Clause]) extends Theory:
     override def apply(i: Int): Clause = clauses(i)
