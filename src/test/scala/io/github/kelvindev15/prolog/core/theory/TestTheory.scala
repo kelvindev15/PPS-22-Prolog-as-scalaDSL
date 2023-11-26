@@ -2,7 +2,7 @@ package io.github.kelvindev15.prolog.core.theory
 
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Struct.Rule
-import io.github.kelvindev15.prolog.core.Theory.Theory
+import io.github.kelvindev15.prolog.core.theory.Theory
 import io.github.kelvindev15.prolog.core.{Struct, Variable}
 import org.scalatest.BeforeAndAfterAll
 import org.scalatest.funsuite.AnyFunSuite
