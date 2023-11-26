@@ -22,7 +22,7 @@ object Solver:
     case Halt(exception: Exception)
   
   def tuPrologSolver(): Solver = TuPrologClassicSolver()
-    
+  
   def solve(using solver: Solver = tuPrologSolver())(prologProgram: PrologProgram): Iterator[Solution] = 
     solver solve prologProgram
 
@@ -31,3 +31,9 @@ object Solver:
     
   def solutionsOf(using solver: Solver = tuPrologSolver())(prologProgram: PrologProgram): Seq[Solution] =
     solver solutionsOf prologProgram
+   
+  def query(using solver: Solver = tuPrologSolver())(query: Term): Iterator[Solution] =
+    solver solve (PrologProgram.emptyTheory withGoal query)
+    
+  def lazyQuery(using solver: Solver = tuPrologSolver())(query: Term): LazyList[Solution] = 
+    solver lazySolve (PrologProgram.emptyTheory withGoal query)

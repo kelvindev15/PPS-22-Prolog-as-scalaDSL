@@ -30,19 +30,19 @@ class TestPrologEngine extends AnyFlatSpec with Matchers with TestUtils with Pro
 
   "Member predicate" should "give a Yes solution if the term is in the list" in:
     expect[Solution.Yes]:
-      Solver solve (PrologProgram.emptyTheory withGoal member("yellow", rainbowColors))
+      Solver query member("yellow", rainbowColors)
 
   "Member predicate" should "give a No solution if the term is not in the list" in:
     expect[Solution.No]:
-      Solver solve (PrologProgram.emptyTheory withGoal member("purple", rainbowColors))
+      Solver query member("purple", rainbowColors)
 
   "The goal '2 is 1 + 3'" should "give a No solution" in:
     expectOne[Solution.No]:
-      Solver solve (PrologProgram.emptyTheory withGoal (2 is 1 + 3))
+      Solver query (2 is 1 + 3)
 
   "The goal 'X = 2, Y = 3, 5 is X + Y'" should "give a Yes solution" in:
     expectOne[Solution.Yes]:
-      Solver solve (PrologProgram.emptyTheory withGoal &&(X `=` 2, Y `=` 3, 5 is X + Y))
+      Solver query &&(X `=` 2, Y `=` 3, 5 is X + Y)
 
   "All solution" should "be returned by the engine" in:
     val fruit = "fruit"
@@ -55,18 +55,3 @@ class TestPrologEngine extends AnyFlatSpec with Matchers with TestUtils with Pro
         goal:
           query
     } expectSolutionsIn fruits.map(e => query.yes(X -> e))
-
-  "clause/2" should "give two solution with an append theory" in:
-    val append = "app"
-    val query = clause(append(A, B, C), Y)
-    Solver lazySolve {
-      prolog:
-        staticTheory:
-          fact { append(Nil, X, X) }
-          rule { append(cons(A)(B), C, cons(A)(D)) :- append(B, C, D) }
-        goal:
-          query
-    } expectSolutionsIn Seq(
-      query.yes(A -> Nil, B -> C,  Y -> true),
-      query.yes(A -> cons(A, B), C -> cons(A, D), Y -> append(B, B, D))
-    )

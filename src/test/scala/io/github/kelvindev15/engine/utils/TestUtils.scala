@@ -1,6 +1,8 @@
 package io.github.kelvindev15.engine.utils
 
+import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.{Struct, Term, Variable}
+import io.github.kelvindev15.prolog.engine.Solver
 import io.github.kelvindev15.prolog.engine.Solver.Solution.Yes
 import io.github.kelvindev15.prolog.engine.Solver.{Solution, Substitution}
 import org.scalatest.matchers.should.Matchers
@@ -20,7 +22,15 @@ trait TestUtils:
   extension(solutions: Iterable[Solution])
     def expectSolutionsIn(expectedSolutions: Iterable[Solution]): Unit =
       solutions should contain allElementsOf expectedSolutions.to(LazyList)
+    def expect(solution: Solution): Unit =
+      assert(solutions.exists(_ == solution))
+    def expectOnly(solution: Solution): Unit =
+      solutions should contain only solution  
 
   extension(query: Struct)
     def yes(substitutions: (Variable, Term)*): Yes = Yes(query, Substitution(substitutions*))
     def no: Solution.No = Solution.No(query)
+    def also(actions: Struct => Unit): Unit = actions(query)
+    def query: LazyList[Solution] = Solver lazyQuery query
+    def queryAndExpectOnly(goal: Struct => Solution): Unit = 
+      query also { q => q.query expectOnly goal(query) }
