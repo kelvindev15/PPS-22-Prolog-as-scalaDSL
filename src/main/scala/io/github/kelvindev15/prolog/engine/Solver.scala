@@ -1,7 +1,7 @@
 package io.github.kelvindev15.prolog.engine
 
 import io.github.kelvindev15.prolog.PrologProgram
-import io.github.kelvindev15.prolog.core.Theory.Theory
+import io.github.kelvindev15.prolog.core.theory.Theory
 import io.github.kelvindev15.prolog.core.{Struct, Term, Variable}
 import io.github.kelvindev15.prolog.engine.Solver.Solution
 import io.github.kelvindev15.prolog.engine.Solver.Solution.{Halt, Yes}
@@ -13,11 +13,13 @@ import it.unibo.tuprolog.solve.classic.ClassicSolverFactory
 import it.unibo.tuprolog.solve.flags.FlagStore
 import it.unibo.tuprolog.theory.Theory as KTheory
 import it.unibo.tuprolog.unify.Unificator
+import scala.jdk.CollectionConverters.*
 
 trait Solver:
   def solve(program: PrologProgram): Iterator[Solution]
-
-import scala.jdk.CollectionConverters.*
+  def lazySolve(program: PrologProgram): LazyList[Solution] = Solver.solve(program).to(LazyList)
+  def solutionsOf(program: PrologProgram): Seq[Solution] = Solver.solve(program).to(Seq)
+    
 
 object Solver:
   type Substitution = Map[Variable, Term]

@@ -1,7 +1,7 @@
 package io.github.kelvindev15.prolog
 
 import io.github.kelvindev15.prolog.core.Term
-import io.github.kelvindev15.prolog.core.Theory.Theory
+import io.github.kelvindev15.prolog.core.theory.Theory
 
 trait PrologProgram:
   def staticTheory: Theory
@@ -14,6 +14,8 @@ trait PrologProgram:
 object PrologProgram:
   def apply(staticTheory: Theory = Theory(), dynamicTheory: Theory = Theory()): PrologProgram =
     PrologProgramImpl(staticTheory, dynamicTheory, None)
+    
+  def emptyTheory: PrologProgram = PrologProgramImpl(Theory.empty, Theory.empty, None)  
 
   private case class PrologProgramImpl(
     staticTheory: Theory,
