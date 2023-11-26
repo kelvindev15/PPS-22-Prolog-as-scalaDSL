@@ -55,3 +55,18 @@ class TestPrologEngine extends AnyFlatSpec with Matchers with TestUtils with Pro
         goal:
           query
     } expectSolutionsIn fruits.map(e => query.yes(X -> e))
+
+  "clause/2" should "give two solution with an append theory" in:
+    val append = "app"
+    val query = clause(append(A, B, C), Y)
+    Solver lazySolve {
+      prolog:
+        staticTheory:
+          fact { append(Nil, X, X) }
+          rule { append(cons(A)(B), C, cons(A)(D)) :- append(B, C, D) }
+        goal:
+          query
+    } expectSolutionsIn Seq(
+      query.yes(A -> Nil, B -> C,  Y -> true),
+      query.yes(A -> cons(A, B), C -> cons(A, D), Y -> append(B, B, D))
+    )

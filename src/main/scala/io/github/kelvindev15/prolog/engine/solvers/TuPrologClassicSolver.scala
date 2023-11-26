@@ -1,30 +1,32 @@
 package io.github.kelvindev15.prolog.engine.solvers
 
 import io.github.kelvindev15.prolog.PrologProgram
-import io.github.kelvindev15.prolog.core.{Struct, Term}
 import io.github.kelvindev15.prolog.core.theory.Theory
+import io.github.kelvindev15.prolog.core.{Struct, Term}
 import io.github.kelvindev15.prolog.engine.Solver
 import io.github.kelvindev15.prolog.engine.Solver.Solution.{Halt, Yes}
 import io.github.kelvindev15.prolog.engine.Solver.{Solution, Substitution}
 import io.github.kelvindev15.prolog.engine.visitors.{From2PKtTermVisitor, To2PKtTermVisitor}
+import it.unibo.tuprolog.core.{Clause as KClause, Struct as KStruct, Substitution as KSubstitution, Term as KTerm}
 import it.unibo.tuprolog.solve.channel.{InputChannel, OutputChannel}
 import it.unibo.tuprolog.solve.classic.ClassicSolverFactory
 import it.unibo.tuprolog.solve.flags.FlagStore
-import it.unibo.tuprolog.unify.Unificator
-import it.unibo.tuprolog.core.{Clause as KClause, Struct as KStruct, Substitution as KSubstitution, Term as KTerm}
 import it.unibo.tuprolog.solve.{Solution as KSolution, Solver as KSolver}
 import it.unibo.tuprolog.theory.Theory as KTheory
+import it.unibo.tuprolog.unify.Unificator
+
 import scala.jdk.CollectionConverters.*
 
 class TuPrologClassicSolver extends Solver:
-  private val to2pktVisitor = To2PKtTermVisitor()
+  private val to2pktVisitor = To2PKtTermVisitor.withNewScope
   private val from2pktVisitor = From2PKtTermVisitor()
 
   given Conversion[Term, KTerm] = _.accept(to2pktVisitor)
   given Conversion[KTerm, KClause] = _.asClause()
   given Conversion[KTerm, KStruct] = _.asStruct()
   given Conversion[Theory, KTheory] with
-    override def apply(theory: Theory): KTheory = KTheory.of(theory.map(_.asClause()) *)
+    override def apply(theory: Theory): KTheory =
+      KTheory.of(theory.map(_.accept(To2PKtTermVisitor.withNewScope).asClause())*)
   given Conversion[KStruct, Struct] = from2pktVisitor.visitStruct(_)
   given Conversion[KSubstitution, Substitution] = {
     case substitution: KSubstitution.Unifier => Map(
@@ -54,5 +56,5 @@ class TuPrologClassicSolver extends Solver:
     )
 
   override def solve(program: PrologProgram): Iterator[Solution] =
-    val solver = classicSolverOf(program.dynamicTheory, program.staticTheory)
+    val solver = classicSolverOf(program.staticTheory, program.dynamicTheory)
     program.goal.map { goal => solver.solve(goal.asStruct()).iterator() }.get

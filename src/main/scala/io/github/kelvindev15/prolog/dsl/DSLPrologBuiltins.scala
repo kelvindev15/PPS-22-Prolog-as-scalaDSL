@@ -3,7 +3,7 @@ package io.github.kelvindev15.prolog.dsl
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Goals.Conjunction
 import io.github.kelvindev15.prolog.core.Struct.{Directive, Indicator}
-import io.github.kelvindev15.prolog.core.{Constant, Struct, Term}
+import io.github.kelvindev15.prolog.core.{Constant, Prolog, Struct, Term}
 
 import scala.annotation.targetName
 
@@ -63,4 +63,5 @@ trait DSLPrologBuiltins:
     Struct(Atom("op"), precedence, associativity, name)
 
   def length(term: Term, len: Term): Struct = Struct(Atom("length"), term, len)
+  val `[]`: Atom = Prolog.Functors.EMPTY_LIST
   

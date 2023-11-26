@@ -1,6 +1,6 @@
 package io.github.kelvindev15.prolog.utils
 
-import io.github.kelvindev15.prolog.core.{Constant, Struct, Term, Variable}
+import io.github.kelvindev15.prolog.core.{Constant, PrologList, RecursiveStruct, Struct, Term, Variable}
 import io.github.kelvindev15.prolog.core.Constant.{Atom, Numeric}
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
@@ -24,6 +24,9 @@ trait TermVisitor[T]:
   def visit(rule: Rule): T = throw NotImplementedError()
   def visit(fact: Fact): T = throw NotImplementedError()
   def visit(directive: Directive): T = throw NotImplementedError()
-  
-  def visit(binaryRecursiveStruct: BinaryRecursiveStruct): T = throw NotImplementedError()
+  def visit(recursiveStruct: RecursiveStruct): T = recursiveStruct match
+    case list: PrologList => visit(list)
+    case binary: BinaryRecursiveStruct => visit(binary)
+  def visit(binaryRecursiveStruct: BinaryRecursiveStruct): T = visit(binaryRecursiveStruct.asInstanceOf[Struct])
+  def visit(list: PrologList): T = throw NotImplementedError()
 

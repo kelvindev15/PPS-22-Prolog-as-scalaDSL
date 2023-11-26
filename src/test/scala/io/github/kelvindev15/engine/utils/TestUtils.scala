@@ -20,7 +20,7 @@ trait TestUtils:
   extension(solutions: Iterable[Solution])
     def expectSolutionsIn(expectedSolutions: Iterable[Solution]): Unit =
       solutions should contain allElementsOf expectedSolutions.to(LazyList)
-      
+
   extension(query: Struct)
     def yes(substitutions: (Variable, Term)*): Yes = Yes(query, Substitution(substitutions*))
     def no: Solution.No = Solution.No(query)

@@ -8,6 +8,7 @@ trait DSLVariables:
   def A: Variable = Variable("A")
   def B: Variable = Variable("B")
   def C: Variable = Variable("C")
+  def D: Variable = Variable("D")
   def H: Variable = Variable("H")
   def S: Variable = Variable("S")
   def T: Variable = Variable("T")

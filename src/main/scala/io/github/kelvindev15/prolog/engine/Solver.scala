@@ -28,3 +28,6 @@ object Solver:
 
   def lazySolve(using solver: Solver = tuPrologSolver())(prologProgram: PrologProgram): LazyList[Solution] =
     solver lazySolve prologProgram
+    
+  def solutionsOf(using solver: Solver = tuPrologSolver())(prologProgram: PrologProgram): Seq[Solution] =
+    solver solutionsOf prologProgram
