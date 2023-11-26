@@ -36,6 +36,10 @@ class TestPrologEngine extends AnyFlatSpec with Matchers with TestUtils with Pro
     expect[Solution.No]:
       Solver solve (PrologProgram.emptyTheory withGoal member("purple", rainbowColors))
 
-  "The is predicate" should "give a No solution if ..." in:
+  "The goal '2 is 1 + 3'" should "give a No solution" in:
     expectOne[Solution.No]:
       Solver solve (PrologProgram.emptyTheory withGoal (2 is 1 + 3))
+
+  "The goal 'X = 2, Y = 3, 5 is X + Y'" should "give a Yes solution" in:
+    expectOne[Solution.Yes]:
+      Solver solve (PrologProgram.emptyTheory withGoal &&(X `=` 2, Y `=` 3, 5 is X + Y))

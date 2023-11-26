@@ -8,13 +8,14 @@ import it.unibo.tuprolog.core.{TermVisitor, Atom as KAtom, Cons as KCons, Consta
 
 import scala.jdk.CollectionConverters.*
 
-class BackVisitor extends TermVisitor[Term]:
+class From2PKtTermVisitor extends TermVisitor[Term]:
   override def defaultValue(term: KTerm): Term = term match
     case emptyList: KEmptyList => visitEmptyList(emptyList)
     case list: KCons => visitCons(list)
     case atom: KAtom => visitAtom(atom)
     case variable: KVariable => visitVar(variable)
     case constant: KConstant => visitConstant(constant)
+    case struct: KStruct => visitStruct(struct)
 
 
   override def visitAtom(term: KAtom): Atom = Atom(term.getValue)
