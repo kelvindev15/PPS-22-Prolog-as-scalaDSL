@@ -98,9 +98,10 @@ class TestBuiltins extends AnyFunSuite with Matchers with PrologDSL with Declara
     number_chars(X, list("1", "2", "3")) queryAndExpectOnly (_.yes(X -> 123))
 
   test("Test term equality (==)"):
-    expectOne[Solution.No]
+    expectOne[Solution.No]:
       Solver query (X strictEq Y)
-    (X strictEq X) queryAndExpectOnly (_.yes(X -> `__`))
+    expectOne[Solution.Yes]:
+      Solver query (X strictEq X)
 
   test("Test operators"):
     expectOne[Solution.Yes]:
