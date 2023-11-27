@@ -1,6 +1,6 @@
 package io.github.kelvindev15.prolog.core
 
-import io.github.kelvindev15.prolog.utils.TermVisitor
+import io.github.kelvindev15.prolog.utils.{TermVisitor, ToStringTermVisitor}
 
 trait Visitable:
   self: Term =>
@@ -10,3 +10,4 @@ trait Term extends Visitable:
   def isGround: Boolean
   def variables: Seq[Variable]
   def asTerm: Term
+  override def toString: String = accept(ToStringTermVisitor())
