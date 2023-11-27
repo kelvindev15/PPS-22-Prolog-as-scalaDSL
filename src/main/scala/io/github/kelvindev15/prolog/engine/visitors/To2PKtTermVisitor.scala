@@ -1,22 +1,14 @@
 package io.github.kelvindev15.prolog.engine.visitors
 
+import io.github.kelvindev15.prolog.core.*
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.PrologList.Cons
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
-import io.github.kelvindev15.prolog.core.{Constant, PrologList, RecursiveStruct, Struct, Variable}
 import io.github.kelvindev15.prolog.utils.TermVisitor
-import it.unibo.tuprolog.core.{Scope as KScope, Term as KTerm,
-  Atom as KAtom,
-  Numeric as KNum,
-  Struct as KStruct,
-  Fact as KFact,
-  Rule as KRule,
-  Var as KVar,
-  Directive as KDirective,
-  Cons as KCons,
-  EmptyList as KEmptyList,
-}
+import it.unibo.tuprolog.core.{Atom as KAtom, Cons as KCons, Directive as KDirective, EmptyList as KEmptyList, Fact as KFact, Numeric as KNum, Rule as KRule, Scope as KScope, Struct as KStruct, Term as KTerm}
+
+import scala.jdk.CollectionConverters.*
 
 class To2PKtTermVisitor(scope: KScope = KScope.empty()) extends TermVisitor[KTerm]:
   override def visit(atom: Atom): KTerm = KAtom.of(atom.unquotedValue)

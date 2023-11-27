@@ -1,9 +1,9 @@
 package io.github.kelvindev15.prolog.utils
 
-import io.github.kelvindev15.prolog.core.{Constant, PrologList, RecursiveStruct, Struct, Term, Variable}
 import io.github.kelvindev15.prolog.core.Constant.{Atom, Numeric}
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
+import io.github.kelvindev15.prolog.core.*
 
 trait TermVisitor[T]:
   def visit(term: Term): T = term match
