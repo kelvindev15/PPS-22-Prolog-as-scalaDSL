@@ -318,6 +318,7 @@ pages = [{"l":"index.html#","e":false,"i":"","n":"Prolog-as-ScalaDSL","t":"Prolo
 {"l":"io/github/kelvindev15/prolog/utils/TermVisitor.html#visit-fffffbc1","e":false,"i":"","n":"visit","t":"visit(recursiveStruct: RecursiveStruct): T","d":"io.github.kelvindev15.prolog.utils.TermVisitor","k":"def","x":""},
 {"l":"io/github/kelvindev15/prolog/utils/TermVisitor.html#visit-9a1","e":false,"i":"","n":"visit","t":"visit(binaryRecursiveStruct: BinaryRecursiveStruct): T","d":"io.github.kelvindev15.prolog.utils.TermVisitor","k":"def","x":""},
 {"l":"io/github/kelvindev15/prolog/utils/TermVisitor.html#visit-fffffc61","e":false,"i":"","n":"visit","t":"visit(list: PrologList): T","d":"io.github.kelvindev15.prolog.utils.TermVisitor","k":"def","x":""},
+{"l":"io/github/kelvindev15/prolog/utils/ToStringTermVisitor.html#","e":false,"i":"","n":"ToStringTermVisitor","t":"ToStringTermVisitor extends TermVisitor[String]","d":"io.github.kelvindev15.prolog.utils","k":"class","x":""},
 {"l":"io/github/kelvindev15/prolog/PrologProgram.html#","e":false,"i":"","n":"PrologProgram","t":"PrologProgram","d":"io.github.kelvindev15.prolog","k":"trait","x":""},
 {"l":"io/github/kelvindev15/prolog/PrologProgram.html#dynamicTheory-0","e":false,"i":"","n":"dynamicTheory","t":"dynamicTheory: Theory","d":"io.github.kelvindev15.prolog.PrologProgram","k":"def","x":""},
 {"l":"io/github/kelvindev15/prolog/PrologProgram.html#goal-0","e":false,"i":"","n":"goal","t":"goal: Option[Term]","d":"io.github.kelvindev15.prolog.PrologProgram","k":"def","x":""},
