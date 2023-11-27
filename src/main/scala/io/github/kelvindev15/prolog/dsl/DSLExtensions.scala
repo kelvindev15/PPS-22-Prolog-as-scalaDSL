@@ -27,7 +27,7 @@ trait DSLExtensions:
     @targetName("equality")
     def `=`(other: Term): Struct = Struct(Atom("="), term, other)
     @targetName("strictEquality")
-    def ==(other: Term): Struct = Struct(Atom("=="), term, other)
+    def strictEq(other: Term): Struct = Struct(Atom("=="), term, other)
     def is(other: Term): Struct = Struct(Atom("is"), term, other)
     @targetName("plus")
     def +(other: Term): Struct = Struct(Atom("+"), term, other)

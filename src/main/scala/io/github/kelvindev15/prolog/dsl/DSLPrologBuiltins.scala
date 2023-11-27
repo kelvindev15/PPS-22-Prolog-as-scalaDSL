@@ -43,7 +43,7 @@ trait DSLPrologBuiltins:
   def arg(number: Term, term: Struct, arg: Term): Struct = Struct(Atom("arg"), number, term, arg)
 
   def atom_chars(atom: Term, list: Term): Struct = Struct(Atom("atom_chars"), atom, list)
-  def number_chars(atom: Term, list: Term): Struct = Struct(Atom("atom"), atom, list)
+  def number_chars(atom: Term, list: Term): Struct = Struct(Atom("number_chars"), atom, list)
 
   @targetName("cut")
   val `!`: Atom = Atom("!")

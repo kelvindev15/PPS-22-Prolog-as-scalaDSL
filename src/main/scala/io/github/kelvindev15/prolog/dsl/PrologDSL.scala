@@ -31,3 +31,4 @@ trait PrologDSL extends DSLPrologBuiltins with DSLExtensions with DSLVariables w
   extension (list: Seq[Term])
     @targetName("pipe")
     def |(tail: (PrologList | Variable)): Term = cons(list*)(tail)
+  def varOf(name: String): Variable = Variable(name)  
