@@ -1,4 +1,4 @@
-package io.github.kelvindev15.prolog.utils
+package io.github.kelvindev15.prolog.visitors
 
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct.Tuple

@@ -1,7 +1,7 @@
 package io.github.kelvindev15.prolog.core
 
 import io.github.kelvindev15.prolog.core.Prolog.Syntax.VariableRegex
-import io.github.kelvindev15.prolog.utils.TermVisitor
+import io.github.kelvindev15.prolog.visitors.TermVisitor
 
 /** A Prolog variable */
 trait Variable extends Term:

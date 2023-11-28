@@ -4,7 +4,7 @@ import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Goals.Conjunction
 import io.github.kelvindev15.prolog.core.Prolog.Functors.CLAUSE
 import io.github.kelvindev15.prolog.core.Prolog.{Functors, Syntax}
-import io.github.kelvindev15.prolog.utils.TermVisitor
+import io.github.kelvindev15.prolog.visitors.TermVisitor
 
 /** A Prolog compound term */
 trait Struct extends Term:

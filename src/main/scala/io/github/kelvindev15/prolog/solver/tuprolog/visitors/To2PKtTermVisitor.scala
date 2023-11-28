@@ -6,7 +6,7 @@ import io.github.kelvindev15.prolog.core.PrologList.Cons
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
 import io.github.kelvindev15.prolog.solver.tuprolog.TuPrologFactoryMethods.*
-import io.github.kelvindev15.prolog.utils.TermVisitor
+import io.github.kelvindev15.prolog.visitors.TermVisitor
 import it.unibo.tuprolog.core.{Scope as KScope, Term as KTerm}
 
 /** Converts a tuProlog [[Term]] hierarchy to a [[Term]] hierarchy. Creates a

@@ -1,4 +1,4 @@
-package io.github.kelvindev15.dsl
+package io.github.kelvindev15.prolog.dsl
 
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Goals.{Conjunction, Disjunction}

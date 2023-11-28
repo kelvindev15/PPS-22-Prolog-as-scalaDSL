@@ -1,7 +1,7 @@
 package io.github.kelvindev15.prolog.core
 
 import io.github.kelvindev15.prolog.core.Struct.quoteIfFunctorIsMalformed
-import io.github.kelvindev15.prolog.utils.TermVisitor
+import io.github.kelvindev15.prolog.visitors.TermVisitor
 
 /** A Prolog Constant, either numeric or an atom */
 trait Constant extends Term:

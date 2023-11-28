@@ -1,4 +1,4 @@
-package io.github.kelvindev15.visitors
+package io.github.kelvindev15.prolog.visitors
 
 import io.github.kelvindev15.prolog.core.Struct.Fact
 import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}

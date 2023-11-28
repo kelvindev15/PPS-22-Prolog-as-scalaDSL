@@ -1,6 +1,6 @@
 package io.github.kelvindev15.prolog.core
 
-import io.github.kelvindev15.prolog.utils.BinaryToFlatVisitor
+import io.github.kelvindev15.prolog.visitors.BinaryToFlatVisitor
 
 /** A Prolog [[Struct]] that is also recursive. */
 trait RecursiveStruct extends Struct:

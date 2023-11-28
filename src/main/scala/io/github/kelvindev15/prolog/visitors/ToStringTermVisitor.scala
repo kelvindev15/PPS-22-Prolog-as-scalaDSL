@@ -1,14 +1,9 @@
-package io.github.kelvindev15.prolog.utils
+package io.github.kelvindev15.prolog.visitors
+
 import io.github.kelvindev15.prolog.core.Goals.{Conjunction, Disjunction}
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.core.Struct.Clause
-import io.github.kelvindev15.prolog.core.{
-  Constant,
-  PrologList,
-  RecursiveStruct,
-  Struct,
-  Variable
-}
+import io.github.kelvindev15.prolog.core.*
 
 class ToStringTermVisitor extends TermVisitor[String]:
 

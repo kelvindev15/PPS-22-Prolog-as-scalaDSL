@@ -1,10 +1,7 @@
 package io.github.kelvindev15.prolog.core
 
-import io.github.kelvindev15.prolog.utils.{
-  TermConvertible,
-  TermVisitor,
-  ToStringTermVisitor
-}
+import io.github.kelvindev15.prolog.utils.TermConvertible
+import io.github.kelvindev15.prolog.visitors.{TermVisitor, ToStringTermVisitor}
 
 /** A trait to visit a Term like object. */
 trait Visitable:

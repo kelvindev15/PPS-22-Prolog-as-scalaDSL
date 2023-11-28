@@ -2,7 +2,7 @@ package io.github.kelvindev15.prolog.core
 
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Struct.Rule
-import io.github.kelvindev15.prolog.utils.BinaryToFlatVisitor
+import io.github.kelvindev15.prolog.visitors.BinaryToFlatVisitor
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

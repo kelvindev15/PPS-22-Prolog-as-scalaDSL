@@ -1,11 +1,11 @@
-package io.github.kelvindev15.prolog.engine
+package io.github.kelvindev15.prolog.solver.engine
 
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.{PrologList, Term}
 import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
-import io.github.kelvindev15.prolog.engine.utils.EngineTestUtils
 import io.github.kelvindev15.prolog.solver.Solver
 import io.github.kelvindev15.prolog.solver.Solver.Solution
+import io.github.kelvindev15.prolog.solver.engine.utils.EngineTestUtils
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

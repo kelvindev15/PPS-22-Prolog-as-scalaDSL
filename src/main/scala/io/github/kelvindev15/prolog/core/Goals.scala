@@ -3,7 +3,7 @@ package io.github.kelvindev15.prolog.core
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Prolog.Functors
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
-import io.github.kelvindev15.prolog.utils.TermVisitor
+import io.github.kelvindev15.prolog.visitors.TermVisitor
 
 object Goals:
   /** Represents a conjunction of goals. */
