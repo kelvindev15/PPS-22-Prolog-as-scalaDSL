@@ -15,7 +15,7 @@ import it.unibo.tuprolog.theory.Theory as KTheory
 
 import scala.jdk.CollectionConverters.*
 
-object ConversionsUtils:
+private[solvers] object ConversionsUtils:
   private val from2pktVisitor = From2PKtTermVisitor()
   given Conversion[Term, KTerm] = _.accept(To2PKtTermVisitor.withNewScope)
   given Conversion[Theory, KTheory] with
@@ -34,9 +34,10 @@ object ConversionsUtils:
   }
   given Conversion[java.util.Iterator[KSolution], Iterator[Solution]] = _.asScala.map(identity)
 
+/** A [[Solver]] that leverages on the tuProlog engine */
 class TuPrologClassicSolver extends Solver:
-  import ConversionsUtils.given 
-  
+  import ConversionsUtils.given
+
   private def classicSolverOf(staticTheory: Theory, dynamicTheory: Theory): KSolver =
     ClassicSolverFactory.INSTANCE.solverWithDefaultBuiltins(
       ClassicSolverFactory.INSTANCE.getDefaultUnificator,
