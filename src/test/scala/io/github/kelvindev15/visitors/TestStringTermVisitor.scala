@@ -1,11 +1,11 @@
 package io.github.kelvindev15.visitors
 
 import io.github.kelvindev15.prolog.core.Struct.Fact
-import io.github.kelvindev15.prolog.dsl.{DeclarativeDSL, PrologDSL}
+import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-class TestStringTermVisitor extends AnyFunSuite with Matchers with PrologDSL with DeclarativeDSL:
+class TestStringTermVisitor extends AnyFunSuite with Matchers with PrologDSL with DeclarativeProlog:
 
   test("Test structs"):
     "rainbow"("orange").toString shouldEqual "rainbow(orange)"

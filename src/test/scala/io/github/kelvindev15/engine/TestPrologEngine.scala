@@ -1,9 +1,9 @@
 package io.github.kelvindev15.engine
 
-import io.github.kelvindev15.engine.utils.TestUtils
+import io.github.kelvindev15.engine.utils.EngineTestUtils
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.{PrologList, Term}
-import io.github.kelvindev15.prolog.dsl.{DeclarativeDSL, PrologDSL}
+import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
 import io.github.kelvindev15.prolog.solver.Solver
 import io.github.kelvindev15.prolog.solver.Solver.Solution
 import org.scalatest.flatspec.AnyFlatSpec
@@ -12,7 +12,7 @@ import org.scalatest.matchers.should.Matchers
 import scala.reflect
 import scala.reflect.ClassTag
 
-class TestPrologEngine extends AnyFlatSpec with Matchers with TestUtils with PrologDSL with DeclarativeDSL:
+class TestPrologEngine extends AnyFlatSpec with Matchers with EngineTestUtils with PrologDSL with DeclarativeProlog:
 
   private val rainbowColors = PrologList("red", "orange", "yellow", "green", "blue", "indigo", "violet")
   private val rainbowProgram = prolog:

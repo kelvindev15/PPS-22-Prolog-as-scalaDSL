@@ -10,7 +10,7 @@ import io.github.kelvindev15.prolog.dsl.PrologDSL
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-class TestDSL extends AnyFunSuite with Matchers with PrologDSL:
+class TestPrologDSL extends AnyFunSuite with Matchers with PrologDSL:
 
   test("Creation of a fact"):
     val f: Fact = "father"("abraham", "tehrach")

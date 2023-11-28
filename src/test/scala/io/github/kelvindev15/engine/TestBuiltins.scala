@@ -1,14 +1,14 @@
 package io.github.kelvindev15.engine
 
-import io.github.kelvindev15.engine.utils.TestUtils
+import io.github.kelvindev15.engine.utils.EngineTestUtils
 import io.github.kelvindev15.prolog.PrologProgram
-import io.github.kelvindev15.prolog.dsl.{DeclarativeDSL, PrologDSL}
+import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
 import io.github.kelvindev15.prolog.solver.Solver
 import io.github.kelvindev15.prolog.solver.Solver.Solution
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-class TestBuiltins extends AnyFunSuite with Matchers with PrologDSL with DeclarativeDSL with TestUtils:
+class TestBuiltins extends AnyFunSuite with Matchers with PrologDSL with DeclarativeProlog with EngineTestUtils:
   test("Test var(X)"):
     expectOne[Solution.Yes]:
       Solver query `var`(X)

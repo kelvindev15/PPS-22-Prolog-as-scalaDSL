@@ -10,7 +10,7 @@ import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-class TestDeclarativeDSL extends AnyFunSuite with Matchers with PrologDSL with DeclarativeProlog:
+class TestDeclarativePrologDSL extends AnyFunSuite with Matchers with PrologDSL with DeclarativeProlog:
   test("Creation of an empty prolog program"):
     val program: PrologProgram = prolog { }
     program.staticTheory shouldBe empty

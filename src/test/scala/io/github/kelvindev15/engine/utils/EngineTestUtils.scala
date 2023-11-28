@@ -9,7 +9,7 @@ import org.scalatest.matchers.should.Matchers
 
 import scala.reflect.ClassTag
 
-trait TestUtils:
+trait EngineTestUtils:
   matchers: Matchers =>
   def expect[T <: Solution](using tag: ClassTag[T])(solutions: Iterator[Solution]): Unit =
     assert(solutions.hasNext)
