@@ -18,15 +18,26 @@ class TestStructs extends AnyFlatSpec with Matchers:
     Struct(Atom("order"), args*).arity shouldBe args.size
 
   "The functor of the struct equivalent to father(X, X) " should "be the atom father" in:
-    Struct(Atom("father"), Variable("X"), Variable("X")).functor shouldBe Atom("father")
+    Struct(Atom("father"), Variable("X"), Variable("X")).functor shouldBe Atom(
+      "father"
+    )
 
   "Non ground term variables" should "not be empty" in:
-    Struct(Atom("likes"), Atom("mario"), Variable("X")).variables shouldEqual Seq(Variable("X"))
-    Struct(Atom("likes"), Atom("mario"), Struct(Atom("food"), Variable("X"))).variables shouldEqual Seq(Variable("X"))
+    Struct(
+      Atom("likes"),
+      Atom("mario"),
+      Variable("X")
+    ).variables shouldEqual Seq(Variable("X"))
+    Struct(
+      Atom("likes"),
+      Atom("mario"),
+      Struct(Atom("food"), Variable("X"))
+    ).variables shouldEqual Seq(Variable("X"))
 
   "Only terms with no variables" should "be ground" in:
     val groundTerm = Struct(Atom("likes"), Atom("mario"), Atom("pizza"))
     assert(groundTerm.isGround)
 
-    val nonGroundTerm = Struct(Atom("likes"), Atom("mario"), Struct(Atom("food"), Variable("X")))
+    val nonGroundTerm =
+      Struct(Atom("likes"), Atom("mario"), Struct(Atom("food"), Variable("X")))
     assert(!nonGroundTerm.isGround)

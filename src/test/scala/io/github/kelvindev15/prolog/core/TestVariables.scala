@@ -11,11 +11,13 @@ class TestVariables extends AnyFlatSpec with Matchers:
     assert(Variable("_").isAnonymous)
 
   "A variable name" should "be an alphanumerical string beginning with an with an uppercase letter" in:
-    Seq("X", "X2", "Abraham", "Snake_variable", "_") foreach { Variable(_) shouldBe a[Variable] }
+    Seq("X", "X2", "Abraham", "Snake_variable", "_") foreach {
+      Variable(_) shouldBe a[Variable]
+    }
     Seq("a", "2X", "X$", "A-Y") foreach { name =>
       assertThrows[IllegalArgumentException]:
         Variable(name)
     }
-  
+
   it should "not be ground" in:
     assert(!Variable("X").isGround)

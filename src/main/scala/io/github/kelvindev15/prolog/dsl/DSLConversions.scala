@@ -9,7 +9,7 @@ protected trait DSLConversions:
   given Conversion[String, Atom] = Atom(_)
   given Conversion[AnyVal, Constant] = {
     case boolean: Boolean => Atom(if (boolean) "true" else "false")
-    case other => Constant.Numeric(other)
+    case other            => Constant.Numeric(other)
   }
   given Conversion[Struct, Fact] = Fact(_)
   given Conversion[Seq[Term], PrologList] = PrologList(_*)

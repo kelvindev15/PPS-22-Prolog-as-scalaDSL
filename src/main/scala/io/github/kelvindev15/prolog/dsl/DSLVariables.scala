@@ -4,7 +4,7 @@ import io.github.kelvindev15.prolog.core.Variable
 
 protected trait DSLVariables:
   dsl: PrologDSL =>
-  def `__`: Variable = Variable.anonymous()
+  def `__` : Variable = Variable.anonymous()
   def A: Variable = Variable("A")
   def B: Variable = Variable("B")
   def C: Variable = Variable("C")

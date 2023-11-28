@@ -12,21 +12,27 @@ import org.scalatest.matchers.should.Matchers
 import scala.reflect
 import scala.reflect.ClassTag
 
-class TestPrologEngine extends AnyFlatSpec with Matchers with EngineTestUtils with PrologDSL with DeclarativeProlog:
+class TestPrologEngine
+    extends AnyFlatSpec
+    with Matchers
+    with EngineTestUtils
+    with PrologDSL
+    with DeclarativeProlog:
 
-  private val rainbowColors = PrologList("red", "orange", "yellow", "green", "blue", "indigo", "violet")
+  private val rainbowColors =
+    PrologList("red", "orange", "yellow", "green", "blue", "indigo", "violet")
   private val rainbowProgram = prolog:
     staticTheory {
-      for color <- rainbowColors do clause { "rainbow"(color) }
+      for color <- rainbowColors do clause { "rainbow" (color) }
     }
 
   "'rainbow(orange)'" should "be a Yes solution of the rainbow program" in:
     expectOne[Solution.Yes]:
-      Solver solve (rainbowProgram withGoal "rainbow"("orange"))
+      Solver solve (rainbowProgram withGoal "rainbow" ("orange"))
 
   "A prolog program with no solution" should "return a single NO answer" in:
     expectOne[Solution.No]:
-      Solver solve (rainbowProgram withGoal "rainbow"("purple"))
+      Solver solve (rainbowProgram withGoal "rainbow" ("purple"))
 
   "Member predicate" should "give a Yes solution if the term is in the list" in:
     expect[Solution.Yes]:

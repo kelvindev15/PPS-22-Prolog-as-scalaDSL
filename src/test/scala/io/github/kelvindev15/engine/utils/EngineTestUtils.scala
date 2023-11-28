@@ -11,26 +11,31 @@ import scala.reflect.ClassTag
 
 trait EngineTestUtils:
   matchers: Matchers =>
-  def expect[T <: Solution](using tag: ClassTag[T])(solutions: Iterator[Solution]): Unit =
+  def expect[T <: Solution](using tag: ClassTag[T])(
+      solutions: Iterator[Solution]
+  ): Unit =
     assert(solutions.hasNext)
     solutions.next() shouldBe a[T]
 
-  def expectOne[T <: Solution](using tag: ClassTag[T])(solution: Iterator[Solution]): Unit =
+  def expectOne[T <: Solution](using tag: ClassTag[T])(
+      solution: Iterator[Solution]
+  ): Unit =
     expect[T](solution)
     solution.hasNext shouldBe false
 
-  extension(solutions: Iterable[Solution])
+  extension (solutions: Iterable[Solution])
     def expectSolutionsIn(expectedSolutions: Iterable[Solution]): Unit =
       solutions should contain allElementsOf expectedSolutions.to(LazyList)
     def expect(solution: Solution): Unit =
       assert(solutions.exists(_ == solution))
     def expectOnly(solution: Solution): Unit =
-      solutions should contain only solution  
+      solutions should contain only solution
 
-  extension(query: Struct)
-    def yes(substitutions: (Variable, Term)*): Yes = Yes(query, Substitution(substitutions*))
+  extension (query: Struct)
+    def yes(substitutions: (Variable, Term)*): Yes =
+      Yes(query, Substitution(substitutions*))
     def no: Solution.No = Solution.No(query)
     def also(actions: Struct => Unit): Unit = actions(query)
     def query: LazyList[Solution] = Solver lazyQuery query
-    def queryAndExpectOnly(goal: Struct => Solution): Unit = 
+    def queryAndExpectOnly(goal: Struct => Solution): Unit =
       query also { q => q.query expectOnly goal(query) }

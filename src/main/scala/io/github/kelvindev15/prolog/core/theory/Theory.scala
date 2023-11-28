@@ -18,9 +18,10 @@ trait Theory extends Seq[Clause]:
 
 object Theory:
   /** Returns an instance of [[Theory]].
-   *
-   * @param clauses the clauses to include in the theory.
-   */
+    *
+    * @param clauses
+    *   the clauses to include in the theory.
+    */
   def apply(clauses: Clause*): Theory = TheoryImpl(clauses)
 
   /** An empty [[Theory]]. */
@@ -29,7 +30,9 @@ object Theory:
   private case class TheoryImpl(clauses: Seq[Clause]) extends Theory:
     override def apply(i: Int): Clause = clauses(i)
     override def add(clause: Clause): Theory = Theory(this :+ clause*)
-    override def remove(clause: Clause): Theory = Theory(filterNot(_ == clause)*)
+    override def remove(clause: Clause): Theory = Theory(
+      filterNot(_ == clause)*
+    )
     override def contains(clause: Clause): Boolean = contains(clause)
     override def length: Int = clauses.length
     override def iterator: Iterator[Clause] = clauses.iterator

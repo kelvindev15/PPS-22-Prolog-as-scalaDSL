@@ -8,13 +8,17 @@ import org.scalatest.matchers.should.Matchers
 
 class TestRules extends AnyFlatSpec with Matchers:
 
-  private val grandfatherRule = Rule(Struct(Atom("grandfather"), Variable("X"), Variable("Y")),
+  private val grandfatherRule = Rule(
+    Struct(Atom("grandfather"), Variable("X"), Variable("Y")),
     Struct(Atom("father"), Variable("X"), Variable("Z")),
     Struct(Atom("father"), Variable("Z"), Variable("Y"))
   )
-  
+
   "A rule" can "have a single term body" in:
-    Rule(Struct(Atom("edible"), Variable("X")), Struct(Atom("food"), Variable("X"))) shouldBe a [Term]
+    Rule(
+      Struct(Atom("edible"), Variable("X")),
+      Struct(Atom("food"), Variable("X"))
+    ) shouldBe a[Term]
 
   "The functor of a rule" should "be ':-'" in:
     grandfatherRule.functor shouldBe Atom("':-'")
@@ -27,4 +31,8 @@ class TestRules extends AnyFlatSpec with Matchers:
 
   it should "have a grandfather(X, Y) as a head" in:
     assert(grandfatherRule.head.isDefined)
-    grandfatherRule.head.get shouldBe Struct(Atom("grandfather"), Variable("X"), Variable("Y"))
+    grandfatherRule.head.get shouldBe Struct(
+      Atom("grandfather"),
+      Variable("X"),
+      Variable("Y")
+    )
