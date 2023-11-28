@@ -19,7 +19,7 @@
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-gherkin-messages:7.14.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-gherkin:7.14.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-plugin:7.14.1:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-scala_3:8.18.1:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:cucumber-scala_3:8.19.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:datatable:7.14.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:docstring:7.14.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: io.cucumber:gherkin:26.2.0:jar" level="project" />
