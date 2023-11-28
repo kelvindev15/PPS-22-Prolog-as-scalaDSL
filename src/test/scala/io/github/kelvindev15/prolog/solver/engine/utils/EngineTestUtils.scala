@@ -1,4 +1,4 @@
-package io.github.kelvindev15.engine.utils
+package io.github.kelvindev15.prolog.engine.utils
 
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.{Struct, Term, Variable}

@@ -1,9 +1,9 @@
-package io.github.kelvindev15.engine
+package io.github.kelvindev15.prolog.engine
 
-import io.github.kelvindev15.engine.utils.EngineTestUtils
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.{PrologList, Term}
 import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
+import io.github.kelvindev15.prolog.engine.utils.EngineTestUtils
 import io.github.kelvindev15.prolog.solver.Solver
 import io.github.kelvindev15.prolog.solver.Solver.Solution
 import org.scalatest.flatspec.AnyFlatSpec

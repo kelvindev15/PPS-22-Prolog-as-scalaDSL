@@ -1,9 +1,9 @@
-package io.github.kelvindev15.prolog.utils
+package io.github.kelvindev15.prolog.visitors
 
+import io.github.kelvindev15.prolog.core.*
 import io.github.kelvindev15.prolog.core.Constant.{Atom, Numeric}
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
-import io.github.kelvindev15.prolog.core.*
 
 /** Visits the [[Term]] structures */
 trait TermVisitor[T]:
