@@ -6,11 +6,11 @@ import io.github.kelvindev15.prolog.core.Goals.Conjunction
 import io.github.kelvindev15.prolog.core.PrologList.Cons
 import io.github.kelvindev15.prolog.core.Struct.{Directive, Fact, Rule}
 import io.github.kelvindev15.prolog.core.{Constant, PrologList, Struct, Variable}
-import io.github.kelvindev15.prolog.dsl.{DeclarativeDSL, PrologDSL}
+import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-class TestDeclarativeDSL extends AnyFunSuite with Matchers with PrologDSL with DeclarativeDSL:
+class TestDeclarativeDSL extends AnyFunSuite with Matchers with PrologDSL with DeclarativeProlog:
   test("Creation of an empty prolog program"):
     val program: PrologProgram = prolog { }
     program.staticTheory shouldBe empty
