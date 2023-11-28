@@ -1,13 +1,13 @@
-package io.github.kelvindev15.prolog.engine.solvers
+package io.github.kelvindev15.prolog.solver.tuprolog
 
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.theory.Theory
 import io.github.kelvindev15.prolog.core.{Struct, Term}
-import io.github.kelvindev15.prolog.engine.Solver
-import io.github.kelvindev15.prolog.engine.Solver.Solution.{Halt, Yes}
-import io.github.kelvindev15.prolog.engine.Solver.{Solution, Substitution}
-import io.github.kelvindev15.prolog.engine.utils.TuPrologFactoryMethods.*
-import io.github.kelvindev15.prolog.engine.visitors.{From2PKtTermVisitor, To2PKtTermVisitor}
+import io.github.kelvindev15.prolog.solver.Solver
+import io.github.kelvindev15.prolog.solver.Solver.Solution.{Halt, Yes}
+import io.github.kelvindev15.prolog.solver.Solver.{Solution, Substitution}
+import TuPrologFactoryMethods.*
+import io.github.kelvindev15.prolog.solver.tuprolog.visitors.{From2PKtTermVisitor, To2PKtTermVisitor}
 import it.unibo.tuprolog.core.{Struct as KStruct, Substitution as KSubstitution, Term as KTerm}
 import it.unibo.tuprolog.solve.classic.ClassicSolverFactory
 import it.unibo.tuprolog.solve.{Solution as KSolution, Solver as KSolver}
@@ -15,7 +15,7 @@ import it.unibo.tuprolog.theory.Theory as KTheory
 
 import scala.jdk.CollectionConverters.*
 
-private[solvers] object ConversionsUtils:
+private[tuprolog] object ConversionsUtils:
   private val from2pktVisitor = From2PKtTermVisitor()
   given Conversion[Term, KTerm] = _.accept(To2PKtTermVisitor.withNewScope)
   given Conversion[Theory, KTheory] with

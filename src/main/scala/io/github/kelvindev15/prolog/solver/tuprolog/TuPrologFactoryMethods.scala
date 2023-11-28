@@ -1,4 +1,4 @@
-package io.github.kelvindev15.prolog.engine.utils
+package io.github.kelvindev15.prolog.solver.tuprolog
 
 import it.unibo.tuprolog.core.{Atom as KAtom, Cons as KCons, Directive as KDirective, EmptyList as KEmptyList, Fact as KFact, Numeric as KNumeric, Rule as KRule, Scope as KScope, Struct as KStruct, Var as KVar}
 import it.unibo.tuprolog.theory.Theory as KTheory

@@ -1,10 +1,10 @@
-package io.github.kelvindev15.prolog.engine
+package io.github.kelvindev15.prolog.solver
 
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.{Struct, Term, Variable}
-import io.github.kelvindev15.prolog.engine.Solver.Solution
-import io.github.kelvindev15.prolog.engine.Solver.Solution.{Halt, Yes}
-import io.github.kelvindev15.prolog.engine.solvers.TuPrologClassicSolver
+import io.github.kelvindev15.prolog.solver.Solver.Solution
+import io.github.kelvindev15.prolog.solver.Solver.Solution.{Halt, Yes}
+import io.github.kelvindev15.prolog.solver.tuprolog.TuPrologClassicSolver
 
 /** Instances of this trait solve [[PrologProgram]]s. */
 trait Solver:

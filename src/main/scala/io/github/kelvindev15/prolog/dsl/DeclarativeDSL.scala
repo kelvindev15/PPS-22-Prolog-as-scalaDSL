@@ -7,7 +7,7 @@ import io.github.kelvindev15.prolog.core.{Struct, Term}
 import io.github.kelvindev15.prolog.dsl.DeclarativeDSL.{MutableDynamicTheoryWrapper, MutableTheoryWrapper}
 
 
-protected trait DeclarativeDSL:
+trait DeclarativeDSL:
   dsl: PrologDSL =>
   private var prologProgram: PrologProgram = PrologProgram()
 
@@ -102,7 +102,7 @@ protected trait DeclarativeDSL:
   def goal(using program: PrologProgram)(g: Term): Unit =
     prologProgram = prologProgram withGoal g
 
-private object DeclarativeDSL:
+object DeclarativeDSL:
   trait MutableTheoryWrapper:
     var theory: Theory = Theory()
     def add(clause: Clause): Theory = { theory = theory add clause; theory }

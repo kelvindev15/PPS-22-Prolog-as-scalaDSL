@@ -3,8 +3,8 @@ package io.github.kelvindev15.engine
 import io.github.kelvindev15.engine.utils.TestUtils
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.dsl.{DeclarativeDSL, PrologDSL}
-import io.github.kelvindev15.prolog.engine.Solver
-import io.github.kelvindev15.prolog.engine.Solver.Solution
+import io.github.kelvindev15.prolog.solver.Solver
+import io.github.kelvindev15.prolog.solver.Solver.Solution
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 

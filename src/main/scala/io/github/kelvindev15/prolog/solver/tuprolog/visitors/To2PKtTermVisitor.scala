@@ -1,11 +1,11 @@
-package io.github.kelvindev15.prolog.engine.visitors
+package io.github.kelvindev15.prolog.solver.tuprolog.visitors
 
 import io.github.kelvindev15.prolog.core.*
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.PrologList.Cons
 import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
-import io.github.kelvindev15.prolog.engine.utils.TuPrologFactoryMethods.*
+import io.github.kelvindev15.prolog.solver.tuprolog.TuPrologFactoryMethods.*
 import io.github.kelvindev15.prolog.utils.TermVisitor
 import it.unibo.tuprolog.core.{Scope as KScope, Term as KTerm}
 

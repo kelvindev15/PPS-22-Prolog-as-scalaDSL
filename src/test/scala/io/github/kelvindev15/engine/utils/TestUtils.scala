@@ -2,9 +2,9 @@ package io.github.kelvindev15.engine.utils
 
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.{Struct, Term, Variable}
-import io.github.kelvindev15.prolog.engine.Solver
-import io.github.kelvindev15.prolog.engine.Solver.Solution.Yes
-import io.github.kelvindev15.prolog.engine.Solver.{Solution, Substitution}
+import io.github.kelvindev15.prolog.solver.Solver
+import io.github.kelvindev15.prolog.solver.Solver.Solution.Yes
+import io.github.kelvindev15.prolog.solver.Solver.{Solution, Substitution}
 import org.scalatest.matchers.should.Matchers
 
 import scala.reflect.ClassTag

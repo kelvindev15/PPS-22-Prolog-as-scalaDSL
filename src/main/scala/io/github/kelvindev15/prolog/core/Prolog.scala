@@ -6,7 +6,10 @@ import scala.util.matching.Regex
 
 object Prolog:
   object Syntax:
+    /** Prolog's atom syntax regex */
     val AtomRegex: Regex = "^[a-z][a-zA-Z_0-9]*$".r
+    
+    /** Prolog's variable syntax regex */
     val VariableRegex: Regex = "[A-Z_][a-zA-Z_0-9]*".r
     
   object Functors:

@@ -1,4 +1,4 @@
-package io.github.kelvindev15.prolog.engine.visitors
+package io.github.kelvindev15.prolog.solver.tuprolog.visitors
 
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.PrologList.Cons
