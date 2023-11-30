@@ -20,7 +20,7 @@ jobs:
         run: sbt test
 #      - name: Run BDD
 #        run: sbt cucumber
-  websites_test:
+  test_website_generation:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,3 +30,25 @@ jobs:
           cd docs
           npm install
           npm run build
+  release:
+    needs:
+      - test
+      - test_website_generation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: danysk/action-checkout@0.2.14
+      - uses: olafurpg/setup-scala@v14
+        with:
+          java-version: openjdk@1.17
+      - name: Install Semantic Release
+        run: |
+          npm install
+          npx semantic-release
+        id: release
+        env:
+          PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
+          PGP_SECRET: ${{ secrets.PGP_SECRET }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
