@@ -28,7 +28,7 @@ jobs:
       - name: Test website generation
         run: |
           cd docs
-          npm install
+          npm install --force
           npm run build
   release:
     needs:
