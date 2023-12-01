@@ -228,14 +228,14 @@ specifica implementazione del motore che eseguira il programma.
 
 * **'=:='(X, Y)** infix
 * **'=\\='(X, Y)** infix
-* **'<'(X, Y)** infix
-* **'>'(X, Y)** infix
-* **'>='(X, Y)** infix
-* **'=<'(X, Y)** infix
-* **'@<'(X, Y)** infix
-* **'@>'(X, Y)** infix
-* **'@>='(X, Y)** infix
-* **'@=<'(X, Y)** infix
+* **' < '(X, Y)** infix
+* **' > '(X, Y)** infix
+* **' >= '(X, Y)** infix
+* **' =< '(X, Y)** infix
+* **' @< '(X, Y)** infix
+* **' @> '(X, Y)** infix
+* **' @>= '(X, Y)** infix
+* **' @=< '(X, Y)** infix
 
 ##### Ispezione di un programma Prolog
 
