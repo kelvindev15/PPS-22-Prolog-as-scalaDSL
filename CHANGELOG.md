@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/1.0.1...1.0.2) (2023-12-01)
+
+
+### Bug Fixes
+
+* tagging command in release step ([2ab7dfc](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/2ab7dfca9ef431123410f7e4facd1ad12d80bf29))
+
 ## [1.0.1](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/1.0.0...1.0.1) (2023-12-01)
 
 
