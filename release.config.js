@@ -1,5 +1,5 @@
 var publishCmd = `
-git tag -a -f v\${nextRelease.version} v\${nextRelease.version} -F CHANGELOG.md
+git tag -a -f v\${nextRelease.version} -F CHANGELOG.md || exit 1
 sbt ci-release || exit 3
 git push --force origin v\${nextRelease.version} || exit 6
 `
