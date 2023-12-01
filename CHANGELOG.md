@@ -1,3 +1,15 @@
+## [1.0.1](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/1.0.0...1.0.1) (2023-12-01)
+
+
+### Dependency updates
+
+* **deps:** update dependency com.github.sbt:sbt-pgp to v2.2.1 ([59d6f19](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/59d6f1946da9122de47d0aabd2c03e3288818cdb))
+
+
+### Bug Fixes
+
+* release tags ([378cc4a](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/378cc4ac58a3a8294093e4d6bf1589186c3a11de))
+
 ## 1.0.0 (2023-11-30)
 
 
