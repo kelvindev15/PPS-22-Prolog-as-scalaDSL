@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/1.0.2...1.0.3) (2023-12-01)
+
+
+### Bug Fixes
+
+* try to avoid publishing to snapshots ([3179c85](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/3179c85963bf5c3b27f7f76294e0e89578e1fe2b))
+
 ## [1.0.2](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/1.0.1...1.0.2) (2023-12-01)
 
 
