@@ -1,7 +1,7 @@
 var publishCmd = `
-git tag -a -f \${nextRelease.version} \${nextRelease.version} -F CHANGELOG.md
+git tag -a -f v\${nextRelease.version} v\${nextRelease.version} -F CHANGELOG.md
 sbt ci-release || exit 3
-git push --force origin \${nextRelease.version} || exit 6
+git push --force origin v\${nextRelease.version} || exit 6
 `
 var config = require('semantic-release-preconfigured-conventional-commits');
 config.plugins.push(

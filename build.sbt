@@ -6,10 +6,6 @@ ThisBuild / description := "A DSL written in scala to write Prolog programs"
 
 ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
 sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
-ThisBuild / publishMavenStyle := true
-
-// enablePlugins(CucumberPlugin)
-// CucumberPlugin.glues := List("example.scenarios")
 
 scalafmtDetailedError := true
 /*
