@@ -11,7 +11,6 @@ import io.github.kelvindev15.prolog.core.{
   Struct,
   Variable
 }
-import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
@@ -108,5 +107,5 @@ class TestDeclarativePrologDSL
   test("Using programTheory as dynamic theory alias"):
     prolog {
       programTheory:
-        fact { "likes"(X) }
+        fact { "likes" (X) }
     }.dynamicTheory shouldBe Seq(Fact(Struct(Atom("likes"), Variable("X"))))
