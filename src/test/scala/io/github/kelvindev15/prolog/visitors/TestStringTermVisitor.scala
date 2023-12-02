@@ -31,3 +31,24 @@ class TestStringTermVisitor
   test("Test numeric"):
     "pred" (1.3).toString shouldEqual "pred(1.3)"
     "pred" (25).toString shouldEqual "pred(25)"
+
+  test("Test prolog program"):
+   prolog {
+     staticTheory:
+       clause { "father"("abraham", "isaac") }
+       clause { "father"("terach", "abraham") }
+       clause {
+         "grandfather"(varOf("GF"), varOf("GS")) :- ("father"(varOf("GF"), F) &: "father"(F, varOf("GS")))
+       }
+   }.toString shouldBe
+     """|staticTheory {
+        |  father(abraham, isaac) :- true.
+        |  father(terach, abraham) :- true.
+        |  grandfather(GF, GS) :- father(GF, F), father(F, GS).
+        |}
+        |
+        |dynamicTheory {
+        |
+        |}
+        |
+        |?- <empty_goal>""".stripMargin

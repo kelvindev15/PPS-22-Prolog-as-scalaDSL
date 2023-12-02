@@ -36,3 +36,5 @@ object Theory:
     override def contains(clause: Clause): Boolean = contains(clause)
     override def length: Int = clauses.length
     override def iterator: Iterator[Clause] = clauses.iterator
+
+    override def toString(): String = clauses.mkString(sep="\n")

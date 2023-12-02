@@ -71,3 +71,14 @@ object PrologProgram:
       PrologProgramImpl(staticTheory, theory, goal)
     override def withGoal(goal: Term): PrologProgram =
       PrologProgramImpl(staticTheory, dynamicTheory, Some(goal))
+
+    override def toString: String =
+      s"""|staticTheory {
+          |${staticTheory.toString().split("\n").map(l => s"  $l").mkString("\n")}
+          |}
+          |
+          |dynamicTheory {
+          |${dynamicTheory.toString().split("\n").filter(!_.isBlank).map(l => s"  $l").mkString("\n")}
+          |}
+          |
+          |?- ${goal.getOrElse("<empty_goal>")}""".stripMargin
