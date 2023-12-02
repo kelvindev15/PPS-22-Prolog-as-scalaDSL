@@ -104,3 +104,9 @@ class TestDeclarativePrologDSL
         Struct(Atom("="), Cons(Variable("H"), Variable("T")), Variable("S"))
       )
     )
+
+  test("Using programTheory as dynamic theory alias"):
+    prolog {
+      programTheory:
+        fact { "likes"(X) }
+    }.dynamicTheory shouldBe Seq(Fact(Struct(Atom("likes"), Variable("X"))))

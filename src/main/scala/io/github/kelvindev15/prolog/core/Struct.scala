@@ -162,6 +162,6 @@ object Struct:
 
     private case class FactImpl(_head: Struct) extends Fact:
       override val head: Option[Struct] = Option(_head)
-      override val arguments: Seq[Term] = Seq(head.get)
+      override val arguments: Seq[Term] = Seq(head.get, body)
       override def isGround: Boolean = head.get.isGround
       override def variables: Seq[Variable] = head.get.variables
