@@ -1,3 +1,32 @@
+## [2.0.0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/1.0.3...2.0.0) (2023-12-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* use package protected modifiers so to hide mutableWrappers
+
+### Features
+
+* **declarativeDSL:** programTheory is now an alias of dynamicTheory ([0bc416b](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/0bc416b6dd2e2218ce55dcdf061e958fbf655fd7))
+* implement PrologProgram toString ([10829bb](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/10829bb9f360a5c2ea3c69bd789e81bdd9d183a5))
+
+
+### Dependency updates
+
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.79 ([f041fe3](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/f041fe3c7c8dc7c950f955b0c25b1ab634030bbc))
+
+
+### Build and continuous integration
+
+* install npm with force ([c717b01](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/c717b01de4a2b52fe81ff3a140425a26904230bb))
+* try fixing illegal character sequence ([56755c9](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/56755c9dc78a95aa4caf9a0914f986bc0e3ace28))
+
+
+### Refactoring
+
+* optimize imports ([0221e2d](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/0221e2dd1b923bc6121130a4903e88a4c293e6fc))
+* use package protected modifiers so to hide mutableWrappers ([34c8945](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/34c89456fb85932c08c09482a37a22b7e015de56))
+
 ## [1.0.3](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/1.0.2...1.0.3) (2023-12-01)
 
 
