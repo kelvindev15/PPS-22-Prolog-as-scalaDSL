@@ -39,7 +39,7 @@ trait Solver:
   def admitsSolutions(program: PrologProgram): Boolean =
     val solutions = solve(program)
     solutions.hasNext && solutions.next().isInstanceOf[Solution.Yes]
-  
+
 object Solver:
   /** A mapping from [[Variable]]s to [[Term]]s */
   type Substitution = Map[Variable, Term]
@@ -147,12 +147,22 @@ object Solver:
   ): LazyList[Solution] =
     solver lazySolve (PrologProgram.emptyTheory withGoal query)
 
+  /** Returns true if the program admits at least one solution.
+   *
+   * @param solver the solver that should be used.
+   * @param program the program to solve.
+   */
   def hasSolutionForProgram(using solver: Solver = tuPrologSolver())(
     program: PrologProgram
   ): Boolean =
     val solutions = solve(program)
     solutions.hasNext && solutions.next().isInstanceOf[Solution.Yes]
 
+  /** Returns true if the program admits at least one solution.
+   *
+   * @param solver  the solver that should be used.
+   * @param goal the program to satisfy.
+   */
   def hasSolutionForGoal(using solver: Solver = tuPrologSolver())(
     goal: Term
   ): Boolean = hasSolutionForProgram(PrologProgram.emptyTheory withGoal goal)
