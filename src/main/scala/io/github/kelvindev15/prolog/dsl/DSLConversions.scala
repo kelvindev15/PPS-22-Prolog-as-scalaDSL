@@ -4,7 +4,7 @@ import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Struct.Fact
 import io.github.kelvindev15.prolog.core.{Constant, PrologList, Struct, Term}
 
-protected trait DSLConversions:
+protected[dsl] trait DSLConversions:
   dsl: PrologDSL =>
   given Conversion[String, Atom] = Atom(_)
   given Conversion[AnyVal, Constant] = {

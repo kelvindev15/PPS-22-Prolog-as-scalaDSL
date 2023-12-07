@@ -6,7 +6,7 @@ import io.github.kelvindev15.prolog.core.{Goals, Struct, Term}
 
 import scala.annotation.targetName
 
-protected trait DSLExtensions:
+protected[dsl] trait DSLExtensions:
   dsl: PrologDSL =>
   extension (atom: Atom)
     /** Creates [[Struct]] using the this atom as a functor.

@@ -2,14 +2,9 @@ package io.github.kelvindev15.prolog.dsl
 
 import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
-import io.github.kelvindev15.prolog.core.theory.Theory
 import io.github.kelvindev15.prolog.core.{Struct, Term}
-import io.github.kelvindev15.prolog.dsl.DeclarativeProlog.{
-  MutableDynamicTheoryWrapper,
-  MutableTheoryWrapper
-}
 
-trait DeclarativeProlog:
+trait DeclarativeProlog extends DeclarativePrologUtils:
   dsl: PrologDSL =>
   private var prologProgram: PrologProgram = PrologProgram()
 
@@ -163,20 +158,3 @@ trait DeclarativeProlog:
   def goal(using program: PrologProgram)(g: Term): Unit =
     prologProgram = prologProgram withGoal g
 
-object DeclarativeProlog:
-  trait MutableTheoryWrapper:
-    var theory: Theory = Theory()
-    def add(clause: Clause): Theory = { theory = theory add clause; theory }
-    def remove(clause: Clause): Theory = {
-      theory = theory remove clause; theory
-    }
-
-  trait MutableDynamicTheoryWrapper extends MutableTheoryWrapper
-
-  object MutableDynamicTheoryWrapper:
-    def apply(t: Theory): MutableDynamicTheoryWrapper =
-      new MutableDynamicTheoryWrapper:
-        theory = t
-    def apply(clauses: Clause*): MutableDynamicTheoryWrapper =
-      new MutableDynamicTheoryWrapper:
-        theory = Theory(clauses*)

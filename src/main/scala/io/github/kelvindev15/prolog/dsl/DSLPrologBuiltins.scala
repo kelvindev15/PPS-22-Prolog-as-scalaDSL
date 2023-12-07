@@ -7,12 +7,12 @@ import io.github.kelvindev15.prolog.core.{Constant, Prolog, Struct, Term}
 
 import scala.annotation.targetName
 
-protected enum AssociativitySpec extends Atom:
+protected[dsl] enum AssociativitySpec extends Atom:
   case fx, fy, xf, xfx, xfy, yfx, yfy
   override val value: String = toString
   override val unquotedValue: String = value
 
-protected trait DSLPrologBuiltins:
+protected[dsl] trait DSLPrologBuiltins:
   dsl: PrologDSL =>
   export AssociativitySpec.*
 
