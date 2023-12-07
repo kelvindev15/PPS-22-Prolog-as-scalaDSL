@@ -25,8 +25,7 @@ trait Solver:
     * @return
     *   a lazy list of the program's [[Solution]]s.
     */
-  def lazySolve(program: PrologProgram): LazyList[Solution] =
-    Solver.solve(program).to(LazyList)
+  def lazySolve(program: PrologProgram): LazyList[Solution] = solve(program).to(LazyList)
 
   /** Solves a program.
     *
@@ -35,9 +34,12 @@ trait Solver:
     * @return
     *   a list of the program's [[Solution]]s.
     */
-  def solutionsOf(program: PrologProgram): Seq[Solution] =
-    Solver.solve(program).to(Seq)
+  def solutionsOf(program: PrologProgram): Seq[Solution] = solve(program).to(Seq)
 
+  def admitsSolutions(program: PrologProgram): Boolean =
+    val solutions = solve(program)
+    solutions.hasNext && solutions.next().isInstanceOf[Solution.Yes]
+  
 object Solver:
   /** A mapping from [[Variable]]s to [[Term]]s */
   type Substitution = Map[Variable, Term]
@@ -144,3 +146,13 @@ object Solver:
       query: Term
   ): LazyList[Solution] =
     solver lazySolve (PrologProgram.emptyTheory withGoal query)
+
+  def hasSolutionForProgram(using solver: Solver = tuPrologSolver())(
+    program: PrologProgram
+  ): Boolean =
+    val solutions = solve(program)
+    solutions.hasNext && solutions.next().isInstanceOf[Solution.Yes]
+
+  def hasSolutionForGoal(using solver: Solver = tuPrologSolver())(
+    goal: Term
+  ): Boolean = hasSolutionForProgram(PrologProgram.emptyTheory withGoal goal)

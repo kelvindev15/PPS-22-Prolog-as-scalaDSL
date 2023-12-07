@@ -61,3 +61,8 @@ class TestPrologEngine
         goal:
           query
     } expectSolutionsIn fruits.map(e => query.yes(X -> e))
+
+  "Solver's method 'admitsSolutions'" should "return false on a program with no solutions, and yes on a program" +
+    " with at least one solution" in:
+    assert(!(Solver hasSolutionForGoal member("notInList", list(1, 2, 4))))
+    assert(Solver hasSolutionForGoal member("b", list("a", "b", "c", 1)))
