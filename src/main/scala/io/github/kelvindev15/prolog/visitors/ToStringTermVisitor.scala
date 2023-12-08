@@ -5,7 +5,7 @@ import io.github.kelvindev15.prolog.core.RecursiveStruct.BinaryRecursiveStruct
 import io.github.kelvindev15.prolog.core.Struct.Clause
 import io.github.kelvindev15.prolog.core.*
 
-class ToStringTermVisitor extends TermVisitor[String]:
+object ToStringTermVisitor extends TermVisitor[String]:
 
   override def visit(atom: Constant.Atom): String = atom.value
   override def visit(numeric: Constant.Numeric): String = numeric.value.toString
