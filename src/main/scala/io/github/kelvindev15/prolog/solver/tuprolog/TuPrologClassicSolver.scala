@@ -48,7 +48,7 @@ private[tuprolog] object ConversionsUtils:
     _.asScala.map(identity)
 
 /** A [[Solver]] that leverages on the tuProlog engine */
-class TuPrologClassicSolver extends Solver:
+private[solver] class TuPrologClassicSolver extends Solver:
   import ConversionsUtils.given
 
   private def classicSolverOf(

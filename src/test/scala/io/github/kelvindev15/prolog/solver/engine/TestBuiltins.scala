@@ -138,4 +138,4 @@ class TestBuiltins
 
   test("Test operators"):
     expectOne[Solution.Yes]:
-      Solver query (&&(X `=` 3, 2 < X))
+      Solver query &&(X `=` 3, 2 < X)

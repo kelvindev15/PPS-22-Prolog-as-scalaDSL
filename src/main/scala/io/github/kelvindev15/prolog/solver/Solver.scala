@@ -6,6 +6,8 @@ import io.github.kelvindev15.prolog.solver.Solver.Solution
 import io.github.kelvindev15.prolog.solver.Solver.Solution.{Halt, Yes}
 import io.github.kelvindev15.prolog.solver.tuprolog.TuPrologClassicSolver
 
+import scala.reflect.ClassTag
+
 /** Instances of this trait solve [[PrologProgram]]s. */
 trait Solver:
 
@@ -25,7 +27,8 @@ trait Solver:
     * @return
     *   a lazy list of the program's [[Solution]]s.
     */
-  def lazySolve(program: PrologProgram): LazyList[Solution] = solve(program).to(LazyList)
+  def lazySolve(program: PrologProgram): LazyList[Solution] =
+    solve(program).to(LazyList)
 
   /** Solves a program.
     *
@@ -34,10 +37,25 @@ trait Solver:
     * @return
     *   a list of the program's [[Solution]]s.
     */
-  def solutionsOf(program: PrologProgram): Seq[Solution] = solve(program).to(Seq)
+  def solutionsOf(program: PrologProgram): Seq[Solution] =
+    solve(program).to(Seq)
 
-  def admitsSolutions(program: PrologProgram): Boolean =
+  /** Returns true if the program admits at least one solution.
+    *
+    * @param program
+    *   the program to solve.
+    */
+  def hasSolutionFor(program: PrologProgram): Boolean =
     val solutions = solve(program)
+    solutions.hasNext && solutions.next().isInstanceOf[Solution.Yes]
+
+  /** Returns true if the provided goal admits at least one solution.
+    *
+    * @param goal
+    *   the program to satisfy.
+    */
+  def hasSolutionFor(goal: Term): Boolean =
+    val solutions = solve(PrologProgram.emptyTheory withGoal goal)
     solutions.hasNext && solutions.next().isInstanceOf[Solution.Yes]
 
 object Solver:
@@ -63,6 +81,52 @@ object Solver:
     /** A wrapper for the exception raised by the solver.
       */
     case Halt(exception: Exception)
+
+  extension (solution: Solution)
+    def apply(variable: Variable): Option[Term] = solution match
+      case y: Solution.Yes => Some(y.substitution(variable))
+      case _               => None
+
+    /** Returns true if the solution is a [[Yes]]. */
+    def isYes: Boolean = solution.isInstanceOf[Solution.Yes]
+
+    /** Returns true if the solution is a [[No]]. */
+    def isNo: Boolean = solution.isInstanceOf[Solution.No]
+
+    /** Returns true if the solution is a [[Halt]]. */
+    def isHalt: Boolean = solution.isInstanceOf[Solution.Halt]
+
+    /** Cast the solution to a [[Solution]] of type [[T]].
+      *
+      * @tparam T
+      *   the type of the expected solution
+      *
+      * @throws ClassCastException
+      *   if [[T]] is not the runtime type of the solution.
+      */
+    def as[T <: Solution](using ClassTag[T]): Solution =
+      solution.asInstanceOf[T]
+
+    /** Cast the solution to a [[Yes]] [[Solution]].
+      *
+      * @throws ClassCastException
+      *   if [[Yes]] is not the runtime type of the solution.
+      */
+    def asYes: Solution = solution.as[Solution.Yes]
+
+    /** Cast the solution to a [[No]] [[Solution]].
+      *
+      * @throws ClassCastException
+      *   if [[No]] is not the runtime type of the solution.
+      */
+    def asNo: Solution = solution.as[Solution.No]
+
+    /** Cast the solution to a [[Halt]] [[Solution]].
+      *
+      * @throws ClassCastException
+      *   if [[Halt]] is not the runtime type of the solution.
+      */
+    def asHalt: Solution = solution.as[Solution.Halt]
 
   /** Returns a Solver that leverages on the tuProlog engine. */
   def tuPrologSolver(): Solver = TuPrologClassicSolver()
@@ -147,22 +211,26 @@ object Solver:
   ): LazyList[Solution] =
     solver lazySolve (PrologProgram.emptyTheory withGoal query)
 
-  /** Returns true if the program admits at least one solution.
-   *
-   * @param solver the solver that should be used.
-   * @param program the program to solve.
-   */
+  /** Returns true if the program admits at least one solution. If not specified
+    * the default solver that will be used is the [[TuPrologClassicSolver]].
+    *
+    * @param solver
+    *   the solver that should be used.
+    * @param program
+    *   the program to solve.
+    */
   def hasSolutionForProgram(using solver: Solver = tuPrologSolver())(
-    program: PrologProgram
-  ): Boolean =
-    val solutions = solve(program)
-    solutions.hasNext && solutions.next().isInstanceOf[Solution.Yes]
+      program: PrologProgram
+  ): Boolean = solver hasSolutionFor program
 
-  /** Returns true if the program admits at least one solution.
-   *
-   * @param solver  the solver that should be used.
-   * @param goal the program to satisfy.
-   */
+  /** Returns true if the provided goal admits at least one solution. If not
+    * specified the default solver that will be used is the
+    * [[TuPrologClassicSolver]].
+    * @param solver
+    *   the solver that should be used.
+    * @param goal
+    *   the program to satisfy.
+    */
   def hasSolutionForGoal(using solver: Solver = tuPrologSolver())(
-    goal: Term
-  ): Boolean = hasSolutionForProgram(PrologProgram.emptyTheory withGoal goal)
+      goal: Term
+  ): Boolean = solver hasSolutionFor goal

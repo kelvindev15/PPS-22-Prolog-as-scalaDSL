@@ -1,6 +1,5 @@
 package io.github.kelvindev15.prolog.solver.engine.utils
 
-import io.github.kelvindev15.prolog.PrologProgram
 import io.github.kelvindev15.prolog.core.{Struct, Term, Variable}
 import io.github.kelvindev15.prolog.solver.Solver
 import io.github.kelvindev15.prolog.solver.Solver.Solution.Yes

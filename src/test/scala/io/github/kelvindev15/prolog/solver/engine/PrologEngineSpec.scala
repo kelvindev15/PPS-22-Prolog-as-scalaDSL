@@ -1,18 +1,19 @@
 package io.github.kelvindev15.prolog.solver.engine
 
 import io.github.kelvindev15.prolog.PrologProgram
-import io.github.kelvindev15.prolog.core.{PrologList, Term}
+import io.github.kelvindev15.prolog.core.{Constant, PrologList, Term}
 import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
 import io.github.kelvindev15.prolog.solver.Solver
 import io.github.kelvindev15.prolog.solver.Solver.Solution
 import io.github.kelvindev15.prolog.solver.engine.utils.EngineTestUtils
 import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
 import scala.reflect
 import scala.reflect.ClassTag
 
-class TestPrologEngine
+class PrologEngineSpec
     extends AnyFlatSpec
     with Matchers
     with EngineTestUtils
@@ -66,3 +67,24 @@ class TestPrologEngine
     " with at least one solution" in:
     assert(!(Solver hasSolutionForGoal member("notInList", list(1, 2, 4))))
     assert(Solver hasSolutionForGoal member("b", list("a", "b", "c", 1)))
+
+class TestPrologEngine extends AnyFunSuite with Matchers with PrologDSL with DeclarativeProlog:
+  test("Access to substitutions of Yes/No solutions"):
+    val solutions = Solver query member(X, list(1, 2, 3))
+    assert(solutions.hasNext)
+    val first = solutions.next()
+    assert(first.isYes)
+    first.asYes(X) shouldBe Some(Constant(1))
+    { solutions.next(); solutions.next() }
+    assert(solutions.hasNext)
+    val last = solutions.next()
+    assert(last.isNo)
+    last.asNo(X) shouldBe None
+
+  test("Access to substitutions of Halt solutions"):
+    val solutions = Solver query (X is Y)
+    assert(solutions.hasNext)
+    val theSolution = solutions.next()
+    assert(theSolution.isHalt)
+    theSolution.asHalt(X) shouldBe None
+    
