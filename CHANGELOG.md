@@ -1,3 +1,39 @@
+## [3.0.0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/2.0.0...3.0.0) (2023-12-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **dsl:** visitors are now sigletons
+
+### Features
+
+* **dsl:** add variable W ([11e7e84](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/11e7e84c94d802de612949a6db2070d5134a155f))
+* **solver:** add method to check if a program or a query admits at least one solution ([2adbe77](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/2adbe77c57826d9d5d9234028d0bc10621244899))
+* **solver:** add method to get the instance of a solved query ([59cff1c](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/59cff1ca6820f8a9f86039cb37bb87dce730c9a0))
+* **solver:** add utility extension method to check and cast the type of solutions ([fe5fe69](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/fe5fe693a152fb33622217a769b4c9ae1bd8936d))
+
+
+### Bug Fixes
+
+* **solver:** return type of utility methods ([d299034](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/d299034f4bb546a7e5d8074a5fd8950344da58a4))
+
+
+### Documentation
+
+* **solver:** document apply method ([55d5602](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/55d5602857de2e762465623f3f0b00d8708d10f9))
+* **solver:** document method to check if a program or a query admits at least one solution ([32d2c15](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/32d2c15bfbaca4f9642fa3daceb0d0d97c8b2889))
+
+
+### General maintenance
+
+* remove useless print ([b38e6ba](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/b38e6baa2af12c1ace3938c7e0cb94e0d3b18edc))
+
+
+### Refactoring
+
+* **dsl:** visitors are now sigletons ([e2baeb4](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/e2baeb450a6f1a0345ca05adef710507b10328a3))
+* use visitors as singletons ([65ca8eb](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/65ca8ebc21fa3a5004bd0aa967c0f5f1bcab26b2))
+
 ## [2.0.0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/1.0.3...2.0.0) (2023-12-07)
 
 
