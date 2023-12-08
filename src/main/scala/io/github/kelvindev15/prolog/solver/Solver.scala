@@ -83,6 +83,8 @@ object Solver:
     case Halt(exception: Exception)
 
   extension (solution: Solution)
+    /** Retrieve the substitution term for the provided variable.
+      */
     def apply(variable: Variable): Option[Term] = solution match
       case y: Solution.Yes => Some(y.substitution(variable))
       case _               => None
