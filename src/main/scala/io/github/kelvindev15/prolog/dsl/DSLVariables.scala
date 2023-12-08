@@ -17,6 +17,7 @@ protected[dsl] trait DSLVariables:
   def M: Variable = Variable("M")
   def S: Variable = Variable("S")
   def T: Variable = Variable("T")
+  def W: Variable = Variable("W")
   def X: Variable = Variable("X")
   def Y: Variable = Variable("Y")
   def Z: Variable = Variable("Z")
