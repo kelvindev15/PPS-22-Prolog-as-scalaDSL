@@ -104,7 +104,7 @@ object Solver:
       * @throws ClassCastException
       *   if [[T]] is not the runtime type of the solution.
       */
-    def as[T <: Solution](using ClassTag[T]): Solution =
+    def as[T <: Solution](using ClassTag[T]): T =
       solution.asInstanceOf[T]
 
     /** Cast the solution to a [[Yes]] [[Solution]].
@@ -112,21 +112,21 @@ object Solver:
       * @throws ClassCastException
       *   if [[Yes]] is not the runtime type of the solution.
       */
-    def asYes: Solution = solution.as[Solution.Yes]
+    def asYes: Solution.Yes = solution.as[Solution.Yes]
 
     /** Cast the solution to a [[No]] [[Solution]].
       *
       * @throws ClassCastException
       *   if [[No]] is not the runtime type of the solution.
       */
-    def asNo: Solution = solution.as[Solution.No]
+    def asNo: Solution.No = solution.as[Solution.No]
 
     /** Cast the solution to a [[Halt]] [[Solution]].
       *
       * @throws ClassCastException
       *   if [[Halt]] is not the runtime type of the solution.
       */
-    def asHalt: Solution = solution.as[Solution.Halt]
+    def asHalt: Solution.Halt = solution.as[Solution.Halt]
 
   /** Returns a Solver that leverages on the tuProlog engine. */
   def tuPrologSolver(): Solver = TuPrologClassicSolver()
