@@ -27,7 +27,7 @@ class TestRules extends AnyFlatSpec with Matchers:
     grandfatherRule.arity shouldBe 2
 
   "The rule grandfather(X, Y) :- father(X, Z), father(Z, Y)" should "have 2 terms in the linearized version" in:
-    grandfatherRule.body.accept(BinaryToFlatVisitor()) should have size 2
+    grandfatherRule.body.accept(BinaryToFlatVisitor) should have size 2
 
   it should "have a grandfather(X, Y) as a head" in:
     assert(grandfatherRule.head.isDefined)

@@ -6,6 +6,7 @@ import io.github.kelvindev15.prolog.dsl.{DeclarativeProlog, PrologDSL}
 import io.github.kelvindev15.prolog.solver.Solver
 import io.github.kelvindev15.prolog.solver.Solver.Solution
 import io.github.kelvindev15.prolog.solver.engine.utils.EngineTestUtils
+import io.github.kelvindev15.prolog.solver.tuprolog.visitors.To2PKtTermVisitor
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
@@ -65,10 +66,15 @@ class PrologEngineSpec
 
   "Solver's method 'admitsSolutions'" should "return false on a program with no solutions, and yes on a program" +
     " with at least one solution" in:
-    assert(!(Solver hasSolutionForGoal member("notInList", list(1, 2, 4))))
-    assert(Solver hasSolutionForGoal member("b", list("a", "b", "c", 1)))
+      assert(!(Solver hasSolutionForGoal member("notInList", list(1, 2, 4))))
+      assert(Solver hasSolutionForGoal member("b", list("a", "b", "c", 1)))
 
-class TestPrologEngine extends AnyFunSuite with Matchers with PrologDSL with DeclarativeProlog:
+class TestPrologEngine
+    extends AnyFunSuite
+    with Matchers
+    with EngineTestUtils
+    with PrologDSL
+    with DeclarativeProlog:
   test("Access to substitutions of Yes/No solutions"):
     val solutions = Solver query member(X, list(1, 2, 3))
     assert(solutions.hasNext)
@@ -87,4 +93,42 @@ class TestPrologEngine extends AnyFunSuite with Matchers with PrologDSL with Dec
     val theSolution = solutions.next()
     assert(theSolution.isHalt)
     theSolution.asHalt(X) shouldBe None
-    
+
+  test("Instance of a solution"):
+    val termList = list("a", "b", "c")
+    val solutions = Solver lazyQuery member(X, termList)
+    solutions.map(_.instance) shouldBe LazyList[Option[Term]](
+      Some(member("a", termList)),
+      Some(member("b", termList)),
+      Some(member("c", termList)),
+      None
+    )
+
+    val program = prolog:
+      staticTheory:
+        fact { "person" ("mario", 1.80, 50) }
+        fact { "person" ("luigi", 1.20, 80) }
+        fact { "person" ("luca", 2.00, 70) }
+        rule { "height" (H, "tall") :- (H @>= 1.9) }
+        rule { "height" (H, "medium") :- ((H @>= 1.45) &: (H @< 1.9)) }
+        rule { "height" (H, "short") :- (1.45 @> H) }
+        rule { "weight" (W, "skinny") :- (W @< 45.0) }
+        rule { "weight" (W, "normal") :- (W @>= 45.0) }
+        rule {
+          "signs" (X, A, B) :- &&(
+            "person" (X, H, W),
+            "height" (H, A),
+            "weight" (W, B)
+          )
+        }
+    Solver solutionsOf {
+      program withGoal "signs" ("mario", X, Y)
+    } expectInstancesIn Seq("signs" ("mario", "medium", "skinny"))
+
+    Solver solutionsOf {
+      program withGoal "signs"("luigi", X, Y)
+    } expectInstancesIn Seq("signs"("luigi", "short", "skinny"))
+
+    Solver solutionsOf {
+      program withGoal "signs"("luca", X, Y)
+    } expectInstancesIn Seq("signs"("luca", "tall", "skinny"))

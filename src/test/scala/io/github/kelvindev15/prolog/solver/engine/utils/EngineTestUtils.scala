@@ -29,6 +29,15 @@ trait EngineTestUtils:
       assert(solutions.exists(_ == solution))
     def expectOnly(solution: Solution): Unit =
       solutions should contain only solution
+    def expectInstancesIn(expectedInstances: Iterable[Term]): Unit =
+      solutions
+        .map(_.instance)
+        .filter(_.isDefined)
+        .map(_.get) should contain allElementsOf expectedInstances.to(LazyList)
+    def expect(instance: Term): Unit =
+      assert(solutions.exists(_.instance == instance))
+    def expectOnly(instance: Term): Unit =
+      solutions.map(_.instance) should contain only Some(instance)
 
   extension (query: Struct)
     def yes(substitutions: (Variable, Term)*): Yes =

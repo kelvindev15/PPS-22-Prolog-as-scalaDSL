@@ -1,7 +1,8 @@
 package io.github.kelvindev15.prolog.core
 
+import io.github.kelvindev15.prolog.solver.Solver.Substitution
 import io.github.kelvindev15.prolog.utils.TermConvertible
-import io.github.kelvindev15.prolog.visitors.{TermVisitor, ToStringTermVisitor}
+import io.github.kelvindev15.prolog.visitors.{TermVisitor, ToInstanceTermVisitor, ToStringTermVisitor}
 
 /** A trait to visit a Term like object. */
 trait Visitable:
@@ -26,4 +27,10 @@ trait Term extends TermConvertible with Visitable:
 
   override def toTerm: Term = this
 
-  override def toString: String = accept(ToStringTermVisitor())
+  override def toString: String = accept(ToStringTermVisitor)
+
+  /** Returns the application of the substitution to this term.
+   * 
+   * @param substitution the substitution to apply.
+   */
+  def instanceFrom(substitution: Substitution): Term = accept(ToInstanceTermVisitor(substitution))
