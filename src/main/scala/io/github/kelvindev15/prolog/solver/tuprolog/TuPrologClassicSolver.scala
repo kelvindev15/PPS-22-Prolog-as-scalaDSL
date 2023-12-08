@@ -6,7 +6,7 @@ import io.github.kelvindev15.prolog.core.{Struct, Term}
 import io.github.kelvindev15.prolog.solver.Solver
 import io.github.kelvindev15.prolog.solver.Solver.Solution.{Halt, Yes}
 import io.github.kelvindev15.prolog.solver.Solver.{Solution, Substitution}
-import TuPrologFactoryMethods.*
+import io.github.kelvindev15.prolog.solver.tuprolog.TuPrologFactoryMethods.*
 import io.github.kelvindev15.prolog.solver.tuprolog.visitors.{
   From2PKtTermVisitor,
   To2PKtTermVisitor
@@ -23,19 +23,21 @@ import it.unibo.tuprolog.theory.Theory as KTheory
 import scala.jdk.CollectionConverters.*
 
 private[tuprolog] object ConversionsUtils:
-  private val from2pktVisitor = From2PKtTermVisitor()
   given Conversion[Term, KTerm] = _.accept(To2PKtTermVisitor.withNewScope)
   given Conversion[Theory, KTheory] with
     override def apply(theory: Theory): KTheory =
       ktTheoryOf(
         theory.map(_.accept(To2PKtTermVisitor.withNewScope).asClause())*
       )
-  given Conversion[KStruct, Struct] = from2pktVisitor.visitStruct(_)
+  given Conversion[KStruct, Struct] = From2PKtTermVisitor.visitStruct(_)
   given Conversion[KSubstitution, Substitution] = {
     case substitution: KSubstitution.Unifier =>
       Map(
         substitution.asScala.toSeq.map(p =>
-          (from2pktVisitor.visitVar(p._1), from2pktVisitor.visitTerm(p._2))
+          (
+            From2PKtTermVisitor.visitVar(p._1),
+            From2PKtTermVisitor.visitTerm(p._2)
+          )
         )*
       )
   }

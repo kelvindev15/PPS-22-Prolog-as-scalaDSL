@@ -83,10 +83,19 @@ object Solver:
     case Halt(exception: Exception)
 
   extension (solution: Solution)
-    /** Retrieve the substitution term for the provided variable.
+    /** Returns an option filled with the substitution term for the provided
+      * variable. The option will be empty if the solution is [[No]] or [[Halt]]
+      * or the provided variable is not in the [[Substitution]].
       */
     def apply(variable: Variable): Option[Term] = solution match
       case y: Solution.Yes => Some(y.substitution(variable))
+      case _               => None
+
+    /** Returns an option filled with the application of the substitution to the
+      * query, if the the solution is [[Solution.Yes]], None otherwise.
+      */
+    def instance: Option[Term] = solution match
+      case y: Solution.Yes => Some(y.query.instanceFrom(y.substitution))
       case _               => None
 
     /** Returns true if the solution is a [[Yes]]. */

@@ -20,7 +20,7 @@ import it.unibo.tuprolog.core.{
 import scala.jdk.CollectionConverters.*
 
 /** Converts the [[Term]] hierarchy to a tuProlog [[KTerm]] hierarchy */
-class From2PKtTermVisitor extends TermVisitor[Term]:
+object From2PKtTermVisitor extends TermVisitor[Term]:
 
   override def defaultValue(term: KTerm): Term = term match
     case emptyList: KEmptyList => visitEmptyList(emptyList)
@@ -44,7 +44,7 @@ class From2PKtTermVisitor extends TermVisitor[Term]:
     case t if t.isCons =>
       Cons(visitTerm(term.getHead), visitCons(term.getTail.asCons()))
     case t if t.isEmptyList =>
-      Cons(visitTerm(term.getHead), visitEmptyList(t.asEmptyList()))
+      Cons(visitTerm(term.getHead), visitEmptyList(t.castToEmptyList()))
     case t if t.isVar =>
       Cons(visitTerm(term.getHead), visitVar(term.getTail.asVar()))
 
