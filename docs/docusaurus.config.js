@@ -62,12 +62,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/Prolog_as_scalaDSL_BOW.png',
+      image: 'img/logos/Prolog_as_scalaDSL_BOW.png',
       navbar: {
         title: 'PPS-22-Prolog-as-ScalaDSL',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/PaS_WOB.png',
+          src: 'img/logos/PaS_WOB.png',
         },
         items: [
           {
