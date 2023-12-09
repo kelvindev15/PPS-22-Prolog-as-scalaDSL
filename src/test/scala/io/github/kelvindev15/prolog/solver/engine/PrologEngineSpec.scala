@@ -126,9 +126,9 @@ class TestPrologEngine
     } expectInstancesIn Seq("signs" ("mario", "medium", "skinny"))
 
     Solver solutionsOf {
-      program withGoal "signs"("luigi", X, Y)
-    } expectInstancesIn Seq("signs"("luigi", "short", "skinny"))
+      program withGoal "signs" ("luigi", X, Y)
+    } expectInstancesIn Seq("signs" ("luigi", "short", "skinny"))
 
     Solver solutionsOf {
-      program withGoal "signs"("luca", X, Y)
-    } expectInstancesIn Seq("signs"("luca", "tall", "skinny"))
+      program withGoal "signs" ("luca", X, Y)
+    } expectInstancesIn Seq("signs" ("luca", "tall", "skinny"))

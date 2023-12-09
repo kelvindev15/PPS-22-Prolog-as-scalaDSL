@@ -26,4 +26,4 @@ private[dsl] trait DeclarativePrologUtils:
 
     def apply(clauses: Clause*): MutableDynamicTheoryWrapper =
       new MutableDynamicTheoryWrapper:
-        theory = Theory(clauses *)
+        theory = Theory(clauses*)

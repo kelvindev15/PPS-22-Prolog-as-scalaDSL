@@ -12,7 +12,7 @@ object ToStringTermVisitor extends TermVisitor[String]:
   override def visit(variable: Variable): String = variable.name
   override def visit(struct: Struct): String = struct match
     case atom: Constant.Atom => visit(atom)
-    case clause: Clause => visit(clause)
+    case clause: Clause      => visit(clause)
     case list: PrologList =>
       list.linearizedArguments.map(visit).mkString("[", ", ", "]")
     case binaryRecursiveStruct: BinaryRecursiveStruct =>

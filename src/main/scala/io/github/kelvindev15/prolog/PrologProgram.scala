@@ -74,11 +74,20 @@ object PrologProgram:
 
     override def toString: String =
       s"""|staticTheory {
-          |${staticTheory.toString().split("\n").map(l => s"  $l").mkString("\n")}
+          |${staticTheory
+           .toString()
+           .split("\n")
+           .map(l => s"  $l")
+           .mkString("\n")}
           |}
           |
           |dynamicTheory {
-          |${dynamicTheory.toString().split("\n").filter(!_.isBlank).map(l => s"  $l").mkString("\n")}
+          |${dynamicTheory
+           .toString()
+           .split("\n")
+           .filter(!_.isBlank)
+           .map(l => s"  $l")
+           .mkString("\n")}
           |}
           |
           |?- ${goal.getOrElse("<empty_goal>")}""".stripMargin

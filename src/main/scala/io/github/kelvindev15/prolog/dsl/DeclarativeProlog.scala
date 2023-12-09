@@ -19,8 +19,8 @@ trait DeclarativeProlog extends DeclarativePrologUtils:
     program
     prologProgram
 
-  /** Sets the static theory of a [[PrologProgram]].
-    * Warning: it overrides any previously static theory set in the program.
+  /** Sets the static theory of a [[PrologProgram]]. Warning: it overrides any
+    * previously static theory set in the program.
     *
     * @param program
     *   the program whose static theory has to be set.
@@ -35,8 +35,8 @@ trait DeclarativeProlog extends DeclarativePrologUtils:
     theory
     prologProgram = program.setStaticTheory(t.theory)
 
-  /** Sets the dynamic theory of a [[PrologProgram]].
-    * Warning: it overrides any previously dynamic theory set in the program.
+  /** Sets the dynamic theory of a [[PrologProgram]]. Warning: it overrides any
+    * previously dynamic theory set in the program.
     *
     * @param program
     *   the program whose dynamic theory has to be set.
@@ -51,21 +51,22 @@ trait DeclarativeProlog extends DeclarativePrologUtils:
     theory
     prologProgram = prologProgram.setDynamicTheory(t.theory)
 
-  /** Alias of [[dynamicTheory]]. Sets the dynamic theory of a [[PrologProgram]].
-   * Warning: it overrides any previously dynamic theory set in the program.
-   *
-   * @param program
-   * the program whose dynamic theory has to be set.
-   * @param theory
-   * a function that takes a [[MutableDynamicTheoryWrapper]] as a context
-   * parameter and operates on it e.g to add or remove clauses.
-   */
+  /** Alias of [[dynamicTheory]]. Sets the dynamic theory of a
+    * [[PrologProgram]]. Warning: it overrides any previously dynamic theory set
+    * in the program.
+    *
+    * @param program
+    *   the program whose dynamic theory has to be set.
+    * @param theory
+    *   a function that takes a [[MutableDynamicTheoryWrapper]] as a context
+    *   parameter and operates on it e.g to add or remove clauses.
+    */
   def programTheory(using program: PrologProgram)(
-    theory: MutableDynamicTheoryWrapper ?=> Unit
+      theory: MutableDynamicTheoryWrapper ?=> Unit
   ): Unit =
     given t: MutableDynamicTheoryWrapper = MutableDynamicTheoryWrapper()
     theory
-    prologProgram = prologProgram.setDynamicTheory(t.theory)  
+    prologProgram = prologProgram.setDynamicTheory(t.theory)
 
   /** Add an assert(X) clause to the [[dynamicTheory]] provided as a context
     * parameter.
@@ -157,4 +158,3 @@ trait DeclarativeProlog extends DeclarativePrologUtils:
     */
   def goal(using program: PrologProgram)(g: Term): Unit =
     prologProgram = prologProgram withGoal g
-
