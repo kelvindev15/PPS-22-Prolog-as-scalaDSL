@@ -56,16 +56,16 @@ Le constanti sono ciò che danno il nome agli oggetti o alle relazioni. Possono 
 
 Permettono di riferirsi ad un termine senza specificarlo direttamente. Un termine che non contiene variabili si dice 
 *termine base* (o *termine ground*).  
-La sintassi delle varibili è la stessa degli atomi con la differenza che il carattere iniziale delle variabili è
-una lettera maiuscola oppure il carattere `_`. Non è possibile racchiudere le varibili tra apici. 
+La sintassi delle variabili è la stessa degli atomi con la differenza che il carattere iniziale delle variabili è
+una lettera maiuscola oppure il carattere `_`. Non è possibile racchiudere le variabili tra apici. 
 Il solo carattere `_` denota una variabile anonima.
 
 #### Sostituzioni di variabili
 Una *sostituzione* è una mappa che dato un insieme di variabili, associa a ciascuna di esse un termine. 
 In una sostituzione i termini non possono contenere nessuna delle variabili considerate nella sostituzione.
 Le sostituzioni possono essere applicate a dei termini. L'applicazione di una sostituzione `S` ad un termine `t0` 
-consiste nella sostitutzione di tutte le variabili `X` che appaiono in `t0` con i rispettivi termini `t`, per ciascuna 
-delle coppie `X=t` nella sostituzione `S`. Il risultato di una sostituione prende il nome di *istanza*. 
+consiste nella sostituzione di tutte le variabili `X` che appaiono in `t0` con i rispettivi termini `t`, per ciascuna 
+delle coppie `X=t` nella sostituzione `S`. Il risultato di una sostituzione prende il nome di *istanza*. 
 
 ### Termini composti
 
@@ -169,10 +169,6 @@ specifica implementazione del motore che eseguira il programma.
 
 #### Predicati
 
-##### Inserimento di nuove clausole
-
-* **consult(X)** 
-
 ##### Risoluzione
 
 * **true**
@@ -190,7 +186,6 @@ specifica implementazione del motore che eseguira il programma.
 * **asserta(X)**
 * **assertz(X)**
 * **retract(X)**
-* **listing(A)** --> A is instantiated to an atom
 * **functor(T, F, N)**
 * **arg(N, T, A)**
 * **'=..'(X, L)** infix
@@ -236,12 +231,3 @@ specifica implementazione del motore che eseguira il programma.
 * **' @> '(X, Y)** infix
 * **' @>= '(X, Y)** infix
 * **' @=< '(X, Y)** infix
-
-##### Ispezione di un programma Prolog
-
-* **trace**
-* **notrace**
-* **spy P** prefix
-* **debugging**
-* **nodebug**
-* **nospy**

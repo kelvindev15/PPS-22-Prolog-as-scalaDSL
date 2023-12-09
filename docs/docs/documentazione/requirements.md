@@ -46,18 +46,18 @@ opportuna configurazione, tra risolutori compatibili implementati da terzi.
 Nella descrizione dei requisiti di sistema si intende con **sistema** la *libreria*.
 
 1. Il sistema deve permette la costruzione dei termini prolog.
-2. Il sistema deve fornire un Domain Specic Language (DSL) tramite il quale sarà possibile costruire nella maniera più 
+2. Il sistema deve fornire un Domain Specific Language (DSL) tramite il quale sarà possibile costruire nella maniera più 
 fedele e idiomatica possibile i costrutti del linguaggio prolog.
 3. Il sistema deve essere costruito in modo tale che l'utente che intende sfruttare il DSL abbia il controllo del contesto
 in cui utilizzarlo. Vale a dire che tutte le funzionalità che hanno a che fare specificatamente con il linguaggio prolog 
-dovranno essere, all'occorenza, abilitate dall'utente.
+dovranno essere, all'occorrenza, abilitate dall'utente.
 4. Il sistema deve fornire un risolutore di programmi prolog predefinito.
 
 ## Requisiti non funzionali
 
 * **Qualità**: lo stile e la formattazione del codice sorgente verranno verificati tramite il plugin *scalaFmt*.
 * **Processo**: 
-  - le pipeline di continuous integration (CI) e continuous delivery (CD) verrano eseguite su Github per mezzo delle *Github Actions*;
+  - le pipeline di continuous integration (CI) e continuous delivery (CD) verranno eseguite su Github per mezzo delle *Github Actions*;
   - il sistema verrà rilasciato su maven central;
   - il versionamento segue i principi del *semantic versioning*.
 
