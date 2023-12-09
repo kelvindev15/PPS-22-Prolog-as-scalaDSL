@@ -18,7 +18,7 @@ import it.unibo.tuprolog.core.{Scope as KScope, Term as KTerm}
   *   the [[KScope]] to use when creating a tuProlog [[KTerm]]. (Defaults to an
   *   empty scope)
   */
-class To2PKtTermVisitor(scope: KScope = ktEmptyScope)
+private[tuprolog] class To2PKtTermVisitor(scope: KScope = ktEmptyScope)
     extends TermVisitor[KTerm]:
 
   override def visit(atom: Atom): KTerm = ktAtomOf(atom.unquotedValue)
@@ -57,7 +57,7 @@ class To2PKtTermVisitor(scope: KScope = ktEmptyScope)
     case head: Cons     => ktConsOf(visit(head.head), visit(head.tail))
     case PrologList.Nil => ktEmptyList
 
-object To2PKtTermVisitor:
+private[tuprolog] object To2PKtTermVisitor:
   /** Returns a new instance of the [[To2PKtTermVisitor]] with a new empty scope
     */
   def withNewScope: To2PKtTermVisitor = To2PKtTermVisitor(ktEmptyScope)

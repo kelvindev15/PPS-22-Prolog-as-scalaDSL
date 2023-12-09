@@ -14,7 +14,7 @@ import it.unibo.tuprolog.core.{
 }
 import it.unibo.tuprolog.theory.Theory as KTheory
 
-object TuPrologFactoryMethods:
+private[tuprolog] object TuPrologFactoryMethods:
   export it.unibo.tuprolog.core.{Term as KTerm, Clause as KClause}
 
   /** Returns a tuProlog [[KAtom]].
