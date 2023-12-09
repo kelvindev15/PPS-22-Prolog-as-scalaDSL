@@ -1,8 +1,5 @@
-# Scala project Template
+# Prolog as Scala DSL
 
-## Features:
-
-* A basic Scalafmt configuration
-* A basic WartRemover configuration
-* Scalatest testing
-* Cucumber BDD environment
+<p style="text-align: center">
+<img src="docs/static/img/logos/Prolog_as_scalaDSL_BOW.png">
+</p>
