@@ -1,3 +1,39 @@
+## [4.0.0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/3.0.0...4.0.0) (2023-12-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **2p-Kt-solver:** reduce visibility of the tuprolog package
+
+### Features
+
+* **dsl:** add G, I, J, K, M, O, P, Q, R, U and V variables ([2fc8a14](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/2fc8a147302580dc91020ae216386650f897dd9b))
+
+
+### Documentation
+
+* **website:** add requirements ([2ddbcb2](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/2ddbcb2105be70aff78e2feaa21d8f45c8b0efb0))
+* **website:** begin writing detailed design stuff ([0169133](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/0169133a4ec46a8eb8d8e2d8f5ac9f265ca3432c))
+
+
+### General maintenance
+
+* fix logos links ([1d2c463](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/1d2c4634e2c122d532381b93e1265e66173f0ea9))
+* update README ([a07d825](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/a07d825303247d01fa4f92c73cd38ee0487f3c13))
+* **website:** add logos ([12fadde](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/12faddea1a0a0ccc0df3db9417f964aa4ea87e30))
+* **website:** change website logos ([432caea](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/432caeaccc1c0d83b35f379c55a28d9321057c9f))
+
+
+### Style improvements
+
+* comply with scalafmt ([f006cfe](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/f006cfe183fea1de224d5aeea8565fb1edda2c07))
+
+
+### Refactoring
+
+* **2p-Kt-solver:** reduce visibility of the tuprolog package ([b179303](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/b179303361ebfa8f284db74614d829043892c9a9))
+* final override method functor directly in clause instead of in rule and in fact ([4c0c285](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/4c0c285c98c7af5ff80ceb93eabb720e1eaeb46c))
+
 ## [3.0.0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/2.0.0...3.0.0) (2023-12-08)
 
 
