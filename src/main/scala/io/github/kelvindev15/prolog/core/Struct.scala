@@ -100,6 +100,8 @@ object Struct:
     /** The body of the clause */
     val body: Term
 
+    final override val functor: Atom = CLAUSE
+    
     final override def asTerm: Term = head
       .map { h => Struct(functor, h.asTerm, body.asTerm) }
       .getOrElse(Struct(functor, body.asTerm))
@@ -119,7 +121,6 @@ object Struct:
     )
 
     private case class DirectiveImpl(body: Term) extends Directive:
-      override val functor: Atom = CLAUSE
       override val arity: Int = 1
       override val arguments: Seq[Term] = Seq(body)
 
@@ -127,7 +128,6 @@ object Struct:
   trait Rule extends Clause:
     override val head: Option[Struct]
     override val body: Term
-    final override val functor: Atom = CLAUSE
     final override val arity: Int = 2
 
   object Rule:
