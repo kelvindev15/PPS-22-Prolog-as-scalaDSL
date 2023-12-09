@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Prolog as Scala DSL',
   tagline: 'Logic programming on the fly',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logos/PaS_BOW.png',
 
   // Set the production url of your site here
   url: 'https://kelvin-olaiya.github.io',
@@ -62,12 +62,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/Prolog_as_scalaDSL_BOW.png',
       navbar: {
         title: 'PPS-22-Prolog-as-ScalaDSL',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/PaS_WOB.png',
         },
         items: [
           {
