@@ -9,6 +9,8 @@ Di seguito verrà riportato il design dettagliato della libreria.
 
 ## Term
 
+![](/img/diagrams/Term.png)
+
 Il trait Term rappresenta il concetto di termine in Prolog. Costituisce l'entità fondamentale dalla quale ereditano tutti
 gli altri costrutti del linguaggio prolog.
 
@@ -16,6 +18,8 @@ All'interno della struttura di un termine possono trovarsi delle variabili. La p
 determina se si tratta o meno di un termine base.
 
 ## Constant
+
+![](/img/diagrams/constant.png)
 
 Una costante è un termine che racchiude un valore che può essere alfanumerico o numerico.
 Le costanti alfanumeriche sono atomi rappresentati dal trai Atom, mentre le costanti numeriche sono 
@@ -25,9 +29,13 @@ Un atomo è un caso particolare di termine composto.
 
 ## Variabili
 
+![](/img/diagrams/Variable.png)
+
 Una variabile ha un nome particolare oppure è anonima (il suo nome è `_`).
 
 ## Struct
+
+![](/img/diagrams/Struct.png)
 
 I termini composti, detti anche strutture, sono rappresentati dal trait Struct. Ogni termine è caratterizzato da un funtore, ossia un nome di 
 predicato, e dai sui argomenti, che sono a loro volta dei termini. Il numero di argomenti di cui è costituito un termine 
@@ -51,6 +59,8 @@ considerato una regola il cui corpo è il l'atomo `true`.
 
 ### RecursiveStruct
 
+![](/img/diagrams/RecursiveStructs.png)
+
 Alcuni termini composti hanno una struttura ricorsiva. Sono strutture i cui argomenti includono in maniera ricorsiva 
 strutture con lo stesso predicato. 
 Da una struttura è sempre possibile ottenere la lista lineare degli argomenti.
@@ -64,11 +74,15 @@ La maggior parte delle strutture ricorsive sono binarie (BinaryRecursiveStruct).
 
 ## Theory
 
+![](/img/diagrams/Theory.png)
+
 Una teoria è rappresentata dal trait Theory. Una teoria è una lista di clausole.
 
 ## Modello del dominio riconciliato
 
 ## PrologProgram
+
+![](/img/diagrams/PrologProgram.png)
 
 Un programma prolog (PrologProgram) comprende:
 
@@ -78,6 +92,8 @@ Un programma prolog (PrologProgram) comprende:
 
 ## Solver
 
+![](/img/diagrams/Solver.png)
+
 Un Solver risolve un goal o un programma prolog e restituisce le sue soluzioni. 
 Un solver può:
 
@@ -85,6 +101,8 @@ Un solver può:
 * restituire tutte le soluzioni in una lista. 
 
 ### Solution
+
+![](/img/diagrams/Solution.png)
 
 Una soluzione di un programma prolog può:
 
@@ -94,10 +112,14 @@ Una soluzione di un programma prolog può:
 
 ### Substitution
 
+![](/img/diagrams/Substitution.png)
+
 In caso di soluzione positiva è possibile che il solver fornisca una sostituzione. Una sostituzione 
 mappa variabili a termini.
 
 ## PrologDSL
+
+![](/img/diagrams/PrologDSL.png)
 
 Il trait PrologDSL contiene i metodi e i meccanismi per poter esprimere i concetti appartenenti al mondo Prolog.
 Include infatti dei metodi per costruire fatti, regole, atomi e variabili ma anche liste, congiunzioni e disgiunzioni
@@ -112,3 +134,6 @@ termine prolog.
 
 TermVisitor è il trait che, se implementato da un termine o da un oggetto convertibile, permette di visitare l'albero
 della struttura del termine.
+
+
+![](/img/diagrams/TermConverterAndVisitor.png)
