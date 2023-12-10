@@ -55,11 +55,12 @@ Alcuni termini composti hanno una struttura ricorsiva. Sono strutture i cui argo
 strutture con lo stesso predicato. 
 Da una struttura è sempre possibile ottenere la lista lineare degli argomenti.
 
+Una lista è una struttura (PrologList), con funtore ricorsivo `.` (Cons). Ogni lista termina con il funtore `[]` (Nil).
+
 La maggior parte delle strutture ricorsive sono binarie (BinaryRecursiveStruct). È il caso di:
 
 * Congiunzioni di goal (Conjunction), con funtore `,`;
 * Disgiunzioni di goal (Disjunction), con funtore `;`;
-* Liste (PrologList), con funtore ricorsivo `.` (Cons). Ogni lista termina con il funtore `[]` (Nil).
 
 ## Theory
 
