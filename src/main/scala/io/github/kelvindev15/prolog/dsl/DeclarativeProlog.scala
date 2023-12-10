@@ -15,6 +15,7 @@ trait DeclarativeProlog extends DeclarativePrologUtils:
     *   operates on it.
     */
   def prolog(program: PrologProgram ?=> Unit): PrologProgram =
+    prologProgram = PrologProgram.emptyTheory
     given p: PrologProgram = prologProgram
     program
     prologProgram
