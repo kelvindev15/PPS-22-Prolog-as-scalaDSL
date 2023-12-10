@@ -1,0 +1,10 @@
+@startuml
+interface Term
+
+interface Variable {
+    +name: String
+    +isAnonymous: Boolean
+}
+
+Term <|-- Variable
+@enduml

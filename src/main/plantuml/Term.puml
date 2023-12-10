@@ -1,0 +1,7 @@
+@startuml
+interface Term {
+    +variables: Seq[Variable]
+    +isGround: Boolean
+    +instanceFrom(substitution: Substitution): Term
+}
+@enduml

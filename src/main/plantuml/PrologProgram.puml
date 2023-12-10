@@ -1,0 +1,7 @@
+@startuml
+interface PrologProgram {
+    +staticTheory: Theory
+    +dynamicTheory: Theory
+    +goal: Term
+}
+@enduml

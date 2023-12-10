@@ -1,0 +1,20 @@
+@startuml
+interface TermConvertible {
+    + toTerm: Term
+}
+
+interface TermVisitor<T> {
+    + visitTerm(term: Term): T
+    ...
+}
+
+interface Visitable {
+    + accept(visitor: TermVisitor<T>): T
+}
+
+interface Term
+
+Visitable --|> Term
+TermConvertible --|> Term
+Visitable <-- TermVisitor : visits
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+interface Theory
+interface Seq<T: Clause>
+Seq <|-- Theory
+@enduml

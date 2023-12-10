@@ -1,0 +1,7 @@
+@startuml
+enum Solution {
+    + Yes(query: Struct, substitution)
+    + No(query: Struct)
+    + Halt(exception: Exception)
+}
+@enduml

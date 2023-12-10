@@ -1,0 +1,7 @@
+@startuml
+interface Substitution
+
+interface Map<T: Variable, R: Term>
+
+Map <|-- Substitution
+@enduml

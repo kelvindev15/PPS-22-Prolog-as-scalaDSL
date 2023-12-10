@@ -1,0 +1,32 @@
+@startuml
+interface Term
+
+interface Struct {
+    +functor: Atom
+    +arity: Int
+    +arguments: Seq[Term]
+}
+
+interface Indicator {
+    +indicatedFunctor: Atom
+    +indicatedArity: Int
+}
+
+interface Clause {
+    +head: Option[Struct]
+    +body: Term
+}
+
+interface Rule
+interface Fact
+interface Directive
+
+Term <|-- Struct
+Struct <|-- Indicator
+Struct <|-- Clause
+
+Clause <|-- Rule
+Rule <|-- Fact
+Clause <|-- Directive
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+interface Struct
+interface RecursiveStruct {
+    +linearizedArguments: Seq[Term]
+}
+interface BinaryRecursiveStruct {
+    +first: Term
+    +second: Term
+}
+interface Conjunction
+interface Disjunction
+interface PrologList
+interface Cons {
+    +head: Term
+    +tail: (PrologList | Variable)
+}
+interface Nil
+
+Struct <|-- RecursiveStruct
+RecursiveStruct <|-- BinaryRecursiveStruct
+
+BinaryRecursiveStruct <|-- Conjunction
+BinaryRecursiveStruct <|-- Disjunction
+
+RecursiveStruct <|-- PrologList
+PrologList <|-- Cons
+PrologList <|-- Nil
+
+@enduml

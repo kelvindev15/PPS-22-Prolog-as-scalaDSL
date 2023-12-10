@@ -1,0 +1,18 @@
+@startuml
+interface PrologDSL {
+    + atomOf(value: String): Atom
+    + varOf(name: String): Variable
+    + numOf(value: AnyVal): Numeric
+    + ruleOf(head: Struct, body1: Term, others: Term*): Rule
+    + factOf(fact: Struct): Fact
+    + member(term: Term, l: Term): Struct
+    + atomic(term: Term): Struct
+    + cons(): PrologList
+    + A: Variable
+    + B: Variable
+    + ...
+    + !: Atom
+    + repeat: Atom
+    + ...
+}
+@enduml

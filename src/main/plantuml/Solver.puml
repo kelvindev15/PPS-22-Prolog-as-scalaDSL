@@ -1,0 +1,9 @@
+@startuml
+interface Solver {
+    + solve: Iterator[Solution]
+    + lazySolve: LazyList[Solution]
+    + solutionOf: Seq[Solution]
+    + hasSolutionsFor(program: PrologProgram): Boolean
+    + hasSolutionsFor(goal: Term): Boolean
+}
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+interface Term
+
+interface Constant {
+    +value: Any
+}
+
+interface Atom {
+    +value: String
+}
+
+interface Numeric {
+    +value: AnyVal
+}
+
+interface Struct
+
+Constant <|-- Atom
+Constant <|-- Numeric
+Term <|-- Constant
+
+Struct <|-- Atom
+@enduml
