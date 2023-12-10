@@ -1,3 +1,15 @@
+## [4.0.4](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.3...4.0.4) (2023-12-10)
+
+
+### Documentation
+
+* **website:** enable scala syntax highlighting ([7e38081](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/7e3808197bebecd663f39d1d32804a44bd05f27a))
+
+
+### General maintenance
+
+* **website:** add java to prism supported languages to enable scala syntax highlighting ([2a93764](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/2a93764374176be039da7a628c5f20b9b34c1124))
+
 ## [4.0.3](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.2...4.0.3) (2023-12-10)
 
 
