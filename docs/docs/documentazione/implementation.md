@@ -10,7 +10,7 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
 ## Programmazione funzionale
 
 * Strutture dati immutabili
-  ```scala 3
+  ```scala
     private case class PrologProgramImpl(
       staticTheory: Theory,
       dynamicTheory: Theory,
@@ -24,13 +24,13 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
       PrologProgramImpl(staticTheory, dynamicTheory, Some(goal))
   ```
 * High-order functions
-  ```scala 3
+  ```scala
   object Conjunction:
     def wrapIfNecessary(args: Term*): Term =
       BinaryRecursiveStruct.wrapIfNecessary(Conjunction.apply)(args*)
   ```
 * Pattern matching
-  ```scala 3
+  ```scala
   object BinaryToFlatVisitor extends TermVisitor[Seq[Term]]:
     override def visit(tuple: BinaryRecursiveStruct): Seq[Term] = tuple match
       case Tuple(l, r @ Tuple(_, _)) => Seq(l) ++ visit(r)
@@ -38,7 +38,7 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
   ```
   ciò è reso possibile grazie alla destrutturazione di BinaryRecursiveStruct:
 
-  ```scala 3
+  ```scala
   object Tuple:
     def unapply(tuple: BinaryRecursiveStruct): Option[(Term, Term)] =
       Option((tuple.left, tuple.right))
@@ -47,7 +47,7 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
 ## Feature di linguaggio
 
 * Companion objects
-  ```scala 3
+  ```scala
   trait Variable extends Term:
     val name: String
     // ...
@@ -55,7 +55,7 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
     def anonymous(): Variable = Var("_")
   ```
 * Implicit conversions
-  ```scala 3
+  ```scala
   protected[dsl] trait DSLConversions:
     dsl: PrologDSL =>
     given Conversion[String, Atom] = Atom(_)
@@ -69,7 +69,7 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
   ```
 * Trait
   * Mixins
-  ```scala 3
+  ```scala
   class TestDeclarativePrologDSL
     extends AnyFunSuite
     with Matchers
@@ -77,13 +77,13 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
     with DeclarativeProlog:
   ```
   * Self type
-  ```scala 3
+  ```scala
   trait Visitable:
     self: (Term | TermConvertible) =>
     def accept[T](visitor: TermVisitor[T]): T
   ```
   * Template method pattern
-  ```scala 3
+  ```scala
   trait Solver:
     def solve(program: PrologProgram): Iterator[Solution]
     def lazySolve(program: PrologProgram): LazyList[Solution] =
@@ -96,7 +96,7 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
   ``` 
 * Extension functions
   * Pimp my library
-  ```scala 3
+  ```scala
   protected[dsl] trait DSLExtensions:
     dsl: PrologDSL =>
     extension (atom: Atom)
@@ -105,13 +105,13 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
       def :-(body: Term): Rule = Rule(struct, body)
   ```
 * Union types
-  ```scala 3
+  ```scala
     object Cons:
       def apply(head: Term, tail: (PrologList | Variable)): PrologList =
         ConsImpl(head, tail)
   ```
 * Context functions
-  ```scala 3
+  ```scala
   val prologProgram = PrologProgram()  
   def prolog(program: PrologProgram ?=> Unit): PrologProgram =
     given p: PrologProgram = prologProgram
@@ -119,12 +119,12 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
     prologProgram
   ```
 * Type aliasing
-  ```scala 3
+  ```scala
   type Substitution = Map[Variable, Term]
   ```
 * Visibility modifiers
 * Class tags
-  ```scala 3
+  ```scala
   trait EngineTestUtils:
     matchers: Matchers =>
     def expect[T <: Solution](using tag: ClassTag[T])(
