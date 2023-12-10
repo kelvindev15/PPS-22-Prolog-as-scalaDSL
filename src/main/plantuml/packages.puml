@@ -1,0 +1,19 @@
+@startuml
+package io.github.kelvindev15.prolog
+package core
+package theory
+
+package dsl
+package solver
+package tuprolog
+package utils
+package visitors
+
+io.github.kelvindev15.prolog +-- core
+core +-- theory
+io.github.kelvindev15.prolog +-- dsl
+io.github.kelvindev15.prolog +-- solver
+io.github.kelvindev15.prolog +-- utils
+solver +-- tuprolog
+io.github.kelvindev15.prolog +-- visitors
+@enduml

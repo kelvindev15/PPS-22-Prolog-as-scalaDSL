@@ -3,6 +3,7 @@ package io.github.kelvindev15.prolog.dsl
 import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.Struct.Fact
 import io.github.kelvindev15.prolog.core.{Constant, PrologList, Struct, Term}
+import io.github.kelvindev15.prolog.utils.TermConvertible
 
 protected[dsl] trait DSLConversions:
   dsl: PrologDSL =>
@@ -13,3 +14,4 @@ protected[dsl] trait DSLConversions:
   }
   given Conversion[Struct, Fact] = Fact(_)
   given Conversion[Seq[Term], PrologList] = PrologList(_*)
+  given Conversion[TermConvertible, Term] = _.toTerm
