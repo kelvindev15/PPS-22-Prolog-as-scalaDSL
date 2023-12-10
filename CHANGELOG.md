@@ -1,3 +1,12 @@
+## [4.0.2](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.1...4.0.2) (2023-12-10)
+
+
+### Documentation
+
+* **website:** add implementation ([90edb7b](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/90edb7b4d081e330ff9b28098b6d8b89ed1fbe5f))
+* **website:** image link ([c56d598](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/c56d5987ba37673b72dc2a7eb357948e2da87c70))
+* **website:** image link ([1543aa9](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/1543aa90e09ce7bf93b5f9ae06f2932a428ce693))
+
 ## [4.0.1](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.0...4.0.1) (2023-12-10)
 
 
