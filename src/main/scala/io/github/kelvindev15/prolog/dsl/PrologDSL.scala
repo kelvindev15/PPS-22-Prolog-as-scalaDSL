@@ -48,7 +48,7 @@ trait PrologDSL
     *   the other terms of the rule's body.
     */
   def ruleOf(head: Struct, body1: Term, others: Term*): Rule =
-    Rule(head, others*)
+    Rule(head, body1 +: others*)
 
   /** Returns a [[Directive]]
     *
