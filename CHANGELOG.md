@@ -1,3 +1,26 @@
+## [4.1.0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.4...4.1.0) (2023-12-10)
+
+
+### Features
+
+* **dsl:** add method to create struct and numeric constants ([ab57ca5](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/ab57ca504a0fd0c9d7d10dfbe919a1dda6078196))
+
+
+### Bug Fixes
+
+* **dsl:** always create a new prolog theory when invoking the prologProgram builder ([1fdc5f1](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/1fdc5f1948cf0099b331283aad9742b74249130e))
+* **dsl:** fix loosing first term when using ruleOf method in PrologDSL ([181d684](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/181d6841ba81a490ab6afa4089be5228d6e26a9f))
+
+
+### General maintenance
+
+* **website:** draft implementations ([152da12](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/152da127a6747026444cb31e432b93d3e3ecf2f8))
+
+
+### Refactoring
+
+* **dsl:** use the power of mixins ([23db53e](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/23db53e6e58b335c7b87c5f02d8df5d7a24101de))
+
 ## [4.0.4](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.3...4.0.4) (2023-12-10)
 
 
