@@ -1,3 +1,10 @@
+## [4.0.3](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.2...4.0.3) (2023-12-10)
+
+
+### Documentation
+
+* **website:** add some implementation stuff ([7181763](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/7181763325c7f4104baa435984895aa3c3fbafcc))
+
 ## [4.0.2](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.1...4.0.2) (2023-12-10)
 
 
