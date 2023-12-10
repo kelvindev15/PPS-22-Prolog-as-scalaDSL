@@ -4,7 +4,7 @@ import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.PrologList.{Cons, Nil}
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
 import io.github.kelvindev15.prolog.core.theory.Theory
-import io.github.kelvindev15.prolog.core.{Constant, PrologList, Struct, Term, Variable}
+import io.github.kelvindev15.prolog.core.*
 
 import scala.annotation.targetName
 
@@ -22,11 +22,14 @@ trait PrologDSL
   def theory(clauses: Clause*): Theory = Theory(clauses*)
 
   /** Returns a [[Struct]].
-   * 
-   * @param functor the functor of the struct.
-   * @param arguments the arguments of the struct.
-   */
-  def structOf(functor: Atom, arguments: Term*): Struct = Struct(functor, arguments*)
+    *
+    * @param functor
+    *   the functor of the struct.
+    * @param arguments
+    *   the arguments of the struct.
+    */
+  def structOf(functor: Atom, arguments: Term*): Struct =
+    Struct(functor, arguments*)
 
   /** Returns a [[Fact]].
     *
@@ -62,9 +65,10 @@ trait PrologDSL
   def atomOf(value: String): Atom = Atom(value)
 
   /** Returns a [[Constant.Numeric]].
-   * 
-   * @param value the value of the numeric constant.
-   */
+    *
+    * @param value
+    *   the value of the numeric constant.
+    */
   def numOf(value: (Int | Double)): Constant.Numeric = Constant.Numeric(value)
 
   /** Returns a [[Variable]].
@@ -139,4 +143,4 @@ trait PrologDSL
     /** Simulates the list pipe notation.
       */
     @targetName("pipe")
-    def |(tail: (PrologList | Variable)): Term = cons(list*)(tail)
+    def |(tail: (PrologList | Variable)): PrologList = cons(list*)(tail)

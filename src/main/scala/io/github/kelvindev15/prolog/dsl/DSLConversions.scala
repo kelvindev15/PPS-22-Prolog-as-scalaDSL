@@ -7,11 +7,11 @@ import io.github.kelvindev15.prolog.utils.TermConvertible
 
 protected[dsl] trait DSLConversions:
   dsl: PrologDSL =>
-  given Conversion[String, Atom] = Atom(_)
+  given Conversion[String, Atom] = atomOf(_)
   given Conversion[AnyVal, Constant] = {
-    case boolean: Boolean => Atom(if (boolean) "true" else "false")
-    case other            => Constant.Numeric(other)
+    case boolean: Boolean      => atomOf(if (boolean) "true" else "false")
+    case other: (Int | Double) => numOf(other)
   }
-  given Conversion[Struct, Fact] = Fact(_)
-  given Conversion[Seq[Term], PrologList] = PrologList(_*)
+  given Conversion[Struct, Fact] = factOf(_)
+  given Conversion[Seq[Term], PrologList] = list(_*)
   given Conversion[TermConvertible, Term] = _.toTerm
