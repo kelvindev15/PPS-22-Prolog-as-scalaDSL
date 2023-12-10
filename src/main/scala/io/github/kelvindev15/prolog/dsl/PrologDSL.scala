@@ -4,7 +4,7 @@ import io.github.kelvindev15.prolog.core.Constant.Atom
 import io.github.kelvindev15.prolog.core.PrologList.{Cons, Nil}
 import io.github.kelvindev15.prolog.core.Struct.{Clause, Directive, Fact, Rule}
 import io.github.kelvindev15.prolog.core.theory.Theory
-import io.github.kelvindev15.prolog.core.{PrologList, Struct, Term, Variable}
+import io.github.kelvindev15.prolog.core.{Constant, PrologList, Struct, Term, Variable}
 
 import scala.annotation.targetName
 
@@ -20,6 +20,13 @@ trait PrologDSL
     *   the clauses to include in the theory.
     */
   def theory(clauses: Clause*): Theory = Theory(clauses*)
+
+  /** Returns a [[Struct]].
+   * 
+   * @param functor the functor of the struct.
+   * @param arguments the arguments of the struct.
+   */
+  def structOf(functor: Atom, arguments: Term*): Struct = Struct(functor, arguments*)
 
   /** Returns a [[Fact]].
     *
@@ -53,6 +60,12 @@ trait PrologDSL
     *   the value of the atom.
     */
   def atomOf(value: String): Atom = Atom(value)
+
+  /** Returns a [[Constant.Numeric]].
+   * 
+   * @param value the value of the numeric constant.
+   */
+  def numOf(value: (Int | Double)): Constant.Numeric = Constant.Numeric(value)
 
   /** Returns a [[Variable]].
     *
