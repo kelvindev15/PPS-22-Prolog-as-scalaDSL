@@ -78,8 +78,6 @@ La maggior parte delle strutture ricorsive sono binarie (BinaryRecursiveStruct).
 
 Una teoria è rappresentata dal trait Theory. Una teoria è una lista di clausole.
 
-## Modello del dominio riconciliato
-
 ## PrologProgram
 
 ![](/img/diagrams/PrologProgram.png)
@@ -134,6 +132,5 @@ termine prolog.
 
 TermVisitor è il trait che, se implementato da un termine o da un oggetto convertibile, permette di visitare l'albero
 della struttura del termine.
-
 
 ![](/img/diagrams/TermConverterAndVisitor.png)
