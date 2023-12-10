@@ -1,3 +1,15 @@
+## [4.0.1](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.0...4.0.1) (2023-12-10)
+
+
+### Documentation
+
+* **website:** fix typos on detailed design ([5842996](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/5842996bc230032ee7f21b969d26e6ee492ee2fe))
+
+
+### General maintenance
+
+* **uml:** add plantuml diagrams ([e382338](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/e382338619d1531a8670ef7f32b2dafa010609bf))
+
 ## [4.0.0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/3.0.0...4.0.0) (2023-12-09)
 
 
