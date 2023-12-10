@@ -32,4 +32,4 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
 
 ## Struttura dei package
 
-![package_diagram](img/diagrams/packages.png)
+![package_diagram](/static/img/diagrams/packages.png)
