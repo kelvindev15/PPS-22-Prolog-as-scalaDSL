@@ -74,7 +74,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'docSidebar',
             position: 'left',
-            label: 'Documentazione',
+            label: 'Report',
           },
           {
             href: "/api/",
@@ -96,7 +96,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Documentazione',
+                label: 'Report',
                 to: '/docs/category/documentazione',
               },
             ],
