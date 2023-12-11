@@ -4,9 +4,7 @@ title: Scala project Template
 
 # Prolog as Scala DSL
 
-<p style="text-align: center">
-<img src="docs/static/img/logos/Prolog_as_scalaDSL_BOW.png">
-</p>
+![](/img/logos/Prolog_as_scalaDSL_BOW.png)
 
 Prolog-as-scalaDSL is a library providing a DSL for writing Prolog programs in scala.
 
