@@ -1,0 +1,26 @@
+@startuml
+interface Solver {
+    +solve(program: PrologProgram): Iterator[Solution]
+}
+
+interface PrologProgram {
+    + staticTheory: Theory
+    + dynamicTheory: Theory
+    + goal: Term
+}
+
+enum Solution {
+    Yes(query: Struct, substitution: Substitution)
+    No(query: Struct)
+    Halt(exception)
+}
+
+interface Theory {
+    +clauses: Iterator[Clause]
+}
+
+PrologProgram <-- Solver : solves
+Solver --> Solution : produces
+PrologProgram o-- Theory
+
+@enduml

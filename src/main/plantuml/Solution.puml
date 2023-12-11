@@ -1,6 +1,6 @@
 @startuml
 enum Solution {
-    + Yes(query: Struct, substitution)
+    + Yes(query: Struct, substitution: Substitution)
     + No(query: Struct)
     + Halt(exception: Exception)
 }

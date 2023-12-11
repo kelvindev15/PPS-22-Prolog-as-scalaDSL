@@ -7,7 +7,7 @@ interface PrologDSL {
     + factOf(fact: Struct): Fact
     + member(term: Term, l: Term): Struct
     + atomic(term: Term): Struct
-    + cons(): PrologList
+    + cons(head: Term, tail: (PrologList|Variable)): PrologList
     + A: Variable
     + B: Variable
     + ...
