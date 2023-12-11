@@ -7,9 +7,9 @@ sidebar_label: "Requisiti"
 
 ## Requisiti di business
 
-- Obiettivo di questo progetto è di fornire una libreria che esponga un
-Domain Specific Language (DSL) in Scala. Il DSL permetterà integrare la programmazione
-logica direttamente in Scala, sfruttando tutti i vantaggi del caso (Quali?).
+- Obiettivo del progetto è di fornire una libreria che permetta di scrivere e risolvere programmi logici utilizzando
+il linguaggio scala. Inoltre realizzare un Domain Specific Language (DSL), in scala, la cui sintassi somigli il più 
+possibile a quella del Prolog.
 
 ## Requisiti funzionali
 

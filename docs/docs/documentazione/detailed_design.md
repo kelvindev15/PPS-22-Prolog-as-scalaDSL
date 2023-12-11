@@ -14,24 +14,23 @@ Di seguito verrà riportato il design dettagliato della libreria.
 Il trait `Term` rappresenta il concetto di termine in Prolog. Costituisce l'entità fondamentale dalla quale ereditano tutti
 gli altri costrutti del linguaggio prolog.
 
-All'interno della struttura di un termine possono trovarsi delle variabili. La presenza o meno delle variabili, 
-determina se si tratta o meno di un termine base.
+A seconda della presenza o meno di variabili in un termine, il termine è un termine base o non-base.
 
 ## Constant
 
 ![](/img/diagrams/constant.png)
 
 Una costante è un termine che racchiude un valore che può essere alfanumerico o numerico.
-Le costanti alfanumeriche sono atomi rappresentati dal trait `Atom`, mentre le costanti numeriche sono 
+Le costanti alfanumeriche sono dette **atomi** e sono rappresentate dal trait `Atom`, mentre le costanti numeriche sono 
 rappresentate dal trait `Numeric`. 
 
-Un atomo è un caso particolare di termine composto.
+Un atomo è un caso particolare di termine composto (ha zero argomenti).
 
 ## Variabili
 
 ![](/img/diagrams/Variable.png)
 
-Una variabile ha un nome particolare oppure è anonima (il suo nome è `_`).
+Una variabile può essere identificata da un nome particolare oppure essere anonima (in tal caso il suo nome è `_`).
 
 ## Struct
 
@@ -43,7 +42,7 @@ di cui è costituito un termine composto determina l'arità del termine composto
 
 ### Indicator
 
-Un indicatore è un termine composto che descrive un predicato in termini del suo funtore e della sua arità.
+Un indicatore è un termine composto che descrive un predicato in termini del funtore e dell'arità del predicato.
 Il funtore di un indicatore è il carattere `/` e la sua arità `2`.
 
 ### Clause

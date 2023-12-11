@@ -10,7 +10,7 @@ Di seguito verranno riportate alcune rilevanti scelte implementative.
 ## Programmazione funzionale
 
 * **Strutture dati immutabili**: tutte le strutture dati realizzate (con poche eccezioni) sono immutabili. Ci si
-aspetta dunque che nel caso in cui la libreria venga utilizzata in un contesto di programmazione concorrente 
+aspetta dunque che nel caso in cui la libreria venga, ad esempio, utilizzata in un contesto di programmazione concorrente, 
 gli aggiustamenti che dovranno essere apportati saranno minimi se non nulli. 
 Di seguito un esempio di struttura dati immutabile.
   ```scala
@@ -63,9 +63,9 @@ Di seguito un esempio di struttura dati immutabile.
 
 ## Feature di linguaggio
 
-* **Companion objects**: Questa feature del linguaggio Scala ha permesso di mantenere le implementazioni dei
-  trait della libreria ed ottemperare all'item 64 di Effective Java (*Refer to object by their interfaces*). Inoltre
-  tale meccanismo facilita l'implementazione del pattern *Static Factory*.
+* **Companion objects**: Questa feature del linguaggio Scala ha permesso di mantenere incapsulate
+le implementazioni dei trait della libreria ed ottemperare all'item 64 di Effective Java (*Refer to object by their interfaces*). 
+* Inoltre tale meccanismo facilita l'implementazione del pattern *Static Factory*.
   ```scala
   trait Variable extends Term:
     val name: String
@@ -86,7 +86,7 @@ Di seguito un esempio di struttura dati immutabile.
     dsl: PrologDSL =>
     given Conversion[String, Atom] = atomOf(_)
     given Conversion[AnyVal, Constant] = {
-      case boolean: Boolean      => atomOf(if (boolean) "true" else "false")
+      case boolean: Boolean      => if (boolean) "true" else "false"
       case other: (Int | Double) => numOf(other)
     }
     given Conversion[Struct, Fact] = factOf(_)
@@ -99,9 +99,9 @@ Di seguito un esempio di struttura dati immutabile.
   Chi utilizzerà la libreria non potrà sfruttare le conversioni implicite se non nel contesto di un PrologDSL.
 
   * Template method pattern
-  Il seguente trait svolge il ruolo di Classe astratta. I metodi `lazySolve`, `solutionOf` e `hasSolutionOf` 
-  sono dei metodi di *template*. Essi richiedono che gli implementatori del trait forniscano un'implementazione 
-  del metodo `solve`.
+  Il seguente trait svolge il ruolo di classe astratta. I metodi `lazySolve`, `solutionOf` e `hasSolutionOf` 
+  sono dei metodi *template*. Essi richiedono agli implementatori del trait forniscano di implementare 
+  solo il metodo `solve`.
   
   ```scala
   trait Solver:

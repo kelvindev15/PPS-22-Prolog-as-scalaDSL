@@ -9,7 +9,7 @@ protected[dsl] trait DSLConversions:
   dsl: PrologDSL =>
   given Conversion[String, Atom] = atomOf(_)
   given Conversion[AnyVal, Constant] = {
-    case boolean: Boolean      => atomOf(if (boolean) "true" else "false")
+    case boolean: Boolean      => if (boolean) "true" else "false"
     case other: (Int | Double) => numOf(other)
   }
   given Conversion[Struct, Fact] = factOf(_)

@@ -69,10 +69,10 @@ delle coppie `X=t` nella sostituzione `S`. Il risultato di una sostituzione pren
 
 ### Termini composti
 
-Un termine composto vengono detto anche *struttura*. Si tratta di un oggetto che raggruppa un insieme (anche vuoto) 
+Un termine composto viene detto anche *struttura*. Si tratta di un oggetto che raggruppa un insieme (anche vuoto) 
 di altri oggetti, che sono le componenti della struttura. Una struttura si denota con un funtore e le sue componenti. 
 I funtori sono atomi e le componenti sono termini. Le componenti sono racchiuse da parentesi tonde e separate 
-da virgole. Il funtore di scrive prima della parentesi di apertura. Il numero di componenti di cui è composta una 
+da virgole. Il funtore si scrive prima della parentesi di apertura. Il numero di componenti di cui è composta una 
 struttura determina la sua *arità*. Data una struttura con funtore *f* con *n* componenti, l'indicatore della struttura 
 è `f/n`.
 
@@ -223,11 +223,11 @@ specifica implementazione del motore che eseguira il programma.
 
 * **'=:='(X, Y)** infix
 * **'=\\='(X, Y)** infix
-* **' < '(X, Y)** infix
-* **' > '(X, Y)** infix
-* **' >= '(X, Y)** infix
-* **' =< '(X, Y)** infix
-* **' @< '(X, Y)** infix
-* **' @> '(X, Y)** infix
-* **' @>= '(X, Y)** infix
-* **' @=< '(X, Y)** infix
+* **'<'(X, Y)** infix
+* **'>'(X, Y)** infix
+* **'>='(X, Y)** infix
+* **'=<'(X, Y)** infix
+* **'@<'(X, Y)** infix
+* **'@>'(X, Y)** infix
+* **'@>='(X, Y)** infix
+* **'@=<'(X, Y)** infix
