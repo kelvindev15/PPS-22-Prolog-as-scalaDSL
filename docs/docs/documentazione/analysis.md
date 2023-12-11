@@ -6,7 +6,7 @@ sidebar_label: "Analisi"
 # Dominio
 Prolog è un linguaggio di programmazione basato sul paradigma di programmazione logica.
 Un **programma logico** è un insieme di *assiomi* o *regole* che definiscono *relazioni* tra oggetti.  
-In Prolog un oggetto è tutto ciò che si può rappresentare tramite un [*termine*](.).
+In Prolog un oggetto è tutto ciò che si può rappresentare tramite un [*termine*](#termini).
 Un programma Prolog consiste di un insieme di clausole, ciascuna delle quali codifica una data informazione come
 un fatto o una regola.
 La computazione di un programma logico in Prolog ha come obiettivo la deduzione di conseguenze logiche del programma.
@@ -18,7 +18,7 @@ Tre sono i concetti alla base della programmazione logica: *fatti*, *regole* e *
 
 ### Fatto
 Esprime l'esistenza di una relazione tra oggetti/termini. Si compone del nome della relazione, 
-detto anche *predicato*, e di un numero arbitrario di *argomenti*. In Prolog una collezione di fatti (e [regole](.)), 
+detto anche *predicato*, e di un numero arbitrario di *argomenti*. In Prolog una collezione di fatti (e [regole](#regola)), 
 prende il nome di *database*.
 
 ### Interrogazione
@@ -29,7 +29,7 @@ Un interrogazione consiste di una lista di goal che devono essere soddisfatti co
 [unificazione](https://en.wikipedia.org/wiki/Unification_(computer_science)). Con goal si intende una relazione tra 
 oggetti/termini (equivalentemente a quanto si è detto per un fatto). Qualora non sia possibile soddisfare completamente 
 la lista di goal, l'esito dell'interrogazione sarà negativo, altrimenti sarà positivo ed eventualmente comprenderà anche
-una lista si sostituzioni di [variabili](.).
+una lista si sostituzioni di [variabili](#variabili).
 
 ### Regola
 Detta anche inferenza, mette in relazione un fatto con un insieme di altri fatti. Si compone di una testa 
@@ -162,10 +162,8 @@ Alcuni predicati potrebbero richiedere particolari tipi di argomenti (es. per il
 che gli argomenti siano dei numeri). Cosa succede nel caso in cui questi requisiti non vengano rispettati dipende dalla
 specifica implementazione del motore che eseguira il programma.
 
-* **':-'(X, Y)** infix
-* **','(X, Y)** infix
-
-#### Predicati dinamici
+* **':-'(X, Y)** (operatore infisso).
+* **','(X, Y)** (operatore infisso).
 
 #### Predicati
 
@@ -188,7 +186,7 @@ specifica implementazione del motore che eseguira il programma.
 * **retract(X)**
 * **functor(T, F, N)**
 * **arg(N, T, A)**
-* **'=..'(X, L)** infix
+* **'=..'(X, L)** (operatore infisso)
 * **atom_chars(A, L)**
 * **number_chars(A, L)**
 
@@ -199,35 +197,45 @@ specifica implementazione del motore che eseguira il programma.
 
 ##### Costruzione di termini composti
 
-* **';'(X, Y)** infix
+* **';'(X, Y)** (operatore infisso)
 * **call(X)**
-* **'\\+'(X)** prefix
+* **'\\+'(X)** (operatore infisso)
 
 ##### Uguaglianza
 
-* **'='(X, Y)** infix
-* **'=='(X, Y)** infix
-* **op(X, Y, Z)** --> atoms fx, fy, xf, yf, xfx, yfx, yfy
-* **is(X, Y)** infix
+* **'='(X, Y)** (operatore infisso)
+* **'=='(X, Y)** (operatore infisso)
+* **op(X, Y, Z)** 
+* **is(X, Y)** (operatore infisso)
 
 ##### Aritmetici
 
-* **'+'(X, Y)** infix
-* **'-'(X, Y)** infix
-* **'*'(X, Y)** infix
-* **'/'(X, Y)** infix
-* **'//'(X, Y)** infix
-* **mod(X, Y)** infix
+I seguenti sono tutti operatori infissi.
+
+* **'+'(X, Y)**
+* **'-'(X, Y)**
+* **'*'(X, Y)**
+* **'/'(X, Y)**
+* **'//'(X, Y)**
+* **mod(X, Y)**
 
 ##### Confronto fra termini
 
-* **'=:='(X, Y)** infix
-* **'=\\='(X, Y)** infix
-* **'<'(X, Y)** infix
-* **'>'(X, Y)** infix
-* **'>='(X, Y)** infix
-* **'=<'(X, Y)** infix
-* **'@<'(X, Y)** infix
-* **'@>'(X, Y)** infix
-* **'@>='(X, Y)** infix
-* **'@=<'(X, Y)** infix
+I seguenti sono tutti operatori infissi.
+
+* **'=:='(X, Y)**
+* **'=\\='(X, Y)**
+* **'<'(X, Y)**
+* **'>'(X, Y)**
+* **'>='(X, Y)**
+* **'=<'(X, Y)**
+* **'@<'(X, Y)**
+* **'@>'(X, Y)**
+* **'@>='(X, Y)**
+* **'@=<'(X, Y)**
+
+
+###### Riferimenti
+
+* [Programming in Prolog, using the ISO standard - W. F. Clocksin, C. S. Mellish](https://link.springer.com/book/10.1007/978-3-642-55481-0)
+* [The Art of Prolog - L. Sterling, E. Shapiro](https://mitpress.mit.edu/9780262691635/the-art-of-prolog/)
