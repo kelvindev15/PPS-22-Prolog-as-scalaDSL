@@ -19,8 +19,20 @@ interface Theory {
     +clauses: Iterator[Clause]
 }
 
+-class TuPrologClassicSolver {
+}
+
+folder f as "it.unibo.tuprolog" {
+    component "solve-classic-jvm" {
+    }
+}
+
+
+
 PrologProgram <-- Solver : solves
 Solver --> Solution : produces
 PrologProgram o-- Theory
 
+Solver <|-- TuPrologClassicSolver
+TuPrologClassicSolver --> "solve-classic-jvm" : depends-on
 @enduml
