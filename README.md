@@ -188,7 +188,7 @@ def father(f: String, s: String): TermConvertible = new TermConvertible:
 ```scala 3
 object Demo extends PrologDSL:
   def main(args: Array[String]): Unit =
-    // Disjunctions
+    // Conjunctions
     println(&&("a", "b", "c")) // a, b, c
     println("a" &: "b" &: "c")
     println("a" and "b" and "c")
