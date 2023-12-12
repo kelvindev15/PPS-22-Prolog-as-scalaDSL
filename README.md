@@ -180,3 +180,42 @@ to specify how to convert them to term. Here's a cumbersome but explicative exam
 def father(f: String, s: String): TermConvertible = new TermConvertible:
   override def toTerm: Struct = "father"(f, s)
 ```
+
+## Other features
+
+### Conjunction and conjunction of goals
+
+```scala 3
+object Demo extends PrologDSL:
+  def main(args: Array[String]): Unit =
+    // Disjunctions
+    println(&&("a", "b", "c")) // a, b, c
+    println("a" &: "b" &: "c")
+    println("a" and "b" and "c")
+    // Disjunctions
+    println(||("a", "b", "c")) // a; b; c
+    println("a" |: "b" |: "c")
+    println("a" or "b" or "c")
+```
+
+### Lists
+
+```scala 3
+object Demo extends PrologDSL:
+  def main(args: Array[String]): Unit =
+    println(list("a", "b", "c")) // [a, b, c]
+    println(cons("a", cons("b", cons("c", nil)))) // [a, b, c]
+    println(cons(X, Y)) // [X, Y]
+    println(cons(X)(Y)) // emulates [X | Y]
+    println(head(1, 2, 3) | X) // emulates [1, 2, 3 | X]
+```
+
+### Builtin predicates
+
+Here's a list of prolog builtins available in the library:
+
+`true/0`, `fail/0`, `var/1`, `nonvar/1`, `atom/1`, `number/1`, `atomic/1`, `clause/2`, `asserta/1`, `assertz/1`, 
+`retract/1`, `member/2`, `ground/1`, `append/2`, `call/1`, `once/1`, `not/1`, `functor/3`, `arg/3`, `=../2`, 
+`findall/3`, `op/3`, `length/2`, `[]/0`,`atom_chars/2`, `number_chars/2`, `!/0`, `repeat/0`, `call/1`, `\\+/1`,
+`=\1`, `==/2` (as strictEq), `op/3`, `is/2`, `+/2`, `-/2`, `*/2`, `//2`, `///2`, `mod/2`, `=:=/2`, `=\\=/2`, `</2`, `>/2`,
+`>=/2`, `=</2`, `@</2`, `@>/2`, `@=</2`, `@>=/2`
