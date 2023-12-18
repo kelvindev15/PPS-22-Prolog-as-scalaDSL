@@ -1,3 +1,37 @@
+## [4.2.0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.1.0...4.2.0) (2023-12-18)
+
+
+### Features
+
+* **dsl:** add `a - b` term extension ([a7e4fcf](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/a7e4fcf165b5aa90f84f7bff5ea041271f40f190))
+
+
+### Dependency updates
+
+* **deps:** update dependency it.unibo.tuprolog:solve-classic-jvm to v0.31.19 ([623fd6f](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/623fd6f9f36e1d9ea234528f7a988c77f0548ab0))
+* **deps:** update dependency sbt/sbt to v1.9.8 ([f851cc0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/f851cc00d5864054158c724e59cc0c63ca850a70))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.80 ([7967401](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/7967401d6c1da49d7261af8fd5059428ff286bc0))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.81 ([7f397de](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/7f397deceb0babd4770aee614ff9c4558f3bf27c))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.82 ([dd0e7cf](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/dd0e7cf43e12a161392680538fc38ca50bd261a4))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.83 ([57bdcbf](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/57bdcbff024d28b7a585d905212e58a110ea97f3))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.84 ([98873dc](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/98873dc7736bd6a8f9bb18d078eb5bbb76c88b76))
+
+
+### General maintenance
+
+* minor improvements ([3f21c23](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/3f21c237520ec0133b7443a0415fc311874c2592))
+* typo in a filename ([06aebcc](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/06aebcc6135de411725ff4170fe146a3267a55e4))
+* update readme ([1706104](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/1706104e2a0f67718bea9d51af64ebf5b5ed92ef))
+* **website:** add architectural design ([2b95d8c](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/2b95d8ca8b60e86ba86519ed6622c8b2c6df7f93))
+* **website:** add diagrams to detailed design ([5757b79](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/5757b79bdeb86c708dc3959128381b1eb248e947))
+* **website:** change Documentazione to Report ([2494cda](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/2494cdaaf7d8aaf82e525954b04c690eb18fe4a4))
+* **website:** edit architectural diagram ([39bb5e7](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/39bb5e7345f32ed1708bf7bb394365c4577bf01c))
+* **website:** fix errors ([85c4ed0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/85c4ed0f34e36fc340248a467729cb5404f9be09))
+* **website:** remove unused title ([f3c1264](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/f3c126459cf7afe6deb019773d853e9f2a1bd798))
+* **website:** update index ([84551ef](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/84551eff55a15d29064f6d418939ed39a8f05a11))
+* **website:** update index page ([ce99646](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/ce99646d1a9d9632fdd6b62bf913c5791f613342))
+* **website:** update readme ([303e2e6](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/303e2e616a6caee5b693aad4729dda7219e3c08a))
+
 ## [4.1.0](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.0.4...4.1.0) (2023-12-10)
 
 
