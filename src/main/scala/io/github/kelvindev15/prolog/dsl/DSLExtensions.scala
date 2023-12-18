@@ -78,6 +78,14 @@ protected[dsl] trait DSLExtensions:
     @targetName("plus")
     def +(other: Term): Struct = structOf("+", term, other)
 
+    /** Returns a "-([[term]], [[other]])" [[Struct]]
+     *
+     * @param other
+     * the other term to put as second argument.
+     */
+    @targetName("minus")
+    def -(other: Term): Struct = structOf("-", term, other)
+
     /** Returns a "*([[term]], [[other]])" [[Struct]]
       *
       * @param other
