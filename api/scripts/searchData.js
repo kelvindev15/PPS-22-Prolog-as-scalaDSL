@@ -153,6 +153,7 @@ pages = [{"l":"index.html#","e":false,"i":"","n":"Prolog-as-ScalaDSL","t":"Prolo
 {"l":"io/github/kelvindev15/prolog/dsl/PrologDSL.html#&:-fffff138","e":false,"i":"extension (term: Term)","n":"&:","t":"&:(other: Term): Struct","d":"io.github.kelvindev15.prolog.dsl.PrologDSL","k":"def","x":""},
 {"l":"io/github/kelvindev15/prolog/dsl/PrologDSL.html#*-fffff138","e":false,"i":"extension (term: Term)","n":"*","t":"*(other: Term): Struct","d":"io.github.kelvindev15.prolog.dsl.PrologDSL","k":"def","x":""},
 {"l":"io/github/kelvindev15/prolog/dsl/PrologDSL.html#+-fffff138","e":false,"i":"extension (term: Term)","n":"+","t":"+(other: Term): Struct","d":"io.github.kelvindev15.prolog.dsl.PrologDSL","k":"def","x":""},
+{"l":"io/github/kelvindev15/prolog/dsl/PrologDSL.html#--fffff138","e":false,"i":"extension (term: Term)","n":"-","t":"-(other: Term): Struct","d":"io.github.kelvindev15.prolog.dsl.PrologDSL","k":"def","x":""},
 {"l":"io/github/kelvindev15/prolog/dsl/PrologDSL.html#/-fffff138","e":false,"i":"extension (term: Term)","n":"/","t":"/(other: Term): Struct","d":"io.github.kelvindev15.prolog.dsl.PrologDSL","k":"def","x":""},
 {"l":"io/github/kelvindev15/prolog/dsl/PrologDSL.html#//-fffff138","e":false,"i":"extension (term: Term)","n":"//","t":"//(other: Term): Struct","d":"io.github.kelvindev15.prolog.dsl.PrologDSL","k":"def","x":""},
 {"l":"io/github/kelvindev15/prolog/dsl/PrologDSL.html#:--87","e":false,"i":"extension (struct: Struct)","n":":-","t":":-(body: Term): Rule","d":"io.github.kelvindev15.prolog.dsl.PrologDSL","k":"def","x":""},
