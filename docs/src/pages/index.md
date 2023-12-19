@@ -221,3 +221,7 @@ Here's a list of prolog builtins available in the library:
 `findall/3`, `op/3`, `length/2`, `[]/0`,`atom_chars/2`, `number_chars/2`, `!/0`, `repeat/0`, `call/1`, `\\+/1`,
 `=\1`, `==/2` (as strictEq), `op/3`, `is/2`, `+/2`, `-/2`, `*/2`, `//2`, `///2`, `mod/2`, `=:=/2`, `=\\=/2`, `</2`, `>/2`,
 `>=/2`, `=</2`, `@</2`, `@>/2`, `@=</2`, `@>=/2`
+
+### Use cases
+
+* [Chess Project](https://github.com/kelvin-olaiya/PPS-22-prolog-as-scalaDSL-demo) by [@jahrim](https://github.com/jahrim) et al.
