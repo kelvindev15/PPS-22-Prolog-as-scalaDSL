@@ -17,7 +17,7 @@ object Dependecies {
   val scalaTest = "org.scalactic" %% "scalactic" % scalaTestVersion
   val scalactic = "org.scalatest" %% "scalatest" % scalaTestVersion % "test"
   val scalaTestJUnit5 =
-    "org.scalatestplus" %% "junit-5-10" % "3.2.17.0" % "test"
+    "org.scalatestplus" %% "junit-5-10" % "3.2.18.0" % "test"
   val tuProlog = "it.unibo.tuprolog" % "solve-classic-jvm" % "0.31.21"
 
   /*
