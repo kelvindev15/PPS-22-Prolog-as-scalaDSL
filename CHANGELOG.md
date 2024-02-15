@@ -1,3 +1,15 @@
+## [4.2.2](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.2.1...4.2.2) (2024-02-15)
+
+
+### Dependency updates
+
+* **deps:** update dependency scala to v3.3.2 ([09b938b](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/09b938b3a10c702135d155073852d8b991f20ac9))
+
+
+### Documentation
+
+* **website:** move to docusaurus v3 ([#51](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/issues/51)) ([bd2a581](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/bd2a5817394f0f2fd5953aaa828bd41ee77d3c19))
+
 ## [4.2.1](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.2.0...4.2.1) (2024-02-15)
 
 
