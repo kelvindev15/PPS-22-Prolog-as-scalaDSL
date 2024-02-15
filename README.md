@@ -222,4 +222,4 @@ Here's a list of prolog builtins available in the library:
 
 ## Use cases
 
- * [Chess Project](https://github.com/kelvin-olaiya/PPS-22-prolog-as-scalaDSL-demo) by [@jahrim](https://github.com/jahrim) et al.
+ * [Chess Project](https://github.com/kelvin-olaiya/PPS-22-prolog-as-scalaDSL-demo/tree/refactor/dslfy) by [@jahrim](https://github.com/jahrim) et al.
