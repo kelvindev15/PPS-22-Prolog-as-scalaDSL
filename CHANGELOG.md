@@ -1,3 +1,10 @@
+## [4.2.3](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.2.2...4.2.3) (2024-02-15)
+
+
+### Documentation
+
+* **website:** make demo project link point to the correct branch ([61392be](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/commit/61392be17c0209efd30510f07b6727c7db853997))
+
 ## [4.2.2](https://github.com/kelvindev15/PPS-22-Prolog-as-scalaDSL/compare/4.2.1...4.2.2) (2024-02-15)
 
 
