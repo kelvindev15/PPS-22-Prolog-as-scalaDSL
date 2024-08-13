@@ -5802,7 +5802,7 @@ node22 -> node11;
                Deprecated
               </dt>
               <dd class="body-medium">
-               <code>[Since version 2.13.0] </code>`aggregate` is not relevant for sequential collections. Use `foldLeft(z)(seqop)` instead.
+               <code>[Since version 2.13.0] </code>For sequential collections, prefer `foldLeft(z)(seqop)`. For parallel collections, use `ParIterableLike#aggregate`.
               </dd>
               <dt class="body-small">
                Inherited from:
