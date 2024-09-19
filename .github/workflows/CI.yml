@@ -41,7 +41,7 @@ jobs:
       - uses: olafurpg/setup-scala@v14
         with:
           java-version: openjdk@1.17
-      - uses: actions/setup-node@v4.0.3
+      - uses: actions/setup-node@v4.0.4
         with:
           node-version: '20.15'    
       - name: Install Semantic Release
