@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: danysk/action-checkout@0.2.19
+        uses: danysk/action-checkout@0.2.20
       - uses: olafurpg/setup-scala@v14
         with:
           java-version: openjdk@1.17
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: danysk/action-checkout@0.2.19
+        uses: danysk/action-checkout@0.2.20
       - name: Test website generation
         run: |
           cd docs
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: danysk/action-checkout@0.2.19
+        uses: danysk/action-checkout@0.2.20
       - uses: olafurpg/setup-scala@v14
         with:
           java-version: openjdk@1.17
