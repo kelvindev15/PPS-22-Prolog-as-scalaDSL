@@ -12,7 +12,7 @@ scalafmtDetailedError := true
  * Wartremover
  */
 addCompilerPlugin(
-  "org.wartremover" %% "wartremover" % "3.2.4" cross CrossVersion.full
+  "org.wartremover" %% "wartremover" % "3.2.5" cross CrossVersion.full
 )
 // see: https://www.wartremover.org/doc/warts.html
 scalacOptions ++= Seq("Null").map(wart =>
