@@ -1,6 +1,6 @@
 import Dependecies.*
 
-ThisBuild / scalaVersion := "3.7.4"
+ThisBuild / scalaVersion := "3.8.0"
 ThisBuild / organization := "io.github.kelvindev15"
 ThisBuild / description := "A DSL written in scala to write Prolog programs"
 
@@ -29,7 +29,7 @@ assembly / assemblyMergeStrategy := {
 lazy val PaSDSL = (project in file("."))
   .settings(
     name := "Prolog-as-ScalaDSL",
-    scalaVersion := "3.7.4",
+    scalaVersion := "3.8.0",
     libraryDependencies ++= scalaTestBundle,
     libraryDependencies ++= cucumberBundle,
     libraryDependencies += scalaTestJUnit5,
