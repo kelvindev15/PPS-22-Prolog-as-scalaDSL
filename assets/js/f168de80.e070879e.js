@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[243],{223:a=>{a.exports=JSON.parse('{"metadata":{"permalink":"/PPS-22-Prolog-as-scalaDSL/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
