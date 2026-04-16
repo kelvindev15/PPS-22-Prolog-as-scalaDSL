@@ -43,7 +43,7 @@ jobs:
           java-version: openjdk@1.17
       - uses: actions/setup-node@v6.3.0
         with:
-          node-version: '24.14'    
+          node-version: '24.15'    
       - name: Install Semantic Release
         run: |
           npm install
