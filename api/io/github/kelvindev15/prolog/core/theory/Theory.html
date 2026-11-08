@@ -910,17 +910,48 @@ node24 -> node11;
             <div class="cover">
              <div class="doc">
               <p>Applies this partial function to the given argument when it is contained in the function domain. Applies fallback function where this partial function is not defined.</p>
-              <p>Note that expression <code>pf.applyOrElse(x, default)</code> is equivalent to <code>if(pf isDefinedAt x) pf(x) else default(x)</code> except that <code>applyOrElse</code> method can be implemented more efficiently. For all partial function literals the compiler generates an <code>applyOrElse</code> implementation which avoids double evaluation of pattern matchers and guards. This makes <code>applyOrElse</code> the basis for the efficient implementation for many operations and scenarios, such as:</p>
+              <p>Note that expression <code>pf.applyOrElse(x, default)</code> is equivalent to</p>
+              <div class="snippet mono-small-block">
+               <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>if(pf isDefinedAt x) pf(x) else default(x)
+</span></code></pre>
+               <div class="buttons"></div>
+              </div>
+              <p>except that <code>applyOrElse</code> method can be implemented more efficiently. For all partial function literals the compiler generates an <code>applyOrElse</code> implementation which avoids double evaluation of pattern matchers and guards. This makes <code>applyOrElse</code> the basis for the efficient implementation for many operations and scenarios, such as:</p>
               <ul>
                <li>combining partial functions into <code>orElse</code>/<code>andThen</code> chains does not lead to excessive <code>apply</code>/<code>isDefinedAt</code> evaluation</li>
                <li><code>lift</code> and <code>unlift</code> do not evaluate source functions twice on each invocation</li>
                <li><code>runWith</code> allows efficient imperative-style combining of partial functions with conditionally applied actions</li>
               </ul>
               <p>For non-literal partial function classes with nontrivial <code>isDefinedAt</code> method it is recommended to override <code>applyOrElse</code> with custom implementation that avoids double <code>isDefinedAt</code> evaluation. This may result in better performance and more predictable behavior w.r.t. side effects.</p>
-              <p>@param x the function argument @param default the fallback function @return the result of this function or fallback function application.</p>
              </div>
+             <h2 class="h200">Type parameters</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">A1</dt>
+              <dd class="body-medium">
+               <p>the argument type of the fallback function (a subtype of <code>A</code>)</p>
+              </dd>
+              <dt class="body-small">B1</dt>
+              <dd class="body-medium">
+               <p>the result type of the fallback function (a supertype of <code>B</code>)</p>
+              </dd>
+             </dl>
+             <h2 class="h200">Value parameters</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">default</dt>
+              <dd class="body-medium">
+               <p>the fallback function</p>
+              </dd>
+              <dt class="body-small">x</dt>
+              <dd class="body-medium">
+               <p>the function argument</p>
+              </dd>
+             </dl>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
+              <dt class="body-small">Returns</dt>
+              <dd class="body-medium">
+               <p>the result of this function or fallback function application.</p>
+              </dd>
               <dt class="body-small">Inherited from:</dt>
               <dd class="body-medium">
                <span data-unresolved-link="">PartialFunction</span>
@@ -2078,6 +2109,10 @@ node24 -> node11;
              </div>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
+              <dt class="body-small">Returns</dt>
+              <dd class="body-medium">
+               <p>an extractor object that uses <code>unapplySeq</code> to extract each element of a sequence matching this partial function</p>
+              </dd>
               <dt class="body-small">Example</dt>
               <dd class="body-medium">
                <div>
@@ -2220,12 +2255,19 @@ node24 -> node11;
              <div class="doc">
               <p>Checks whether this instance is equal to <code>that</code>. This universal equality method is defined in <code>AnyRef</code>.</p>
              </div>
+             <h2 class="h200">Value parameters</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">that</dt>
+              <dd class="body-medium">
+               <p>the object to compare for equality with this instance</p>
+              </dd>
+             </dl>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
               <dt class="body-small">Definition Classes</dt>
               <dd class="body-medium">
                <div>
-                <span data-unresolved-link="">Seq</span> -&gt; <span data-unresolved-link="">Equals</span> -&gt; <span data-unresolved-link="">Any</span>
+                <span data-unresolved-link="">Seq</span> -&gt; <span data-unresolved-link="">Equals</span> -&gt; <span data-unresolved-link="">Object</span> -&gt; <span data-unresolved-link="">Any</span>
                </div>
               </dd>
               <dt class="body-small">Inherited from:</dt>
@@ -3123,6 +3165,10 @@ node24 -> node11;
              </dl>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
+              <dt class="body-small">Returns</dt>
+              <dd class="body-medium">
+               <p>a map associating each key <code>k</code> produced by <code>key</code> with the reduction of all values produced by applying <code>f</code> to elements that map to <code>k</code></p>
+              </dd>
               <dt class="body-small">Inherited from:</dt>
               <dd class="body-medium">
                <span data-unresolved-link="">IterableOps</span>
@@ -3217,7 +3263,7 @@ node24 -> node11;
               <dt class="body-small">Definition Classes</dt>
               <dd class="body-medium">
                <div>
-                <span data-unresolved-link="">Seq</span> -&gt; <span data-unresolved-link="">Any</span>
+                <span data-unresolved-link="">Seq</span> -&gt; <span data-unresolved-link="">Object</span> -&gt; <span data-unresolved-link="">Any</span>
                </div>
               </dd>
               <dt class="body-small">Inherited from:</dt>
@@ -6359,11 +6405,42 @@ node24 -> node11;
             <div class="cover">
              <div class="doc">
               <p>Composes this partial function with an action function which gets applied to results of this partial function. The action function is invoked only for its side effects; its result is ignored.</p>
-              <p>Note that expression <code>pf.runWith(action)(x)</code> is equivalent to <code>if(pf isDefinedAt x) { action(pf(x)); true } else false</code> except that <code>runWith</code> is implemented via <code>applyOrElse</code> and thus potentially more efficient. Using <code>runWith</code> avoids double evaluation of pattern matchers and guards for partial function literals. @see <code>applyOrElse</code>.</p>
-              <p>@param action the action function @return a function which maps arguments <code>x</code> to <code>isDefinedAt(x)</code>. The resulting function runs <code>action(this(x))</code> where <code>this</code> is defined.</p>
+              <p>Note that expression <code>pf.runWith(action)(x)</code> is equivalent to</p>
+              <div class="snippet mono-small-block">
+               <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>if(pf isDefinedAt x) { action(pf(x)); true } else false
+</span></code></pre>
+               <div class="buttons"></div>
+              </div>
+              <p>except that <code>runWith</code> is implemented via <code>applyOrElse</code> and thus potentially more efficient. Using <code>runWith</code> avoids double evaluation of pattern matchers and guards for partial function literals.</p>
              </div>
+             <h2 class="h200">Type parameters</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">U</dt>
+              <dd class="body-medium">
+               <p>the result type of the action function (ignored, since the action is executed for its side effects only)</p>
+              </dd>
+             </dl>
+             <h2 class="h200">Value parameters</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">action</dt>
+              <dd class="body-medium">
+               <p>the action function</p>
+              </dd>
+             </dl>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
+              <dt class="body-small">Returns</dt>
+              <dd class="body-medium">
+               <p>a function which maps arguments <code>x</code> to <code>isDefinedAt(x)</code>. The resulting function runs <code>action(this(x))</code> where <code>this</code> is defined.</p>
+              </dd>
+              <dt class="body-small">See also</dt>
+              <dd class="body-medium">
+               <div>
+                <div>
+                 <p><code>applyOrElse</code>.</p>
+                </div>
+               </div>
+              </dd>
               <dt class="body-small">Inherited from:</dt>
               <dd class="body-medium">
                <span data-unresolved-link="">PartialFunction</span>
@@ -7658,8 +7735,19 @@ node24 -> node11;
                <p>the type of the returned <code>Stepper</code>, determined by the implicit <code>StepperShape</code></p>
               </dd>
              </dl>
+             <h2 class="h200">Value parameters</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">shape</dt>
+              <dd class="body-medium">
+               <p>the <code>StepperShape</code> that determines the concrete <code>Stepper</code> subtype to return</p>
+              </dd>
+             </dl>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
+              <dt class="body-small">Returns</dt>
+              <dd class="body-medium">
+               <p>a <code>Stepper</code> over the elements of this immutable sequence, using a primitive-typed <code>Stepper</code> subclass for <code>Int</code>/<code>Long</code>/<code>Double</code> (and related) element types</p>
+              </dd>
               <dt class="body-small">Inherited from:</dt>
               <dd class="body-medium">
                <span data-unresolved-link="">IterableOnce</span>
@@ -8535,6 +8623,13 @@ node24 -> node11;
              <div class="doc">
               <p>Tries to extract a <code>B</code> from an <code>A</code> in a pattern matching expression.</p>
              </div>
+             <h2 class="h200">Value parameters</h2>
+             <dl class="attributes attributes-small">
+              <dt class="body-small">a</dt>
+              <dd class="body-medium">
+               <p>the value to match against this partial function</p>
+              </dd>
+             </dl>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
               <dt class="body-small">Inherited from:</dt>
@@ -9027,6 +9122,10 @@ node24 -> node11;
              </dl>
              <h2 class="h200">Attributes</h2>
              <dl class="attributes attributes-small">
+              <dt class="body-small">Returns</dt>
+              <dd class="body-medium">
+               <p>the element at index <code>i</code></p>
+              </dd>
               <dt class="body-small">Inherited from:</dt>
               <dd class="body-medium">
                <span data-unresolved-link="">SeqOps</span>
